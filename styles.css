@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-family: 'Helvetica', sans-serif;
+  color: #333;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.hero {
+  position: relative;
+  text-align: center;
+}
+.hero img {
+  width: 100%;
+}
+.hero-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+.areas, .enfoque, .testimonio, .cta {
+  padding: 40px 20px;
+  text-align: center;
+}
+.btn {
+  background: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+}
+footer {
+  background: #222;
+  color: #eee;
+  padding: 20px;
+  text-align: center;
+} 
