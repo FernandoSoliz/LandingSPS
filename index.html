@@ -118,47 +118,90 @@
         </div>
     </section>
     <section class="testimonio">
-        <div class="testimonio__content">
-            <p>"Mi experiencia en Sapiens Digital Lab fue verdaderamente enriquecedora. Pude aplicar mis habilidades técnicas en un entorno innovador y también colaborar con colegas apasionados por la tecnología y la excelencia."</p>
-            <div class="testimonio__autor">
-                <img src="img/testimonio-gonzalo.png" alt="Gonzalo Miguel Rivera Trujillo">
-                <div>
-                    <span>Gonzalo Miguel Rivera Trujillo</span><br>
-                    <span>Data Engineer - Ferreyros</span>
-                </div>
+      <div class="testimonio-carousel">
+        <button class="testimonio-arrow left" aria-label="Anterior">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="19" stroke="url(#grad1)" stroke-width="2" fill="white"/>
+            <path d="M23 14L17 20L23 26" stroke="#3AC37B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="grad1" x1="0" y1="20" x2="40" y2="20" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#3AC37B"/>
+                <stop offset="1" stop-color="#3AB1C3"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </button>
+        <div class="testimonio-content">
+          <p class="testimonio-text">“Mi experiencia en Sapiens Digital Lab fue verdaderamente enriquecedora. Pude aplicar mis habilidades técnicas en un entorno innovador y también colaborar con colegas apasionados por la tecnología y la excelencia.”</p>
+          <div class="testimonio-persona">
+            <span class="testimonio-avatar"></span>
+            <div>
+              <div class="testimonio-nombre">Gonzalo Miguel Rivera Trujillo</div>
+              <div class="testimonio-cargo">Data Engineer - Ferreyros</div>
             </div>
+          </div>
         </div>
+        <button class="testimonio-arrow right" aria-label="Siguiente">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="19" stroke="url(#grad2)" stroke-width="2" fill="white"/>
+            <path d="M17 14L23 20L17 26" stroke="#3AB1C3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="grad2" x1="0" y1="20" x2="40" y2="20" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#3AC37B"/>
+                <stop offset="1" stop-color="#3AB1C3"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </button>
+      </div>
     </section>
     <footer class="footer" id="contacto">
-        <div class="footer__top"></div>
-        <div class="footer__content">
-            <div class="footer__col">
-                <h5>Contacto</h5>
-                <span>Talento@sapiens.la</span><br>
-                <span>123-456-7890</span>
+      <div class="footer__container">
+        <div class="footer__main">
+          <div class="footer-main-content">
+            <div class="footer-main-texto">
+              <h2>¿Algun proyecto<br>en mente?</h2>
             </div>
-            <div class="footer__col">
-                <h5>Menú</h5>
-                <a href="#inicio">Inicio</a>
-                <a href="#nosotros">Nosotros</a>
-                <a href="#oportunidades">Postula</a>
-                <a href="#contacto">Contáctanos</a>
+            <div class="footer-main-boton">
+              <a href="#contacto">
+                <img src="img/botonconversar.png" alt="Quiero conversar" style="height:50.4px;">
+              </a>
             </div>
-            <div class="footer__col">
-                <h5>Síguenos</h5>
-                <div class="footer__social">
-                    <a href="#"><img src="img/icono-facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="img/icono-linkedin.png" alt="LinkedIn"></a>
-                    <a href="#"><img src="img/icono-instagram.png" alt="Instagram"></a>
-                </div>
-            </div>
-            <div class="footer__col footer__cta">
-                <a href="#" class="btn btn-green">Quiero conversar</a>
-            </div>
+          </div>
         </div>
-        <div class="footer__bottom">
-            <span>© 2025 by Sapiens Digital Lab</span>
+        <div class="footer__bottom" style="position:relative;">
+          <div class="footer__content">
+            <div class="footer__col">
+              <h5>Contacto</h5>
+              <span>Talento@sapiens.la</span>
+              <span>123-456-7890</span>
+            </div>
+            <div class="footer__col">
+              <h5>Menú</h5>
+              <a href="#inicio">Inicio</a>
+              <a href="#nosotros">Nosotros</a>
+              <a href="#oportunidades">Postula</a>
+              <a href="#contacto">Contáctanos</a>
+            </div>
+            <div class="footer__col">
+              <h5>Síguenos</h5>
+              <div class="footer__social">
+                <a href="#"><img src="img/botonlinkedin.png" alt="LinkedIn"></a>
+                <a href="#"><img src="img/bottoning.png" alt="Instagram"></a>
+                <a href="#"><img src="img/botonyt.png" alt="YouTube"></a>
+                <a href="#"><img src="img/botonfb.png" alt="Facebook"></a>
+              </div>
+            </div>
+          </div>
+          <img id="scrollToTopBtn" src="img/botonscroll.png" alt="Volver arriba" style="position:absolute; right:260px; top:110px; height:81.6px; width:81.6px; cursor:pointer;">
+          <span style="display:block; width:100%; text-align:center; margin-top:24px; color:#222;">© 2025 by Sapiens Digital Lab</span>
         </div>
+      </div>
     </footer>
+    <script>
+    document.getElementById('scrollToTopBtn').onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    </script>
 </body>
 </html> 
