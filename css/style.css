@@ -1806,9 +1806,6 @@ body, html {
     margin-right: auto !important;
     width: 100%;
   }
-  .expertos__text h2 {
-    font-size: 1.50rem;
-  }
 }
 
 @media (max-width: 900px) {
@@ -1992,7 +1989,9 @@ body, html {
     width: auto;
     padding-left: 0;
   }
-  .areas h2 {
+  .areas h2,
+  .enfoque h2 {
+    font-size: 1.50rem;
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
