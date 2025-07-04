@@ -53,7 +53,7 @@
         </div>
         <div class="hero__content">
             <h1>Impulsa tu transformación digital</h1>
-            <p>Conecta con profesionales expertos en <b>Agile, Data & Analytics</b><br>y <b>Experiencia Digital</b> para acelerar tu negocio.</p>
+            <p>Conecta con profesionales expertos en <b>Agile, Data & Analytics</b> y <b>Experiencia Digital</b> para acelerar tu negocio.</p>
             <div class="hero__buttons">
                 <a href="#" class="btn btn-green" style="padding:0; background:none; border:none; min-width:0; height:auto;"><img src="img/quierosertalento.png" alt="Quiero ser un Talento" style="height:40px;vertical-align:middle;display:block;"></a>
                 <a href="#" class="btn btn-outline" style="padding:0; background:none; border:none; min-width:0; height:auto;"><img src="img/necesitotalento.png" alt="Necesito un Talento" style="height:40px;vertical-align:middle;display:block;"></a>
@@ -62,12 +62,36 @@
     </section>
     <section class="logos-section">
         <div class="hero__logos">
-            <img src="img/logo-ferreycorp.png" alt="Ferreycorp">
-            <img src="img/logo-eis.png" alt="EIS">
-            <img src="img/logo-rimac.png" alt="Rimac">
-            <img src="img/logo-tottus.png" alt="Tottus">
-            <img src="img/logo-delta.png" alt="Delta">
-            <img src="img/logo-belcorp.png" alt="Belcorp">
+            <div class="logos-carousel">
+                <button class="logos-arrow left" aria-label="Anterior">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="#3AC37B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="logos-slide active">
+                    <img src="img/logo-ferreycorp.png" alt="Ferreycorp">
+                </div>
+                <div class="logos-slide">
+                    <img src="img/logo-eis.png" alt="EIS">
+                </div>
+                <div class="logos-slide">
+                    <img src="img/logo-rimac.png" alt="Rimac">
+                </div>
+                <div class="logos-slide">
+                    <img src="img/logo-tottus.png" alt="Tottus">
+                </div>
+                <div class="logos-slide">
+                    <img src="img/logo-delta.png" alt="Delta">
+                </div>
+                <div class="logos-slide">
+                    <img src="img/logo-belcorp.png" alt="Belcorp">
+                </div>
+                <button class="logos-arrow right" aria-label="Siguiente">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="#3AC37B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
         </div>
     </section>
     <section class="expertos">
@@ -266,6 +290,70 @@
     }
     window.addEventListener('resize', handleResize);
     window.addEventListener('DOMContentLoaded', handleResize);
+    // Logos carousel
+    const slides = document.querySelectorAll('.logos-slide');
+    const prevBtn = document.querySelector('.logos-arrow.left');
+    const nextBtn = document.querySelector('.logos-arrow.right');
+    let currentSlide = 0;
+    let carouselInterval;
+    
+    function showSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = index;
+      if (currentSlide >= slides.length) currentSlide = 0;
+      if (currentSlide < 0) currentSlide = slides.length - 1;
+      slides[currentSlide].classList.add('active');
+    }
+    
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+    
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+    
+    function startCarousel() {
+      if (window.innerWidth <= 600) {
+        carouselInterval = setInterval(nextSlide, 2500);
+      }
+    }
+    
+    function stopCarousel() {
+      if (carouselInterval) {
+        clearInterval(carouselInterval);
+      }
+    }
+    
+    // Event listeners for arrow buttons
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', function() {
+        stopCarousel();
+        prevSlide();
+        startCarousel();
+      });
+      
+      nextBtn.addEventListener('click', function() {
+        stopCarousel();
+        nextSlide();
+        startCarousel();
+      });
+    }
+    
+    // Start carousel on mobile/tablet
+    startCarousel();
+    
+    // Restart carousel on resize
+    window.addEventListener('resize', function() {
+      stopCarousel();
+      if (window.innerWidth <= 600) {
+        // Reset to first slide
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[0].classList.add('active');
+        currentSlide = 0;
+        startCarousel();
+      }
+    });
     </script>
 </body>
 </html> 
