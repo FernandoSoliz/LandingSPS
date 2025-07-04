@@ -1802,6 +1802,9 @@ body, html {
   }
   .expertos__text h2 {
     text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
   }
   .expertos__text h2 {
     font-size: 1.50rem;
@@ -1990,6 +1993,19 @@ body, html {
     padding-left: 0;
   }
   .areas h2 {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+  }
+  .area-card img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  .area-card h3 {
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
