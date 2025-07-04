@@ -1800,6 +1800,12 @@ body, html {
   .area-card p {
     text-align: justify !important;
   }
+  .expertos__text h2 {
+    text-align: center !important;
+  }
+  .expertos__text h2 {
+    font-size: 1.50rem;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1983,6 +1989,12 @@ body, html {
     width: auto;
     padding-left: 0;
   }
+  .areas h2 {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+  }
 }
 
 /* Forzar ocultar hamburguesa en desktop y mostrar solo en mobile */
@@ -1992,5 +2004,104 @@ body, html {
 @media (max-width: 600px) {
   .menu-toggle {
     display: block !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 16px;
+    width: 100%;
+  }
+  
+  .hero__logos img {
+    height: 42px;
+    max-width: 110px;
+    width: calc(50% - 10px);
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+/* iPhone X, 11, 12, 13, 14, 15, 16 (including Pro and Pro Max) */
+@media only screen 
+  and (device-width: 375px) 
+  and (device-height: 812px) 
+  and (-webkit-device-pixel-ratio: 3),
+  only screen 
+  and (device-width: 414px) 
+  and (device-height: 896px) 
+  and (-webkit-device-pixel-ratio: 2),
+  only screen 
+  and (device-width: 414px) 
+  and (device-height: 896px) 
+  and (-webkit-device-pixel-ratio: 3),
+  only screen 
+  and (device-width: 390px) 
+  and (device-height: 844px) 
+  and (-webkit-device-pixel-ratio: 3),
+  only screen 
+  and (device-width: 428px) 
+  and (device-height: 926px) 
+  and (-webkit-device-pixel-ratio: 3),
+  only screen 
+  and (device-width: 393px) 
+  and (device-height: 852px) 
+  and (-webkit-device-pixel-ratio: 3),
+  only screen 
+  and (device-width: 430px) 
+  and (device-height: 932px) 
+  and (-webkit-device-pixel-ratio: 3) {
+  
+  .hero__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 16px;
+    width: 100%;
+  }
+  
+  .hero__logos img {
+    height: 42px;
+    max-width: 110px;
+    width: calc(50% - 10px);
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+/* iPad and iOS tablets - Desktop layout */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2),
+  only screen 
+  and (min-width: 768px) 
+  and (max-width: 1024px) {
+  
+  .hero__logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 94px;
+    margin-top: 27px;
+    margin-left: 0;
+    margin-right: 0;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero__logos img {
+    height: 46px;
+    max-width: 144px;
+    object-fit: contain;
+    filter: none !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
   }
 } 
