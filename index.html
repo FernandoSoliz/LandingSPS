@@ -2,16 +2,33 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Sapiens Digital Lab</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+    <style>
+    @media (max-width: 600px) {
+      #scrollToTopBtn {
+        display: none !important;
+      }
+    }
+    </style>
 </head>
 <body>
     <header class="header">
-        <div class="header__logo">
+        <div class="header__logo" style="justify-content: flex-start;">
             <img src="img/logo-sapiens.png" alt="Sapiens Digital Lab">
         </div>
+        <button class="menu-toggle" aria-label="Abrir menú" style="background:none;border:none;outline:none;cursor:pointer;">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect y="7" width="32" height="3" rx="1.5" fill="#222"/>
+            <rect y="14.5" width="32" height="3" rx="1.5" fill="#222"/>
+            <rect y="22" width="32" height="3" rx="1.5" fill="#222"/>
+          </svg>
+        </button>
+        <button class="menu-close" aria-label="Cerrar menú" style="background:none;border:none;outline:none;cursor:pointer;display:none;position:fixed;top:16px;right:16px;z-index:10000;font-size:2rem;line-height:1;">
+          &times;
+        </button>
         <nav class="header__nav">
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
@@ -20,6 +37,15 @@
                 <li><a href="#contacto" class="btn-header"><img src="img/Contactanos.png" alt="Contáctanos" style="height:38px;vertical-align:middle;"></a></li>
             </ul>
         </nav>
+        <div class="mobile-menu">
+          <ul style="list-style:none;padding:6px 0 4px 0;margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:2px;border:1.5px solid #ddd;border-radius:10px;background:#fff;">
+            <li style="margin-bottom:4px;"><img src="img/logo-sapiens.png" alt="Sapiens Digital Lab" style="height:38px;"></li>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#oportunidades">Oportunidades</a></li>
+            <li><a href="#contacto"><img src="img/Contactanos.png" alt="Contáctanos" style="height:38px;vertical-align:middle;"></a></li>
+          </ul>
+        </div>
     </header>
     <section class="hero" id="inicio">
         <div class="hero__bg">
@@ -47,7 +73,7 @@
     <section class="expertos">
         <div class="expertos__content">
             <div class="expertos__text">
-                <h2>Expertos en conectar<br>talento con impacto</h2>
+                <h2>Expertos en conectar <br class="mobile-break">talento con impacto</h2>
                 <p>En Sapiens transformamos la forma en que las empresas acceden al talento tecnológico.<br><br>Nuestro enfoque combina agilidad, precisión y acompañamiento continuo, asegurando que tu organización avance al ritmo del mercado digital.</p>
                 <a href="#" class="btn btn-green">Conoce más</a>
             </div>
@@ -57,7 +83,7 @@
         </div>
     </section>
     <section class="areas">
-        <h2>Incorpora talento en las tres<br>áreas clave del futuro</h2>
+        <h2>Incorpora talento en las tres <br>áreas clave del futuro</h2>
         <div class="areas__cards">
             <div class="area-card">
                 <div class="area-card-content">
@@ -87,13 +113,13 @@
     </section>
     <section class="latam">
         <div class="latam__content">
-            <h2>De Latinoamérica<br>para el mundo</h2>
+            <h2>De Latinoamérica <br>para el mundo</h2>
             <p>Identificamos, formamos y conectamos el mejor talento de Latinoamérica con empresas de todo el mundo que enfrentan desafíos digitales complejos.</p>
             <a href="#" class="btn btn-green">Conócenos</a>
         </div>
     </section>
     <section class="enfoque">
-        <h2>Un enfoque integral para el<br>desarrollo del talento</h2>
+        <h2>Un enfoque integral para el <br>desarrollo del talento</h2>
         <div class="enfoque__cards">
             <div class="enfoque-card">
                 <img src="img/icono-emocional.png" alt="Emocional">
@@ -155,53 +181,91 @@
         </button>
       </div>
     </section>
-    <footer class="footer" id="contacto">
-      <div class="footer__container">
-        <div class="footer__main">
-          <div class="footer-main-content">
-            <div class="footer-main-texto">
-              <h2>¿Algun proyecto<br>en mente?</h2>
-            </div>
-            <div class="footer-main-boton">
-              <a href="#contacto">
-                <img src="img/botonconversar.png" alt="Quiero conversar" style="height:50.4px;">
-              </a>
-            </div>
-          </div>
+    <div class="footer__main">
+      <div class="footer-main-content">
+        <div class="footer-main-texto">
+          <h2>¿Algún proyecto <br>en mente?</h2>
         </div>
-        <div class="footer__bottom" style="position:relative;">
-          <div class="footer__content">
-            <div class="footer__col">
-              <h5>Contacto</h5>
-              <span>Talento@sapiens.la</span>
-              <span>123-456-7890</span>
-            </div>
-            <div class="footer__col">
-              <h5>Menú</h5>
-              <a href="#inicio">Inicio</a>
-              <a href="#nosotros">Nosotros</a>
-              <a href="#oportunidades">Postula</a>
-              <a href="#contacto">Contáctanos</a>
-            </div>
-            <div class="footer__col">
-              <h5>Síguenos</h5>
-              <div class="footer__social">
-                <a href="#"><img src="img/botonlinkedin.png" alt="LinkedIn"></a>
-                <a href="#"><img src="img/bottoning.png" alt="Instagram"></a>
-                <a href="#"><img src="img/botonyt.png" alt="YouTube"></a>
-                <a href="#"><img src="img/botonfb.png" alt="Facebook"></a>
-              </div>
-            </div>
-          </div>
-          <img id="scrollToTopBtn" src="img/botonscroll.png" alt="Volver arriba" style="position:absolute; right:260px; top:110px; height:81.6px; width:81.6px; cursor:pointer;">
-          <span style="display:block; width:100%; text-align:center; margin-top:24px; color:#222;">© 2025 by Sapiens Digital Lab</span>
+        <div class="footer-main-boton">
+          <a href="#contacto">
+            <img src="img/botonconversar.png" alt="Quiero conversar" style="height:50.4px;">
+          </a>
         </div>
       </div>
-    </footer>
+    </div>
+    <div class="footer__bottom" style="position:relative;">
+      <div class="footer__content">
+        <!-- <div class="footer__col footer__menu">
+          <h5>Menú</h5>
+          <div class="footer__menu-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#oportunidades">Postula</a>
+            <a href="#contacto">Contáctanos</a>
+          </div>
+        </div> -->
+        <div class="footer__col footer__contacto">
+          <h5>Contacto</h5>
+          <div class="footer__contacto-datos">
+            <span>Talento@sapiens.la</span>
+            <span>123-456-7890</span>
+          </div>
+        </div>
+        <div class="footer__col footer__social-col">
+          <h5>Síguenos</h5>
+          <div class="footer__social">
+            <a href="#"><img src="img/botonlinkedin.png" alt="LinkedIn"></a>
+            <a href="#"><img src="img/bottoning.png" alt="Instagram"></a>
+            <a href="#"><img src="img/botonyt.png" alt="YouTube"></a>
+            <a href="#"><img src="img/botonfb.png" alt="Facebook"></a>
+          </div>
+        </div>
+      </div>
+      <img id="scrollToTopBtn" src="img/botonscroll.png" alt="Volver arriba" style="position:absolute; right:20px; top:20px; height:60px; width:60px; cursor:pointer;">
+      <span style="display:block; width:100%; text-align:center; margin-top:24px; color:#222;">© 2025 by Sapiens Digital Lab</span>
+    </div>
     <script>
     document.getElementById('scrollToTopBtn').onclick = function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuClose = document.querySelector('.menu-close');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const nav = document.querySelector('.header__nav');
+    function closeMobileMenu() {
+      mobileMenu.style.display = 'none';
+      menuClose.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    function openMobileMenu() {
+      mobileMenu.style.display = 'block';
+      menuClose.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    menuToggle.addEventListener('click', function() {
+      openMobileMenu();
+    });
+    menuClose.addEventListener('click', function() {
+      closeMobileMenu();
+    });
+    // Cerrar menú al hacer clic en un enlace
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+    // Mostrar/ocultar menú y botones según tamaño
+    function handleResize() {
+      if (window.innerWidth <= 600) {
+        nav.style.display = 'none';
+        closeMobileMenu();
+      } else {
+        nav.style.display = 'block';
+        menuClose.style.display = 'none';
+        closeMobileMenu();
+      }
+    }
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('DOMContentLoaded', handleResize);
     </script>
 </body>
 </html> 
