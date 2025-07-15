@@ -1,4 +1,4 @@
-<!-- flag11 -->
+<!-- flag15 -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -101,11 +101,18 @@
         flex-direction: column; 
         position: relative; 
     }
+    .job-card-apply-desktop {
+        display: none;
+    }
+    .job-card-apply-mobile {
+        display: block;
+    }
     .job-card-content { 
         display: flex; 
         align-items: flex-start; 
         gap: 18px; 
         padding: 32px 36px 0 36px; 
+        position: relative;
     }
     .job-card-icon { 
         background: #f5f5f5; 
@@ -118,43 +125,55 @@
         width: 48px; 
     }
     .job-card-icon img { height: 32px; width: 32px; }
-    .job-card-info { flex: 1; }
-    .job-card-title { 
-        color: #3AC37B; 
-        font-weight: 700; 
-        font-size: 1.18rem; 
-        margin-bottom: 2px; 
-    }
-    .job-card-company { color: #888; font-size: 1rem; }
-    .job-card-location { 
-        color: #888; 
-        font-size: 0.98rem; 
-        margin-bottom: 2px; 
-    }
-    .job-card-desc { 
-        margin: 16px 0 0 80px; 
-        color: #222; 
-        font-size: 1.05rem; 
-    }
-    .job-card-actions { 
-        margin: 20px 0 0 80px; 
-        display: flex; 
-        align-items: center; 
-        gap: 16px; 
-        padding-bottom: 24px; 
+    .job-card-info {
+        flex: 1;
+        min-width: 0;
     }
     .job-card-apply { 
-        background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat; 
+        background: url('img/fondosps.png') center/cover no-repeat; 
         color: #fff; 
-        border-radius: 8px; 
-        padding: 10px 26px; 
-        font-size: 1rem; 
-        border: none; 
-        font-weight: 400; 
-        cursor: pointer; 
-        text-decoration: none; 
+        border-radius: 6px !important;
+        padding: 9px 24px;
+        font-size: 0.81rem;
+        border: none !important;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+        margin: 14px auto 0 auto;
+        text-align: center;
+        transition: background 0.2s, opacity 0.2s;
+        min-width: 105px;
+        max-width: 180px;
+        z-index: 2;
+        /* box-shadow eliminado para quitar efecto de borde */
     }
-    .job-card-apply:hover { background: #2fa36a; }
+    @media (max-width: 600px) {
+        .job-card-apply-desktop {
+            display: none !important;
+        }
+        .job-card-apply-mobile {
+            display: block !important;
+            margin-top: 4px !important;
+            margin-bottom: 16px !important;
+        }
+    }
+    @media (min-width: 601px) {
+        .job-card-apply-desktop {
+            display: block;
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            margin: 0;
+        }
+        .job-card-apply-mobile {
+            display: none;
+        }
+    }
+    .job-card-apply:hover {
+        opacity: 0.9;
+        background: #2fa36a;
+    }
     .job-card-date { 
         text-align: right; 
         font-size: 0.95rem; 
@@ -173,6 +192,21 @@
         z-index: 1; 
     }
     .job-card-external svg { width: 22px; height: 22px; }
+    .job-card-title { 
+        color: #3AC37B; 
+        font-weight: 700; 
+        font-size: 1.18rem; 
+        margin-bottom: 2px; 
+        font-family: inherit;
+        font-style: normal;
+        font-variation-settings: normal;
+    }
+    .job-card-location { 
+        color: #888; 
+        font-size: 0.98rem; 
+        margin-bottom: 2px; 
+        font-weight: 500;
+    }
     
     /* Form Section */
     .form-section { 
@@ -237,6 +271,14 @@
         .hero__subtitle { font-size: 1.4rem; }
         .hero__buttons img { height: 50px; }
         .form-fields { padding: 18px 8px; }
+        .job-card-actions {
+            padding-bottom: 18px;
+        }
+        .job-card-apply {
+            /* Elimina width: 50% para que el botón sea rectangular y consistente */
+        }
+    }
+    @media (min-width: 601px) {
     }
     </style>
 </head>
@@ -270,7 +312,7 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="oportunidades.html">Oportunidades</a></li>
-            <li><a href="contrata-talento.html"><img src="img/Contactanos.png" alt="Contáctanos" style="height:38px;vertical-align:middle;"></a></li>
+            <li><a href="contrata-talento.png"><img src="img/Contactanos.png" alt="Contáctanos" style="height:38px;vertical-align:middle;"></a></li>
           </ul>
         </div>
     </header>
@@ -308,58 +350,8 @@
             <button class="search-btn" style="padding:8px 18px;border-radius:7px;background:linear-gradient(90deg,#2ed47a 0%,#3bb6ff 100%);color:#fff;font-size:0.98rem;font-weight:600;border:none;">Buscar</button>
           </div>
         </div>
-        <div class="cards-list">
-            <!-- Card 1 -->
-            <div class="job-card">
-                <div class="job-card-content">
-                    <div class="job-card-icon"><img src="img/icon-job.png" alt="Job"></div>
-                    <div class="job-card-info">
-                        <div class="job-card-title">Developer Full Stack Senior</div>
-                        <div class="job-card-company">Sapiens Digital Lab</div>
-                        <div class="job-card-location">Lima, Perú | Presencial</div>
-                    </div>
-                </div>
-                <div class="job-card-desc">Se busca desarrollador FullStack Senior con experiencia en .NET y SQL Server para proyectos desafiantes.</div>
-                <div class="job-card-actions">
-                    <a href="#" class="job-card-apply">Aplicar ahora</a>
-                    <div class="job-card-date">Hace 1 semana</div>
-                </div>
-                <a href="#" class="job-card-external"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
-            </div>
-            <!-- Card 2 -->
-            <div class="job-card">
-                <div class="job-card-content">
-                    <div class="job-card-icon"><img src="img/icon-job.png" alt="Job"></div>
-                    <div class="job-card-info">
-                        <div class="job-card-title">Data Analyst</div>
-                        <div class="job-card-company">Sapiens Digital Lab</div>
-                        <div class="job-card-location">Lima, Perú | Presencial</div>
-                    </div>
-                </div>
-                <div class="job-card-desc">Se busca Analista de datos experto en auditoría y optimización de T-SQL, validando integración con el repositorio central.</div>
-                <div class="job-card-actions">
-                    <a href="#" class="job-card-apply">Aplicar ahora</a>
-                    <div class="job-card-date">Hace 1 semana</div>
-                </div>
-                <a href="#" class="job-card-external"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
-            </div>
-            <!-- Card 3 -->
-            <div class="job-card">
-                <div class="job-card-content">
-                    <div class="job-card-icon"><img src="img/icon-job.png" alt="Job"></div>
-                    <div class="job-card-info">
-                        <div class="job-card-title">Data Engineer</div>
-                        <div class="job-card-company">Sapiens Digital Lab</div>
-                        <div class="job-card-location">Lima, Perú | Híbrido</div>
-                    </div>
-                </div>
-                <div class="job-card-desc">Ingeniero de datos con experiencia en Python para proyectos desafiantes y de alto impacto.</div>
-                <div class="job-card-actions">
-                    <a href="#" class="job-card-apply">Aplicar ahora</a>
-                    <div class="job-card-date">Hace 1 semana</div>
-                </div>
-                <a href="#" class="job-card-external"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
-            </div>
+        <div id="vacantes-container" class="cards-list">
+          <!-- Aquí se llenarán las vacantes dinámicamente con JS -->
         </div>
     </section>
     
@@ -452,6 +444,47 @@
     
     window.addEventListener('resize', handleResize);
     window.addEventListener('DOMContentLoaded', handleResize);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('vacantes.csv')
+        .then(response => response.text())
+        .then(csvText => {
+          const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
+          const vacantes = parsed.data;
+          const activas = vacantes.filter(v => v.estado && v.estado.trim().toLowerCase() === 'activo');
+          const container = document.getElementById('vacantes-container');
+          container.innerHTML = '';
+          if (activas.length === 0) {
+            container.innerHTML = '<p style="text-align:center;">No hay vacantes activas en este momento.</p>';
+            return;
+          }
+          activas.forEach(v => {
+            const card = document.createElement('div');
+            card.className = 'job-card';
+            card.innerHTML = `
+              <div class="job-card-content">
+                <div class="job-card-icon"><img src="img/icon-job.png" alt="icon"></div>
+                <div class="job-card-info">
+                  <div class="job-card-title">${v.perfil || ''}</div>
+                  <div class="job-card-company">${v.cliente || ''}</div>
+                  <div class="job-card-location">${v.ubicacion || ''} | ${v.modalidad || ''}</div>
+                  <div class="job-card-desc">${v.detalle || ''}</div>
+                  <div class="job-card-date" style="color:#aaa;font-size:0.98rem;margin-top:8px;">${v.fecha || ''}</div>
+                </div>
+                ${v.url ? `<a href="${v.url}" target="_blank" rel="noopener" class="job-card-apply job-card-apply-desktop">Postular</a>` : ''}
+              </div>
+              ${v.url ? `<a href="${v.url}" target="_blank" rel="noopener" class="job-card-apply job-card-apply-mobile">Postular</a>` : ''}
+            `;
+            container.appendChild(card);
+          });
+        })
+        .catch(err => {
+          const container = document.getElementById('vacantes-container');
+          container.innerHTML = '<p style="text-align:center;">No se pudo cargar la lista de vacantes.</p>';
+        });
+    });
     </script>
 </body>
 </html> 
