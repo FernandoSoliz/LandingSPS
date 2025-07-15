@@ -100,29 +100,33 @@
       <div class="form-img-wrap" style="flex:1;max-width:48%;height:auto;display:flex;align-items:flex-start;">
         <img class="form-img" src="img/form-contrata.png" alt="Buscar expertos" style="max-width:85%;height:auto;border-radius:16px;object-fit:cover;display:block;margin-left:7%;">
       </div>
-      <form class="form-fields" style="flex:1;max-width:48%;background:#fff;padding:0 0 0 0;border-radius:16px;box-shadow:none;display:flex;flex-direction:column;justify-content:flex-start;height:100%;min-height:100%;">
+      <form id="contrataTalentoForm" class="form-fields" style="flex:1;max-width:48%;background:#fff;padding:0 0 0 0;border-radius:16px;box-shadow:none;display:flex;flex-direction:column;justify-content:flex-start;height:100%;min-height:100%;">
         <h3 style="font-size:2.2rem;font-weight:700;margin-bottom:28px;margin-top:0;">Buscar expertos</h3>
         <div class="form-row" style="display:flex;gap:18px;margin-bottom:18px;">
           <div class="form-col" style="flex:1;display:flex;flex-direction:column;">
             <label for="nombre" style="font-weight:500;margin-bottom:6px;">Nombre</label>
-            <input class="input-field" id="nombre" type="text" placeholder="Jane" required style="border-radius:8px;border:1.5px solid #e0e0e0;padding:12px 14px;font-size:1.08rem;background:#fafafa;">
+            <input class="input-field" id="nombre" name="nombre" type="text" placeholder="Jane" required style="border-radius:8px;border:1.5px solid #e0e0e0;padding:12px 14px;font-size:1.08rem;background:#fafafa;">
           </div>
           <div class="form-col" style="flex:1;display:flex;flex-direction:column;">
             <label for="apellido" style="font-weight:500;margin-bottom:6px;">Apellido</label>
-            <input class="input-field" id="apellido" type="text" placeholder="Smitherton" required style="border-radius:8px;border:1.5px solid #e0e0e0;padding:12px 14px;font-size:1.08rem;background:#fafafa;">
+            <input class="input-field" id="apellido" name="apellido" type="text" placeholder="Smitherton" required style="border-radius:8px;border:1.5px solid #e0e0e0;padding:12px 14px;font-size:1.08rem;background:#fafafa;">
           </div>
         </div>
         <div style="margin-bottom:18px;display:flex;flex-direction:column;">
           <label for="empresa" style="font-weight:500;margin-bottom:6px;">Nombre de tu empresa</label>
-          <input class="input-field" id="empresa" type="text" placeholder="email@sapiens.la" required style="border-radius:8px;border:1.5px solid #e0e0e0;padding:12px 14px;font-size:1.08rem;background:#fafafa;">
+          <input class="input-field" id="empresa" name="empresa" type="text" placeholder="Mi empresa" required style="border-radius:8px;border:1.5px solid #e0e0e0;padding:12px 14px;font-size:1.08rem;background:#fafafa;">
         </div>
         <div style="margin-bottom:18px;display:flex;flex-direction:column;">
           <label for="telefono" style="font-weight:500;margin-bottom:6px;">Numero de telefono</label>
-          <input class="input-field" id="telefono" type="text" placeholder="+51 999 999 999" required style="border-radius:8px;border:1.5px solid #e0e0e0;padding:12px 14px;font-size:1.08rem;background:#fafafa;">
+          <input class="input-field" id="telefono" name="telefono" type="text" placeholder="+51 999 999 999" required style="border-radius:8px;border:1.5px solid #e0e0e0;padding:12px 14px;font-size:1.08rem;background:#fafafa;">
         </div>
         <div style="margin-bottom:28px;display:flex;flex-direction:column;">
           <label for="correo" style="font-weight:500;margin-bottom:6px;">Correo corporativo</label>
-          <input class="input-field" id="correo" type="email" placeholder="email@sapiens.la" required style="border-radius:8px;border:1.5px solid #e0e0e0;padding:12px 14px;font-size:1.08rem;background:#fafafa;">
+          <input class="input-field" id="correo" name="email" type="email" placeholder="email@sapiens.la" required style="border-radius:8px;border:1.5px solid #e0e0e0;padding:12px 14px;font-size:1.08rem;background:#fafafa;">
+        </div>
+        <div style="margin-bottom:28px;display:flex;flex-direction:column;">
+          <label for="mensaje" style="font-weight:500;margin-bottom:6px;">Mensaje</label>
+          <textarea class="input-field" id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto o requerimiento" required style="border-radius:8px;border:1.5px solid #e0e0e0;padding:12px 14px;font-size:1.08rem;background:#fafafa;min-height:80px;"></textarea>
         </div>
         <div class="form-btn-row" style="display:flex;justify-content:center;margin-top:auto;">
           <button class="btn-main gradient-btn" type="submit" style="background:linear-gradient(90deg,#2ed47a 0%,#3bb6ff 100%);color:#fff;border-radius:8px;padding:10px 48px;font-size:1.18rem;font-weight:600;border:none;box-shadow:none;">Enviar</button>
@@ -130,6 +134,13 @@
       </form>
     </section>
     <!-- Footer igual que index -->
+    
+    <!-- Popup de confirmación -->
+    <div id="popupConfirm" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.35);z-index:9999;align-items:center;justify-content:center;">
+      <div id="popupContent" style="background:#fff;padding:32px 28px;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,0.18);font-size:1.25rem;text-align:center;max-width:90vw;max-height:80vh;">
+        <span id="popupMessage" style="font-weight:bold;">¡Gracias! Tu mensaje fue enviado correctamente.</span>
+      </div>
+    </div>
     <div class="footer__bottom" style="position:relative;">
       <div class="footer__content">
         <div class="footer__col footer__contacto">
@@ -152,7 +163,45 @@
       <img id="scrollToTopBtn" src="img/botonscroll.png" alt="Volver arriba" style="position:absolute; right:20px; top:20px; height:60px; width:60px; cursor:pointer;">
       <span style="display:block; width:100%; text-align:center; margin-top:24px; color:#222;">© 2025 by Sapiens Digital Lab</span>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
+    (function() {
+      emailjs.init('Q0_hWQQnnmPEqYRwT');
+    })();
+    function mostrarPopup(mensaje, esExito) {
+      var popup = document.getElementById('popupConfirm');
+      var popupMsg = document.getElementById('popupMessage');
+      popupMsg.textContent = mensaje;
+      popupMsg.style.color = esExito ? '#2ed47a' : '#e74c3c';
+      popup.style.display = 'flex';
+      if (esExito) {
+        setTimeout(function() {
+          window.location.reload();
+        }, 8000);
+      } else {
+        setTimeout(function() {
+          window.location.reload();
+        }, 8000);
+      }
+    }
+    document.getElementById('contrataTalentoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = this;
+      const formData = {
+        nombre: form.nombre.value + ' ' + form.apellido.value,
+        empresa: form.empresa.value,
+        telefono: form.telefono.value,
+        email: form.email.value,
+        mensaje: form.mensaje.value
+      };
+      emailjs.send('service_f73qp8z', 'template_aw0qmk9', formData)
+        .then(function(response) {
+          mostrarPopup('¡Gracias! Nos pondremos en contacto contigo lo más antes.', true);
+          form.reset();
+        }, function(error) {
+          mostrarPopup('Ocurrió un error al enviar el mensaje. Intenta nuevamente.', false);
+        });
+    });
     document.getElementById('scrollToTopBtn').onclick = function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
