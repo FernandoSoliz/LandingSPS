@@ -1,0 +1,457 @@
+<!-- flag11 -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Oportunidades | Sapiens Digital Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+    <style>
+    body { background: #fff; }
+    
+    /* Hero Section */
+    .hero { 
+        position: relative; 
+        background: url('img/bg-oportunidades.png') center/cover no-repeat; 
+        min-height: 459px; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        padding: 75px 0 54px 0; 
+    }
+    .hero__title { 
+        font-size: 4.32rem; 
+        font-weight: 700; 
+        color: #fff; 
+        margin: 0 0 11px 0; 
+        text-align: center; 
+    }
+    .hero__subtitle { 
+        font-size: 1.89rem; 
+        color: #fff; 
+        margin: 0 0 32px 0; 
+        text-align: center; 
+    }
+    .hero__buttons { 
+        margin: 0; 
+        display: flex; 
+        gap: 22px; 
+        justify-content: center; 
+    }
+    .hero__buttons img { height: 68px; }
+    
+    /* Buttons */
+    .btn-main { 
+        background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat; 
+        border-radius: 6px; 
+        padding: 10px 28px; 
+        font-size: 1.08rem; 
+        font-weight: 400; 
+        border: none; 
+        color: #fff; 
+        cursor: pointer; 
+        text-decoration: none; 
+        min-width: 100px;
+    }
+    .btn-main:hover { opacity: 0.9; }
+    .btn-main[style*="background:#3AB1C3"] { background: #3AB1C3 !important; }
+    
+    /* Section Title */
+    .section-title { 
+        font-size: 2.2rem; 
+        font-weight: 700; 
+        color: #222; 
+        text-align: center; 
+        margin: 48px 0 32px 0; 
+    }
+    
+    /* Search Bar */
+    .search-bar { 
+        display: flex; 
+        gap: 12px; 
+        max-width: 900px; 
+        margin: 0 auto 32px auto; 
+    }
+    .search-bar input, 
+    .search-bar select { 
+        border-radius: 8px; 
+        border: 1px solid #ddd; 
+        padding: 10px 14px; 
+        font-size: 1rem; 
+    }
+    .search-bar select { color: #666; font-weight: 400; }
+    
+    /* Job Cards */
+    .cards-list { 
+        max-width: 900px; 
+        margin: 0 auto 48px auto; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 28px; 
+    }
+    .job-card { 
+        background: #fff; 
+        border: 1.5px solid #e5e7eb; 
+        border-radius: 18px; 
+        box-shadow: none; 
+        padding: 0; 
+        display: flex; 
+        flex-direction: column; 
+        position: relative; 
+    }
+    .job-card-content { 
+        display: flex; 
+        align-items: flex-start; 
+        gap: 18px; 
+        padding: 32px 36px 0 36px; 
+    }
+    .job-card-icon { 
+        background: #f5f5f5; 
+        border-radius: 10px; 
+        padding: 8px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        height: 48px; 
+        width: 48px; 
+    }
+    .job-card-icon img { height: 32px; width: 32px; }
+    .job-card-info { flex: 1; }
+    .job-card-title { 
+        color: #3AC37B; 
+        font-weight: 700; 
+        font-size: 1.18rem; 
+        margin-bottom: 2px; 
+    }
+    .job-card-company { color: #888; font-size: 1rem; }
+    .job-card-location { 
+        color: #888; 
+        font-size: 0.98rem; 
+        margin-bottom: 2px; 
+    }
+    .job-card-desc { 
+        margin: 16px 0 0 80px; 
+        color: #222; 
+        font-size: 1.05rem; 
+    }
+    .job-card-actions { 
+        margin: 20px 0 0 80px; 
+        display: flex; 
+        align-items: center; 
+        gap: 16px; 
+        padding-bottom: 24px; 
+    }
+    .job-card-apply { 
+        background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat; 
+        color: #fff; 
+        border-radius: 8px; 
+        padding: 10px 26px; 
+        font-size: 1rem; 
+        border: none; 
+        font-weight: 400; 
+        cursor: pointer; 
+        text-decoration: none; 
+    }
+    .job-card-apply:hover { background: #2fa36a; }
+    .job-card-date { 
+        text-align: right; 
+        font-size: 0.95rem; 
+        color: #aaa; 
+        margin: 0 36px 0 0; 
+    }
+    .job-card-external { 
+        position: absolute; 
+        top: 20px; 
+        right: 20px; 
+        color: #bbb; 
+        font-size: 1.5rem; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        z-index: 1; 
+    }
+    .job-card-external svg { width: 22px; height: 22px; }
+    
+    /* Form Section */
+    .form-section { 
+        max-width: 1200px; 
+        margin: 0 auto 64px auto; 
+        display: flex; 
+        align-items: flex-start; 
+        gap: 48px; 
+        padding: 0 16px; 
+    }
+    .form-img { 
+        width: 420px; 
+        max-width: 100%; 
+        border-radius: 18px; 
+        object-fit: cover; 
+    }
+    .form-fields { 
+        flex: 1; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 18px; 
+        background: #fff; 
+        border-radius: 18px; 
+        padding: 32px; 
+        border: 1.5px solid #e5e7eb; 
+    }
+    .form-fields h3 { 
+        font-size: 1.5rem; 
+        font-weight: 700; 
+        margin-bottom: 8px; 
+    }
+    .input-field { 
+        border-radius: 8px; 
+        border: 1px solid #ddd; 
+        padding: 12px 14px; 
+        font-size: 1rem; 
+    }
+    .form-fields button { 
+        background: #3AC37B; 
+        color: #fff; 
+        border-radius: 18px; 
+        padding: 10px 0; 
+        font-size: 1.1rem; 
+        border: none; 
+        font-weight: 600; 
+        cursor: pointer; 
+        transition: background 0.2s; 
+    }
+    .form-fields button:hover { background: #2fa36a; }
+    
+    /* Responsive */
+    @media (max-width: 900px) {
+        .form-section { 
+            flex-direction: column; 
+            align-items: stretch; 
+            gap: 24px; 
+        }
+        .form-img { width: 100%; max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+        .hero__title { font-size: 3.2rem; }
+        .hero__subtitle { font-size: 1.4rem; }
+        .hero__buttons img { height: 50px; }
+        .form-fields { padding: 18px 8px; }
+    }
+    </style>
+</head>
+<body>
+    <!-- Header igual que index -->
+    <header class="header">
+        <div class="header__logo" style="justify-content: flex-start;">
+            <img src="img/logo-sapiens.png" alt="Sapiens Digital Lab">
+        </div>
+        <button class="menu-toggle" aria-label="Abrir menú" style="background:none;border:none;outline:none;cursor:pointer;">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect y="7" width="32" height="3" rx="1.5" fill="#222"/>
+            <rect y="14.5" width="32" height="3" rx="1.5" fill="#222"/>
+            <rect y="22" width="32" height="3" rx="1.5" fill="#222"/>
+          </svg>
+        </button>
+        <button class="menu-close" aria-label="Cerrar menú" style="background:none;border:none;outline:none;cursor:pointer;display:none;position:fixed;top:16px;right:16px;z-index:10000;font-size:2rem;line-height:1;">
+          &times;
+        </button>
+        <nav class="header__nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="oportunidades.html">Oportunidades</a></li>
+                <li><a href="contrata-talento.html" class="btn-header"><img src="img/Contactanos.png" alt="Contáctanos" style="height:38px;vertical-align:middle;"></a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu">
+          <ul style="list-style:none;padding:6px 0 4px 0;margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:2px;border:1.5px solid #ddd;border-radius:10px;background:#fff;">
+            <li style="margin-bottom:4px;"><img src="img/logo-sapiens.png" alt="Sapiens Digital Lab" style="height:38px;"></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="oportunidades.html">Oportunidades</a></li>
+            <li><a href="contrata-talento.html"><img src="img/Contactanos.png" alt="Contáctanos" style="height:38px;vertical-align:middle;"></a></li>
+          </ul>
+        </div>
+    </header>
+    <!-- Hero -->
+    <section class="hero oportunidades-hero">
+        <h1 class="hero__title">Oportunidades</h1>
+        <div class="hero__subtitle">Tu futuro profesional ahora</div>
+        <div class="hero__buttons">
+            <a href="#form-cv"><img src="img/envianosboton.png" alt="Envíanos tu CV" style="height:50px;vertical-align:middle;"></a>
+            <a href="#"><img src="img/siguenosboton.png" alt="Síguenos en LinkedIn" style="height:50px;vertical-align:middle;"></a>
+        </div>
+    </section>
+    
+    <!-- Convocatorias activas -->
+    <section class="oportunidades-convocatorias">
+        <h2 class="section-title">Convocatorias Activas</h2>
+        <div class="search-bar" style="display:flex;flex-direction:column;gap:8px;align-items:stretch;justify-content:center;margin-bottom:32px;">
+          <div style="display:flex;gap:10px;width:100%;">
+            <select class="search-select" style="flex:1;min-width:70px;max-width:50%;padding:8px 10px;border-radius:7px;border:1.2px solid #e0e0e0;font-size:0.98rem;">
+              <option value="">Área</option>
+              <option value="tecnologia">Tecnología</option>
+              <option value="marketing">Marketing</option>
+              <option value="diseño">Diseño</option>
+              <option value="otros">Otros</option>
+            </select>
+            <select class="search-select" style="flex:1;min-width:44px;max-width:50%;padding:8px 10px;border-radius:7px;border:1.2px solid #e0e0e0;font-size:0.98rem;">
+              <option value="">Modalidad</option>
+              <option value="remoto">Remoto</option>
+              <option value="hibrido">Híbrido</option>
+              <option value="presencial">Presencial</option>
+            </select>
+          </div>
+          <div style="display:flex;gap:10px;width:100%;margin-top:4px;">
+            <input type="text" class="search-input" placeholder="Buscar oportunidades" style="flex:2;min-width:48px;max-width:70%;padding:8px 10px;border-radius:7px;border:1.2px solid #e0e0e0;font-size:0.98rem;">
+            <button class="search-btn" style="padding:8px 18px;border-radius:7px;background:linear-gradient(90deg,#2ed47a 0%,#3bb6ff 100%);color:#fff;font-size:0.98rem;font-weight:600;border:none;">Buscar</button>
+          </div>
+        </div>
+        <div class="cards-list">
+            <!-- Card 1 -->
+            <div class="job-card">
+                <div class="job-card-content">
+                    <div class="job-card-icon"><img src="img/icon-job.png" alt="Job"></div>
+                    <div class="job-card-info">
+                        <div class="job-card-title">Developer Full Stack Senior</div>
+                        <div class="job-card-company">Sapiens Digital Lab</div>
+                        <div class="job-card-location">Lima, Perú | Presencial</div>
+                    </div>
+                </div>
+                <div class="job-card-desc">Se busca desarrollador FullStack Senior con experiencia en .NET y SQL Server para proyectos desafiantes.</div>
+                <div class="job-card-actions">
+                    <a href="#" class="job-card-apply">Aplicar ahora</a>
+                    <div class="job-card-date">Hace 1 semana</div>
+                </div>
+                <a href="#" class="job-card-external"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+            </div>
+            <!-- Card 2 -->
+            <div class="job-card">
+                <div class="job-card-content">
+                    <div class="job-card-icon"><img src="img/icon-job.png" alt="Job"></div>
+                    <div class="job-card-info">
+                        <div class="job-card-title">Data Analyst</div>
+                        <div class="job-card-company">Sapiens Digital Lab</div>
+                        <div class="job-card-location">Lima, Perú | Presencial</div>
+                    </div>
+                </div>
+                <div class="job-card-desc">Se busca Analista de datos experto en auditoría y optimización de T-SQL, validando integración con el repositorio central.</div>
+                <div class="job-card-actions">
+                    <a href="#" class="job-card-apply">Aplicar ahora</a>
+                    <div class="job-card-date">Hace 1 semana</div>
+                </div>
+                <a href="#" class="job-card-external"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+            </div>
+            <!-- Card 3 -->
+            <div class="job-card">
+                <div class="job-card-content">
+                    <div class="job-card-icon"><img src="img/icon-job.png" alt="Job"></div>
+                    <div class="job-card-info">
+                        <div class="job-card-title">Data Engineer</div>
+                        <div class="job-card-company">Sapiens Digital Lab</div>
+                        <div class="job-card-location">Lima, Perú | Híbrido</div>
+                    </div>
+                </div>
+                <div class="job-card-desc">Ingeniero de datos con experiencia en Python para proyectos desafiantes y de alto impacto.</div>
+                <div class="job-card-actions">
+                    <a href="#" class="job-card-apply">Aplicar ahora</a>
+                    <div class="job-card-date">Hace 1 semana</div>
+                </div>
+                <a href="#" class="job-card-external"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Formulario de CV -->
+    <section class="form-section oportunidades-form" id="form-cv">
+        <div class="form-img-wrap">
+            <img class="form-img" src="img/form-cv.png" alt="Buscar expertos">
+        </div>
+        <form class="form-fields">
+            <h3>Envía tu CV</h3>
+            <input class="input-field" type="text" placeholder="Nombre" required>
+            <input class="input-field" type="text" placeholder="Apellido" required>
+            <input class="input-field" type="email" placeholder="Correo electrónico" required>
+            <input class="input-field" type="text" placeholder="Área de especialización (Data, Digital o Agile)" required>
+            <input class="input-field" type="text" placeholder="Perfil de LinkedIn">
+            <button class="btn-main" type="submit">Enviar</button>
+        </form>
+    </section>
+    
+    <!-- Footer igual que index -->
+    <div class="footer__bottom" style="position:relative;">
+      <div class="footer__content">
+        <div class="footer__col footer__contacto">
+          <h5>Contacto</h5>
+          <div class="footer__contacto-datos">
+            <span>Talento@sapiens.la</span>
+            <span>123-456-7890</span>
+          </div>
+        </div>
+        <div class="footer__col footer__social-col">
+          <h5>Síguenos</h5>
+          <div class="footer__social">
+            <a href="#"><img src="img/botonlinkedin.png" alt="LinkedIn"></a>
+            <a href="#"><img src="img/bottoning.png" alt="Instagram"></a>
+            <a href="#"><img src="img/botonyt.png" alt="YouTube"></a>
+            <a href="#"><img src="img/botonfb.png" alt="Facebook"></a>
+          </div>
+        </div>
+      </div>
+      <img id="scrollToTopBtn" src="img/botonscroll.png" alt="Volver arriba" style="position:absolute; right:20px; top:20px; height:60px; width:60px; cursor:pointer;">
+      <span style="display:block; width:100%; text-align:center; margin-top:24px; color:#222;">© 2025 by Sapiens Digital Lab</span>
+    </div>
+    
+    <script>
+    document.getElementById('scrollToTopBtn').onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuClose = document.querySelector('.menu-close');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const nav = document.querySelector('.header__nav');
+    
+    function closeMobileMenu() {
+      mobileMenu.style.display = 'none';
+      menuClose.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    
+    function openMobileMenu() {
+      mobileMenu.style.display = 'block';
+      menuClose.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    
+    menuToggle.addEventListener('click', function() {
+      openMobileMenu();
+    });
+    menuClose.addEventListener('click', function() {
+      closeMobileMenu();
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+    
+    // Mostrar/ocultar menú y botones según tamaño
+    function handleResize() {
+      if (window.innerWidth <= 600) {
+        nav.style.display = 'none';
+        closeMobileMenu();
+      } else {
+        nav.style.display = 'block';
+        menuClose.style.display = 'none';
+        closeMobileMenu();
+      }
+    }
+    
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('DOMContentLoaded', handleResize);
+    </script>
+</body>
+</html> 
