@@ -107,6 +107,22 @@
             </div>
         </div>
     </section>
+    <section class="bignumbers" style="background: url('img/fondosps.png') center/cover no-repeat; padding: 48px 0;">
+      <div class="bignumbers__container">
+        <div class="bignumbers__item">
+          <div class="bignumbers__number">+2000</div>
+          <div class="bignumbers__desc">De profesionales en nuestro<br>ecosistema de talento tech</div>
+        </div>
+        <div class="bignumbers__item">
+          <div class="bignumbers__number">+100</div>
+          <div class="bignumbers__desc">Talentos impulsando la innovación<br>en empresas globales</div>
+        </div>
+        <div class="bignumbers__item">
+          <div class="bignumbers__number">+70</div>
+          <div class="bignumbers__desc">Iniciativas de transformación<br>digital ejecutadas con éxito</div>
+        </div>
+      </div>
+    </section>
     <section class="areas">
         <h2>Incorpora talento en las tres <br>áreas clave del futuro</h2>
         <div class="areas__cards">
@@ -183,12 +199,34 @@
           </svg>
         </button>
         <div class="testimonio-content">
-          <p class="testimonio-text">“Mi experiencia en Sapiens Digital Lab fue verdaderamente enriquecedora. Pude aplicar mis habilidades técnicas en un entorno innovador y también colaborar con colegas apasionados por la tecnología y la excelencia.”</p>
-          <div class="testimonio-persona">
-            <span class="testimonio-avatar"></span>
-            <div>
-              <div class="testimonio-nombre">Gonzalo Miguel Rivera Trujillo</div>
-              <div class="testimonio-cargo">Data Engineer - Ferreyros</div>
+          <div class="testimonio-slide active">
+            <p class="testimonio-text">“Mi experiencia en Sapiens Digital Lab fue verdaderamente enriquecedora. Pude aplicar mis habilidades técnicas en un entorno innovador y también colaborar con colegas apasionados por la tecnología y la excelencia.”</p>
+            <div class="testimonio-persona">
+              <span class="testimonio-avatar"></span>
+              <div>
+                <div class="testimonio-nombre">Gonzalo Miguel Rivera Trujillo</div>
+                <div class="testimonio-cargo">Data Engineer - Ferreyros</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonio-slide">
+            <p class="testimonio-text">“Sapiens es un lugar donde te integran de verdad, te escuchan y te hacen sentir parte del equipo. Siempre valoran el esfuerzo y el trabajo de cada persona.”</p>
+            <div class="testimonio-persona">
+              <span class="testimonio-avatar"></span>
+              <div>
+                <div class="testimonio-nombre">Richard Retuerto</div>
+                <div class="testimonio-cargo">Data Engineer</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonio-slide">
+            <p class="testimonio-text">“En Sapiens siempre encontré recursos para seguir aprendiendo. Es una empresa que realmente te facilita las cosas para que puedas enfocarte en tu trabajo, sin tener que preocuparte por nada más. Siempre sentí ese apoyo y acompañamiento.”</p>
+            <div class="testimonio-persona">
+              <span class="testimonio-avatar"></span>
+              <div>
+                <div class="testimonio-nombre">Juan Carlos Asto</div>
+                <div class="testimonio-cargo">Scrum Master</div>
+              </div>
             </div>
           </div>
         </div>
@@ -233,16 +271,15 @@
           <h5>Contacto</h5>
           <div class="footer__contacto-datos">
             <span>Talento@sapiens.la</span>
-            <span>123-456-7890</span>
+            <span>+51 913804251</span>
           </div>
         </div>
         <div class="footer__col footer__social-col">
           <h5>Síguenos</h5>
           <div class="footer__social">
-            <a href="#"><img src="img/botonlinkedin.png" alt="LinkedIn"></a>
-            <a href="#"><img src="img/bottoning.png" alt="Instagram"></a>
-            <a href="#"><img src="img/botonyt.png" alt="YouTube"></a>
-            <a href="#"><img src="img/botonfb.png" alt="Facebook"></a>
+            <a href="https://www.linkedin.com/company/sapiens-la" target="_blank"><img src="img/botonlinkedin.png" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com/sapiens_la/" target="_blank"><img src="img/bottoning.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com/@SapiensDigitalLab" target="_blank"><img src="img/botonyt.png" alt="YouTube"></a>
           </div>
         </div>
       </div>
@@ -355,6 +392,51 @@
         startCarousel();
       }
     });
+
+    // Carrusel de testimonios
+    const testimonioSlides = document.querySelectorAll('.testimonio-slide');
+    const testimonioPrevBtn = document.querySelector('.testimonio-arrow.left');
+    const testimonioNextBtn = document.querySelector('.testimonio-arrow.right');
+    let testimonioCurrent = 0;
+    let testimonioInterval;
+
+    function showTestimonio(index) {
+      testimonioSlides[testimonioCurrent].classList.remove('active');
+      testimonioCurrent = index;
+      if (testimonioCurrent >= testimonioSlides.length) testimonioCurrent = 0;
+      if (testimonioCurrent < 0) testimonioCurrent = testimonioSlides.length - 1;
+      testimonioSlides[testimonioCurrent].classList.add('active');
+    }
+
+    function nextTestimonio() {
+      showTestimonio(testimonioCurrent + 1);
+    }
+
+    function prevTestimonio() {
+      showTestimonio(testimonioCurrent - 1);
+    }
+
+    function startTestimonioCarousel() {
+      testimonioInterval = setInterval(nextTestimonio, 9000);
+    }
+
+    function stopTestimonioCarousel() {
+      if (testimonioInterval) clearInterval(testimonioInterval);
+    }
+
+    if (testimonioPrevBtn && testimonioNextBtn) {
+      testimonioPrevBtn.addEventListener('click', function() {
+        stopTestimonioCarousel();
+        prevTestimonio();
+        startTestimonioCarousel();
+      });
+      testimonioNextBtn.addEventListener('click', function() {
+        stopTestimonioCarousel();
+        nextTestimonio();
+        startTestimonioCarousel();
+      });
+    }
+    startTestimonioCarousel();
     </script>
 </body>
 </html> 
