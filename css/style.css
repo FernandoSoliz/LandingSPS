@@ -754,6 +754,28 @@ body {
     margin: 0 auto !important;
     display: block !important;
   }
+  .area-card .btn {
+    align-self: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+  }
+  .bignumbers__item {
+    width: 90vw !important;
+    min-width: 0 !important;
+    max-width: 90vw !important;
+    height: 180px !important;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .expertos__text .btn {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    align-self: center !important;
+  }
 }
 
 .footer__social {
