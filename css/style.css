@@ -793,6 +793,154 @@ body {
   }
 }
 
+/* --- AJUSTE: Unificar ancho de campos de una sola columna en desktop --- */
+@media (min-width: 901px) {
+  .form-fields .input-field,
+  .form-fields textarea.input-field {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .form-row {
+    gap: 18px !important;
+  }
+  .form-col {
+    min-width: 0 !important;
+  }
+}
+/* --- FIN AJUSTE --- */
+
+/* --- AJUSTE: Espaciado lateral y tamaño de campos en desktop --- */
+@media (min-width: 901px) {
+  .form-img-wrap {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  .form-fields {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  .form-fields .input-field,
+  .form-fields textarea.input-field {
+    width: 95% !important;
+    max-width: 95% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+/* --- FIN AJUSTE --- */
+
+/* --- AJUSTE FINAL: Proporciones y alineación exacta de imagen y formulario en desktop --- */
+@media (min-width: 901px) {
+  .form-flex {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 40px !important;
+    max-width: 1100px;
+    margin: 0 auto 48px auto;
+    width: 100%;
+  }
+  .form-img-wrap {
+    width: 50% !important;
+    max-width: 50% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin: 0 !important;
+  }
+  .form-img-wrap img.form-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 !important;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+  .form-fields {
+    width: 50% !important;
+    max-width: 50% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .form-btn-row {
+    justify-content: flex-start !important;
+    width: 100%;
+  }
+}
+/* --- FIN AJUSTE FINAL --- */
+
+/* --- AJUSTE: Reducir ancho de .form-img-wrap a 75% en desktop y ajustar imagen --- */
+@media (min-width: 901px) {
+  #main-content > section.form-section.form-flex > div.form-img-wrap {
+    width: 75% !important;
+    max-width: 75% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+  }
+  #main-content > section.form-section.form-flex > div.form-img-wrap > img.form-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+}
+/* --- FIN AJUSTE --- */
+
+/* --- AJUSTE: Formulario alineado a la izquierda en desktop --- */
+@media (min-width: 901px) {
+  .form-flex {
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
+  .form-fields {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+  .form-btn-row {
+    justify-content: flex-start !important;
+  }
+}
+/* --- FIN AJUSTE --- */
+
+/* --- AJUSTE: Imagen form-contrata.png al 50% en todos los tamaños --- */
+.form-img-wrap img.form-img[src*="form-contrata.png"] {
+  width: 50% !important;
+  max-width: 50% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+/* --- FIN AJUSTE --- */
+
 .footer__social {
   display: flex;
   flex-direction: row;
@@ -7817,361 +7965,88 @@ body, html {
   aspect-ratio: 16/9;
 }
 
+/* --- INICIO AJUSTES RESPONSIVE CONTRATA-TALENTO --- */
 @media (max-width: 600px) {
-  /* Banner: El talento ideal (ajuste solicitado) */
-  .contrata-talento-hero .hero__title {
-    font-size: 180% !important;
-  }
-  /* Banner: El talento ideal */
-  .contrata-talento-hero .hero__title {
-    font-size: 80% !important;
-    text-align: center;
-    width: 100%;
-    margin: 0 auto 8px auto;
-    white-space: normal;
-  }
-  /* Banner: Complementa tus equipos... */
-  .contrata-talento-pasos .section-title {
-    font-size: 60% !important;
-    text-align: center;
-    width: 100%;
-    margin: 0 auto 8px auto;
-    white-space: normal;
-  }
-  /* Concepto debajo del título */
-  .contrata-talento-pasos .section-subtitle {
-    text-align: center;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    white-space: normal;
-  }
-  /* Cards de pasos en columna */
-  .contrata-talento-pasos > div {
-    flex-direction: column !important;
-    gap: 18px !important;
+  /* Centrar y ajustar la imagen */
+  .form-img-wrap {
+    display: flex !important;
+    justify-content: center !important;
     align-items: center !important;
+    width: 100% !important;
+    margin: 0 auto 18px auto !important;
+    text-align: center !important;
   }
-  .contrata-talento-pasos > div > div {
-    width: 95% !important;
-    max-width: 420px !important;
-    margin: 0 auto 0 auto !important;
+  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+    width: 50% !important;
+    max-width: 50% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    position: static !important;
+    left: unset;
+    transform: none !important;
   }
-  /* Si hay filas anidadas, forzar columna */
-  .contrata-talento-pasos > div > div > div {
-    flex-direction: column !important;
-  }
-  /* Concepto de listo para contratar */
-  .contrata-talento-form-title {
-    text-align: center;
-    width: 90%;
-    margin: 0 auto 18px auto;
-  }
+  /* Centrar el título '¿Listo para contratar?' y subtítulo */
+  .contrata-talento-form-title,
   .contrata-talento-form-title .form-section-title,
   .contrata-talento-form-title .form-section-subtitle {
-    text-align: center;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
-  /* Foto después del concepto */
-  .form-img {
-    width: 80% !important;
-    max-width: 80% !important;
-    margin-left: 10% !important;
-  }
-  /* Título buscar expertos */
+  /* Centrar el título 'Buscar expertos' */
   .form-fields h3 {
     text-align: center !important;
-    white-space: nowrap !important;
-    width: 100%;
-    margin: 0 auto 18px auto;
+    width: 100% !important;
+    margin: 0 auto 18px auto !important;
+    white-space: normal !important;
   }
-  /* Formulario: etiquetas alineadas a la izquierda, campos centrados */
-  .form-fields label {
-    text-align: left !important;
-    width: 100%;
-    margin-left: 0;
+  /* Centrar el formulario y que ocupe todo el ancho */
+  body > section.form-section.form-flex > form.form-fields {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
+  /* Centrar los campos del formulario */
   .form-fields .input-field {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 90%;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    width: 90% !important;
   }
-  .form-row {
-    flex-direction: column !important;
-    gap: 8px !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .contrata-talento-hero .hero__title {
-    font-size: 8vw !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .contrata-talento-pasos .section-title {
-    font-size: 8vw !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Cards de pasos en columna: fuerza todos los divs hijos directos de .contrata-talento-pasos a columna */
-  .contrata-talento-pasos > div,
-  .contrata-talento-pasos > div > div {
+  /* Centrar el botón enviar */
+  .form-btn-row {
     display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    justify-content: center !important;
     align-items: center !important;
-    gap: 18px !important;
+    margin-top: 18px !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
   }
-  .contrata-talento-pasos > div > div {
+  .form-btn-row .btn-main.gradient-btn {
+    display: inline-block !important;
     margin: 0 auto !important;
-    width: 95% !important;
-    max-width: 420px !important;
+    min-width: 120px !important;
+    padding: 10px 48px !important;
+    border-radius: 8px !important;
+    font-size: 1.18rem !important;
+    font-weight: 600 !important;
+    background: linear-gradient(90deg,#2ed47a 0%,#3bb6ff 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 }
-
-@media (max-width: 600px) {
-  /* Card 3: apilar número, título y concepto verticalmente */
-  .contrata-talento-pasos > div > div:last-child > div[style*="gap:18px"] {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0 !important;
-    width: 100% !important;
-    margin-bottom: 8px !important;
-  }
-  .contrata-talento-pasos > div > div:last-child > div[style*="gap:18px"] > span {
-    display: block !important;
-    text-align: center !important;
-    font-size: 2.5rem !important;
-    font-weight: 700 !important;
-    color: #2ed47a !important;
-    margin-bottom: 8px !important;
-    width: 100% !important;
-  }
-  .contrata-talento-pasos > div > div:last-child > div[style*="gap:18px"] > div > div[style*="font-size:1.15rem"] {
-    text-align: center !important;
-    width: 100% !important;
-    margin-bottom: 8px !important;
-    font-weight: 700 !important;
-  }
-  .contrata-talento-pasos > div > div:last-child > div[style*="gap:18px"] > div > div[style*="font-size:1rem"] {
-    text-align: justify !important;
-    width: 100% !important;
-    margin-bottom: 18px !important;
-    font-weight: 400 !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Imagen de 'listo para contratar' al 75% del tamaño actual y centrada */
-  .form-img-wrap .form-img {
-    width: 70% !important;
-    max-width: 70% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: block !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Imagen de 'form-contrata.png' al 60% del tamaño actual y centrada */
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
-    width: 60% !important;
-    max-width: 60% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: block !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Forzar tamaño de form-contrata.png al 60% y sobrescribir inline */
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
-    width: 60% !important;
-    max-width: 60% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Aumentar tamaño de form-contrata.png a 180% y sobrescribir inline */
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
-    width: 180% !important;
-    max-width: 180% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Imagen form-contrata.png al 180%, centrada y alineada al centro */
-  .form-img-wrap {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-  }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
-    width: 180% !important;
-    max-width: 180% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    display: block !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    text-align: center !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Imagen form-contrata.png al 180%, centrada visualmente */
-  .form-img-wrap {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    overflow: visible !important;
-    position: relative !important;
-  }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
-    width: 180% !important;
-    max-width: 180% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    display: block !important;
-    margin: 0 !important;
-    text-align: center !important;
-    position: relative !important;
-    left: 50%;
-    transform: translateX(-50%) !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Ajustar tamaño de .form-img-wrap a 120% y centrarlo */
-  body > section.form-section.form-flex > div.form-img-wrap {
-    width: 120% !important;
-    max-width: 120% !important;
-    min-width: 0 !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-    position: relative !important;
-    left: 50%;
-    transform: translateX(-10%) !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Imagen y contenedor al 75% y centrados */
-  body > section.form-section.form-flex > div.form-img-wrap {
-    width: 75% !important;
-    max-width: 75% !important;
-    min-width: 0 !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-    position: static !important;
-    left: unset;
-    transform: none !important;
-  }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    text-align: center !important;
-    position: static !important;
-    left: unset;
-    transform: none !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Imagen y contenedor al 85% y centrados */
-  body > section.form-section.form-flex > div.form-img-wrap {
-    width: 85% !important;
-    max-width: 85% !important;
-    min-width: 0 !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-    position: static !important;
-    left: unset;
-    transform: none !important;
-  }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    text-align: center !important;
-    position: static !important;
-    left: unset;
-    transform: none !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Centrar y alinear al medio el título 'Buscar expertos' */
-  .form-fields h3 {
-    text-align: center !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: flex !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Forzar centrado del título 'Buscar expertos' con máxima especificidad */
-  form.form-fields > h3,
-  .form-fields > h3,
-  section.form-section.form-flex form.form-fields > h3 {
-    text-align: center !important;
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: block !important;
-    justify-content: unset !important;
-    align-items: unset !important;
-  }
-}
+/* --- FIN AJUSTES RESPONSIVE CONTRATA-TALENTO --- */
 
 @media (max-width: 600px) {
   /* Hacer que el formulario ocupe el 100% del ancho en responsive */
@@ -8220,6 +8095,7 @@ body, html {
     height: auto !important;
     margin-top: 24px !important;
     margin-bottom: 0 !important;
+    width: 100% !important;
   }
   .form-btn-row .btn-main.gradient-btn {
     display: inline-block !important;
@@ -10491,237 +10367,83 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* Imagen y contenedor al 75% y centrados */
-  body > section.form-section.form-flex > div.form-img-wrap {
-    width: 75% !important;
-    max-width: 75% !important;
-    min-width: 0 !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-    position: static !important;
-    left: unset;
-    transform: none !important;
-  }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    text-align: center !important;
-    position: static !important;
-    left: unset;
-    transform: none !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Imagen y contenedor al 85% y centrados */
-  body > section.form-section.form-flex > div.form-img-wrap {
-    width: 85% !important;
-    max-width: 85% !important;
-    min-width: 0 !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-    position: static !important;
-    left: unset;
-    transform: none !important;
-  }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    text-align: center !important;
-    position: static !important;
-    left: unset;
-    transform: none !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Centrar y alinear al medio el título 'Buscar expertos' */
-  .form-fields h3 {
-    text-align: center !important;
+  /* Centrar y ajustar la imagen */
+  .form-img-wrap {
+    display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: flex !important;
+    margin: 0 auto 18px auto !important;
+    text-align: center !important;
   }
-}
-
-@media (max-width: 600px) {
-  /* Forzar centrado del título 'Buscar expertos' con máxima especificidad */
-  form.form-fields > h3,
-  .form-fields > h3,
-  section.form-section.form-flex form.form-fields > h3 {
+  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    position: static !important;
+    left: unset;
+    transform: none !important;
+  }
+  /* Centrar el título '¿Listo para contratar?' y subtítulo */
+  .contrata-talento-form-title,
+  .contrata-talento-form-title .form-section-title,
+  .contrata-talento-form-title .form-section-subtitle {
     text-align: center !important;
     width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    display: block !important;
-    justify-content: unset !important;
-    align-items: unset !important;
   }
-}
-
-@media (max-width: 600px) {
-  /* Hacer que el formulario ocupe el 100% del ancho en responsive */
+  /* Centrar el título 'Buscar expertos' */
+  .form-fields h3 {
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto 18px auto !important;
+    white-space: normal !important;
+  }
+  /* Centrar el formulario y que ocupe todo el ancho */
   body > section.form-section.form-flex > form.form-fields {
     max-width: 100% !important;
     width: 100% !important;
-    flex: unset !important;
     margin-left: auto !important;
     margin-right: auto !important;
     box-sizing: border-box !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Mover los títulos de las casillas del formulario un poco a la derecha */
-  .form-fields label {
-    padding-left: 12px !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Forzar que el número de la card 3 esté encima del bloque de texto */
-  body > section.contrata-talento-pasos > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(1) > div {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: flex-start !important;
   }
-  body > section.contrata-talento-pasos > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(1) > div > span {
-    order: 0 !important;
-    margin-bottom: 8px !important;
-  }
-  body > section.contrata-talento-pasos > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(1) > div > div {
-    order: 1 !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Asegurar visibilidad y centrado del botón Enviar */
-  .form-btn-row {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    height: auto !important;
-    margin-top: 24px !important;
-    margin-bottom: 0 !important;
-  }
-  .form-btn-row .btn-main.gradient-btn {
-    display: inline-block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    background: linear-gradient(90deg,#2ed47a 0%,#3bb6ff 100%) !important;
-    color: #fff !important;
-    border-radius: 8px !important;
-    font-size: 1.18rem !important;
-    font-weight: 600 !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 10px 48px !important;
-    min-width: 120px !important;
-    margin: 0 auto !important;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Reducir margen superior del botón Enviar */
-  .form-btn-row {
-    margin-top: 8px !important;
-  }
-}
-
-@media (min-width: 901px) {
-  /* Centrar el bloque de imagen y formulario en desktop */
-  .form-section.form-flex {
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    align-items: flex-start;
-    display: flex;
-    gap: 44px;
-  }
-}
-
-@media (min-width: 901px) {
-  /* Centrar y limitar el ancho del contenido, pero la sección ocupa 100% */
-  .form-section.form-flex {
-    width: 100%;
-    max-width: 100vw;
-    margin: 0;
-    padding: 0;
-    background: #fff;
-  }
-  .form-section.form-flex .form-flex-inner {
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    gap: 44px;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-  }
-}
-
-@media (max-width: 900px) {
-  .form-section.form-flex .form-flex-inner {
+  /* Centrar los campos del formulario */
+  .form-fields .input-field {
     display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    gap: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    width: 90% !important;
   }
-}
-
-@media (min-width: 901px) {
+  /* Centrar el botón enviar */
   .form-btn-row {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    height: auto !important;
-    margin-top: 24px !important;
+    margin-top: 18px !important;
     margin-bottom: 0 !important;
+    width: 100% !important;
   }
   .form-btn-row .btn-main.gradient-btn {
     display: inline-block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    background: linear-gradient(90deg,#2ed47a 0%,#3bb6ff 100%) !important;
-    color: #fff !important;
+    margin: 0 auto !important;
+    min-width: 120px !important;
+    padding: 10px 48px !important;
     border-radius: 8px !important;
     font-size: 1.18rem !important;
     font-weight: 600 !important;
+    background: linear-gradient(90deg,#2ed47a 0%,#3bb6ff 100%) !important;
+    color: #fff !important;
     border: none !important;
     box-shadow: none !important;
-    padding: 10px 48px !important;
-    min-width: 120px !important;
-    margin: 0 auto !important;
   }
 }
 
