@@ -1,6 +1,9 @@
 /* Importar Montserrat */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
 
+/* =====================
+   GLOBAL STYLES & RESETS
+   ===================== */
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +16,9 @@ body {
   line-height: 1.6;
 }
 
+/* =====================
+   HERO, HEADER, NAVIGATION
+   ===================== */
 .header {
   display: flex;
   justify-content: space-between;
@@ -193,6 +199,9 @@ body {
   box-shadow: none !important;
 }
 
+/* =====================
+   SECTIONS: EXPERTOS, BIGNUMBERS, AREAS, LATAM, ENFOQUE
+   ===================== */
 .expertos {
   background: #f8f8f8;
   padding: 70px 7vw 40px 7vw;
@@ -509,6 +518,9 @@ body {
   font-size: 1rem;
 }
 
+/* =====================
+   TESTIMONIOS
+   ===================== */
 .testimonio {
   background-image: url('../img/fondosps.png');
   background-size: cover;
@@ -669,6 +681,9 @@ body {
   box-shadow: 0 2px 12px rgba(229,57,53,0.08);
 }
 
+/* =====================
+   FOOTER
+   ===================== */
 .footer {
   width: 100vw;
   min-width: 100vw;
@@ -785,6 +800,125 @@ body {
   align-items: center;
   justify-content: flex-start;
 }
+@media (max-width: 700px) {
+  .footer__social {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}
+
+/* =====================
+   MEDIA QUERIES
+   ===================== */
+@media (max-width: 900px) {
+  .bignumbers__container {
+    flex-direction: column;
+    gap: 28px;
+    align-items: center;
+  }
+  .bignumbers__item {
+    min-width: 220px;
+    max-width: 95vw;
+    padding: 28px 12px 24px 12px;
+  }
+  .bignumbers {
+    padding: 32px 0;
+  }
+  .bignumbers__number {
+    font-size: 2.1rem;
+  }
+  .bignumbers__desc {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .testimonio-text {
+    font-size: 1.2rem;
+  }
+  .testimonio-carousel {
+    padding: 16px 0;
+  }
+  .testimonio-arrow {
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 700px) {
+  .latam {
+    padding: 38px 4vw 38px 4vw;
+    min-height: 320px;
+  }
+  .latam__content h2 {
+    font-size: 1.5rem;
+  }
+  .latam__content p {
+    font-size: 1rem;
+  }
+  .latam__content .btn {
+    font-size: 1rem;
+    padding: 10px 22px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .expertos__content, .latam, .areas__cards, .enfoque__cards, .footer__content {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  .latam {
+    margin: 40px 0;
+  }
+  .hero__circle {
+    width: 117vw;
+    max-width: 117vw;
+  }
+  .hero__content h1 {
+    font-size: 2.1rem;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 600px) {
+  .oportunidades-form .form-img-wrap {
+    max-width: 100% !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  .oportunidades-form .form-img {
+    max-width: 70% !important;
+    width: 70% !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  .area-card .btn {
+    align-self: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+  }
+  .bignumbers__item {
+    width: 90vw !important;
+    min-width: 0 !important;
+    max-width: 90vw !important;
+    height: 180px !important;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .expertos__text .btn {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    align-self: center !important;
+  }
+}
+
 @media (max-width: 700px) {
   .footer__social {
     flex-direction: column;

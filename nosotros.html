@@ -5,17 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Nosotros | Sapiens Digital Lab</title>
+    <meta name="description" content="Conoce a Sapiens Digital Lab, expertos en outsourcing digital y vinculación de talentos digitales con proyectos de transformación.">
+    <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
 </head>
 <body style="background:#fff;">
     <!-- Header igual que index -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="header__logo" style="justify-content: flex-start;">
-            <img src="img/logo-sapiens.png" alt="Sapiens Digital Lab">
+            <img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" loading="lazy">
         </div>
         <button class="menu-toggle" aria-label="Abrir menú" style="background:none;border:none;outline:none;cursor:pointer;">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
             <rect y="7" width="32" height="3" rx="1.5" fill="#222"/>
             <rect y="14.5" width="32" height="3" rx="1.5" fill="#222"/>
             <rect y="22" width="32" height="3" rx="1.5" fill="#222"/>
@@ -24,7 +26,7 @@
         <button class="menu-close" aria-label="Cerrar menú" style="background:none;border:none;outline:none;cursor:pointer;display:none;position:fixed;top:16px;right:16px;z-index:10000;font-size:2rem;line-height:1;">
           &times;
         </button>
-        <nav class="header__nav">
+        <nav class="header__nav" role="navigation" aria-label="Menú principal">
             <ul>
                 <li><a href="index.html#inicio">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
@@ -32,9 +34,9 @@
                 <li><a href="#contacto" class="btn-header"><img src="img/Contactanos.png" alt="Contáctanos" style="height:38px;vertical-align:middle;"></a></li>
             </ul>
         </nav>
-        <div class="mobile-menu">
+        <div class="mobile-menu" aria-label="Menú móvil" tabindex="-1">
           <ul style="list-style:none;padding:6px 0 4px 0;margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:2px;border:1.5px solid #ddd;border-radius:10px;background:#fff;">
-            <li style="margin-bottom:4px;"><img src="img/logo-sapiens.png" alt="Sapiens Digital Lab" style="height:38px;"></li>
+            <li style="margin-bottom:4px;"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" style="height:38px;"></li>
             <li><a href="index.html#inicio">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="oportunidades.html">Oportunidades</a></li>
@@ -43,6 +45,7 @@
         </div>
     </header>
     <!-- Hero principal -->
+    <main id="main-content">
     <section class="hero" style="background-color:#ffffff !important;background-image:url('img/bg-nosotros.png');background-size:cover;background-position:center;min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:75px 0 50px 0;filter:none;opacity:1;">
         <h1 class="hero__title" style="font-size:3.75rem;font-weight:700;color:#3AC37B;margin-bottom:10px;">Somos Sapiens</h1>
         <div class="hero__subtitle" style="font-size:1.88rem;color:#888;">Talento + Oportunidades</div>
