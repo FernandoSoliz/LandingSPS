@@ -69,21 +69,7 @@
         margin: 48px 0 32px 0; 
     }
     
-    /* Search Bar */
-    .search-bar { 
-        display: flex; 
-        gap: 12px; 
-        max-width: 900px; 
-        margin: 0 auto 32px auto; 
-    }
-    .search-bar input, 
-    .search-bar select { 
-        border-radius: 8px; 
-        border: 1px solid #ddd; 
-        padding: 10px 14px; 
-        font-size: 1rem; 
-    }
-    .search-bar select { color: #666; font-weight: 400; }
+
     
     /* Job Cards */
     .cards-list { 
@@ -305,7 +291,7 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="oportunidades.html">Oportunidades</a></li>
-                <li><a href="contrata-talento.html" class="btn-header"><img src="img/Contactanos.png" alt="Contáctanos" style="height:38px;vertical-align:middle;"></a></li>
+                <li><a href="contrata-talento.html" class="btn-header"><img src="img/contratatalento.png" alt="Contrata Talento" style="height:38px;vertical-align:middle;"></a></li>
             </ul>
         </nav>
         <div class="mobile-menu" aria-label="Menú móvil" tabindex="-1">
@@ -314,7 +300,7 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="oportunidades.html">Oportunidades</a></li>
-            <li><a href="contrata-talento.png"><img src="img/Contactanos.png" alt="Contáctanos" style="height:38px;vertical-align:middle;"></a></li>
+                            <li><a href="contrata-talento.html"><img src="img/contratatalento.png" alt="Contrata Talento" style="height:38px;vertical-align:middle;"></a></li>
           </ul>
         </div>
     </header>
@@ -325,34 +311,14 @@
         <div class="hero__subtitle">Tu futuro profesional ahora</div>
         <div class="hero__buttons">
             <a href="#form-cv"><img src="img/envianosboton.png" alt="Envíanos tu CV" style="height:50px;vertical-align:middle;"></a>
-            <a href="#"><img src="img/siguenosboton.png" alt="Síguenos en LinkedIn" style="height:50px;vertical-align:middle;"></a>
+            <a href="https://www.linkedin.com/company/82234284" target="_blank" rel="noopener"><img src="img/siguenosboton.png" alt="Síguenos en LinkedIn" style="height:50px;vertical-align:middle;"></a>
         </div>
     </section>
     
     <!-- Convocatorias activas -->
     <section class="oportunidades-convocatorias">
         <h2 class="section-title">Convocatorias Activas</h2>
-        <div class="search-bar" style="display:flex;flex-direction:column;gap:8px;align-items:stretch;justify-content:center;margin-bottom:32px;">
-          <div style="display:flex;gap:10px;width:100%;">
-            <select class="search-select" style="flex:1;min-width:70px;max-width:50%;padding:8px 10px;border-radius:7px;border:1.2px solid #e0e0e0;font-size:0.98rem;">
-              <option value="">Área</option>
-              <option value="tecnologia">Tecnología</option>
-              <option value="marketing">Marketing</option>
-              <option value="diseño">Diseño</option>
-              <option value="otros">Otros</option>
-            </select>
-            <select class="search-select" style="flex:1;min-width:44px;max-width:50%;padding:8px 10px;border-radius:7px;border:1.2px solid #e0e0e0;font-size:0.98rem;">
-              <option value="">Modalidad</option>
-              <option value="remoto">Remoto</option>
-              <option value="hibrido">Híbrido</option>
-              <option value="presencial">Presencial</option>
-            </select>
-          </div>
-          <div style="display:flex;gap:10px;width:100%;margin-top:4px;">
-            <input type="text" class="search-input" placeholder="Buscar oportunidades" style="flex:2;min-width:48px;max-width:70%;padding:8px 10px;border-radius:7px;border:1.2px solid #e0e0e0;font-size:0.98rem;">
-            <button class="search-btn" style="padding:8px 18px;border-radius:7px;background:linear-gradient(90deg,#2ed47a 0%,#3bb6ff 100%);color:#fff;font-size:0.98rem;font-weight:600;border:none;">Buscar</button>
-          </div>
-        </div>
+
         <div id="vacantes-container" class="cards-list">
           <!-- Aquí se llenarán las vacantes dinámicamente con JS -->
         </div>
@@ -363,14 +329,14 @@
         <div class="form-img-wrap">
             <img class="form-img" src="img/form-cv.png" alt="Buscar expertos">
         </div>
-        <form class="form-fields">
+        <form class="form-fields" id="cv-form">
             <h3>Envía tu CV</h3>
-            <input class="input-field" type="text" placeholder="Nombre" required>
-            <input class="input-field" type="text" placeholder="Apellido" required>
-            <input class="input-field" type="email" placeholder="Correo electrónico" required>
-            <input class="input-field" type="text" placeholder="Área de especialización (Data, Digital o Agile)" required>
-            <input class="input-field" type="text" placeholder="Perfil de LinkedIn">
-            <button class="btn-main" type="submit">Enviar</button>
+            <input class="input-field" id="nombre" name="nombre" type="text" placeholder="Nombre" required>
+            <input class="input-field" id="apellido" name="apellido" type="text" placeholder="Apellido" required>
+            <input class="input-field" id="email" name="email" type="email" placeholder="Correo electrónico" required>
+            <input class="input-field" id="especializacion" name="especializacion" type="text" placeholder="Área de especialización (Data, Digital o Agile)" required>
+            <input class="input-field" id="linkedin" name="linkedin" type="text" placeholder="Perfil de LinkedIn">
+            <button class="btn-main" type="button" id="submit-btn">Enviar</button>
         </form>
     </section>
     </main>
@@ -381,7 +347,7 @@
           <h5>Contacto</h5>
           <div class="footer__contacto-datos">
             <span>Talento@sapiens.la</span>
-            <span>123-456-7890</span>
+            <span><a href="https://wa.me/51913804251" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">+51 913804251</a></span>
           </div>
         </div>
         <div class="footer__col footer__social-col">
@@ -449,9 +415,78 @@
     window.addEventListener('DOMContentLoaded', handleResize);
     </script>
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
+    // Inicializar EmailJS
+    (function() {
+      emailjs.init('Q0_hWQQnnmPEqYRwT');
+      console.log('EmailJS inicializado correctamente');
+    })();
+    
+    function mostrarPopup(mensaje, esExito) {
+      alert(mensaje);
+    }
+    
+    // Cargar vacantes y configurar formulario
     document.addEventListener('DOMContentLoaded', function() {
-      fetch('vacantes.csv')
+        // Configurar formulario de CV
+        const form = document.getElementById('cv-form');
+        const submitBtn = document.getElementById('submit-btn');
+        
+        if (form && submitBtn) {
+            console.log('Formulario encontrado, configurando event listeners');
+            
+            // Event listener principal al botón
+            submitBtn.addEventListener('click', function(e) {
+                console.log('Botón clickeado');
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Validar formulario
+                const nombre = document.getElementById('nombre').value;
+                const apellido = document.getElementById('apellido').value;
+                const email = document.getElementById('email').value;
+                const especializacion = document.getElementById('especializacion').value;
+                
+                if (!nombre || !apellido || !email || !especializacion) {
+                    alert('Por favor, completa todos los campos requeridos.');
+                    return;
+                }
+                
+                // Cambiar el texto del botón mientras se envía
+                submitBtn.textContent = 'Enviando...';
+                submitBtn.disabled = true;
+                
+                // Recopilar los datos del formulario
+                const formData = {
+                    nombre: nombre + ' ' + apellido,
+                    email: email,
+                    especializacion: especializacion,
+                    linkedin: document.getElementById('linkedin').value
+                };
+                
+                console.log('Enviando formulario con datos:', formData);
+                
+                // Enviar email usando EmailJS con la nueva plantilla para CV
+                emailjs.send('service_f73qp8z', 'template_r5k6euu', formData)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        mostrarPopup('¡Gracias! Tu CV ha sido enviado exitosamente. Nos pondremos en contacto contigo.', true);
+                        form.reset();
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        mostrarPopup('Ocurrió un error al enviar tu CV. Intenta nuevamente.', false);
+                    })
+                    .finally(function() {
+                        // Restaurar el botón
+                        submitBtn.textContent = 'Enviar';
+                        submitBtn.disabled = false;
+                    });
+            });
+        }
+        
+        // Cargar vacantes
+        fetch('vacantes.csv')
         .then(response => response.text())
         .then(csvText => {
           const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
