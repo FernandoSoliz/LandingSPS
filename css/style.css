@@ -1,3 +1,23 @@
+/* Aumentar tamaño de imágenes de áreas en escritorio (130%) */
+@media (min-width: 901px) {
+  .areas .area-card img {
+    max-width: 260px;
+    max-height: 260px;
+  }
+}
+
+/* En escritorio, ajustar imagen al mismo ancho del texto debajo (ancho del contenido) */
+@media (min-width: 901px) {
+  .areas .area-card-content {
+    max-width: 400px; /* ya definido arriba; se reafirma para claridad de layout */
+  }
+  .areas .area-card img {
+    width: 100%;        /* ocupar el mismo ancho que el texto */
+    max-width: 400px;   /* coincide con el ancho del bloque de texto */
+    height: auto;       /* mantener proporción */
+    max-height: none;   /* anular límite anterior para permitir el ancho completo */
+  }
+}
 /* Importar Montserrat */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
 
@@ -810,6 +830,18 @@ body {
   .form-col {
     min-width: 0 !important;
   }
+  /* Forzar contenedores de cada campo a ocupar 100% del ancho en desktop */
+  .form-fields > div,
+  .form-fields > .form-row,
+  .form-fields > .form-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .form-row .form-col {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+  }
 }
 /* --- FIN AJUSTE --- */
 
@@ -825,8 +857,8 @@ body {
   }
   .form-fields .input-field,
   .form-fields textarea.input-field {
-    width: 95% !important;
-    max-width: 95% !important;
+    width: 100% !important;
+    max-width: 100% !important;
     min-width: 0 !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
