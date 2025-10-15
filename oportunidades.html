@@ -564,24 +564,31 @@
 
         async function cargarVacantes() {
           const container = document.getElementById('vacantes-container');
+          container.innerHTML = '<p style="text-align:center;">Cargando...</p>';
           try {
             if (SHEET_ID && SHEET_ID !== 'REEMPLAZAR_CON_TU_SHEET_ID' && SHEET_NAME) {
               const url = buildGvizUrl(SHEET_ID, SHEET_NAME);
+              console.log('[Vacantes] Fetch gviz URL:', url);
               const res = await fetch(url, { cache: 'no-store' });
+              if (!res.ok) throw new Error('HTTP ' + res.status);
               const text = await res.text();
               const rows = parseGvizJSON(text);
-              // La primera fila debe ser encabezados; gviz ya separa headers en cols
+              if (!rows || rows.length === 0) throw new Error('GViz sin filas');
               renderVacantes(rows);
-            } else {
-              // Fallback a CSV local si no hay configuración
-              const csvText = await fetch('vacantes.csv').then(r => r.text());
-              const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
-              renderVacantes(parsed.data || []);
+              return;
             }
           } catch (e) {
-            console.error('Error cargando vacantes:', e);
-            container.innerHTML = '<p style="text-align:center;">No se pudo cargar la lista de vacantes.</p>';
+            console.warn('[Vacantes] Falla Google Sheets, usando CSV local:', e);
+            try {
+              const csvText = await fetch('vacantes.csv', { cache: 'no-store' }).then(r => r.text());
+              const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
+              renderVacantes(parsed.data || []);
+              return;
+            } catch (e2) {
+              console.error('[Vacantes] Falla CSV local:', e2);
+            }
           }
+          container.innerHTML = '<p style="text-align:center;">No se pudo cargar la lista de vacantes.</p>';
         }
 
         cargarVacantes();
