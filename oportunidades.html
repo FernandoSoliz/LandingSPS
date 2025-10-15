@@ -500,7 +500,12 @@
 
         function parseGvizJSON(text) {
           // gviz retorna: "/*O_o*/\ngoogle.visualization.Query.setResponse({...});"
-          const jsonStr = text.replace(/^.*setResponse\(/, '').replace(/\);?\s*$/, '');
+          const marker = 'setResponse(';
+          const start = text.indexOf(marker);
+          if (start === -1) throw new Error('Respuesta gviz sin setResponse');
+          const end = text.lastIndexOf(')');
+          if (end === -1 || end <= start) throw new Error('Respuesta gviz sin cierre )');
+          const jsonStr = text.substring(start + marker.length, end);
           const data = JSON.parse(jsonStr);
           const table = data.table;
           if (!table || !table.cols || !table.rows) return [];
