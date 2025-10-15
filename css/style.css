@@ -1,3 +1,12 @@
+/* --- Overrides finales: asegurar visibilidad del hero en móviles --- */
+@media (max-width: 700px) {
+  .hero {
+    display: flex !important;
+  }
+}
+
+/* checkpoint: 2025-10-15-landing-1 */
+
 /* Aumentar tamaño de imágenes de áreas en escritorio (130%) */
 @media (min-width: 901px) {
   .areas .area-card img {

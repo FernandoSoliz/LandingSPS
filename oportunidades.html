@@ -1,4 +1,5 @@
 <!-- flag15 -->
+<!-- checkpoint: 2025-10-15-landing-1 -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,6 +9,8 @@
     <meta name="description" content="Encuentra oportunidades laborales en tecnología, marketing y diseño en Sapiens Digital Lab. Postula y conecta con empresas líderes.">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
     <style>
     body { background: #fff; }
@@ -485,13 +488,53 @@
             });
         }
         
-        // Cargar vacantes
-        fetch('vacantes.csv')
-        .then(response => response.text())
-        .then(csvText => {
-          const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
-          const vacantes = parsed.data;
-          const activas = vacantes.filter(v => v.estado && v.estado.trim().toLowerCase() === 'activo');
+        // ===== Configuración Google Sheets (gviz) =====
+        const SHEET_ID = '1LfoeVRmnUdYxHyQLOR4LwOuPFWbRQX4W5rx9N3aUb0Q'; // provisto por el usuario
+        const SHEET_NAME = 'vacantes'; // nombre de la hoja (pestaña)
+
+        function buildGvizUrl(sheetId, sheetName) {
+          const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq`;
+          const params = new URLSearchParams({ tqx: 'out:json', sheet: sheetName });
+          return `${base}?${params.toString()}`;
+        }
+
+        function parseGvizJSON(text) {
+          // gviz retorna: "/*O_o*/\ngoogle.visualization.Query.setResponse({...});"
+          const jsonStr = text.replace(/^.*setResponse\(/, '').replace(/\);?\s*$/, '');
+          const data = JSON.parse(jsonStr);
+          const table = data.table;
+          if (!table || !table.cols || !table.rows) return [];
+          const headers = table.cols.map(c => (c && (c.label || c.id) || '').toString().trim());
+          const rows = table.rows.map(r => (r.c || []).map(cell => (cell && (cell.v != null ? cell.v : ''))));
+          return rows.map(arr => {
+            const obj = {};
+            headers.forEach((h, i) => {
+              if (!h) return;
+              const key = h.toString().trim().toLowerCase();
+              obj[key] = arr[i] != null ? arr[i] : '';
+            });
+            return obj;
+          });
+        }
+
+        function normalizarVacante(v) {
+          // Asegurar claves esperadas por el render
+          return {
+            perfil: v.perfil || v['puesto'] || v['titulo'] || '',
+            cliente: v.cliente || v['empresa'] || '',
+            ubicacion: v.ubicacion || v['ubicación'] || '',
+            modalidad: v.modalidad || '',
+            detalle: v.detalle || v['descripcion'] || v['descripción'] || '',
+            fecha: v.fecha || '',
+            url: v.url || v['link'] || v['enlace'] || '',
+            estado: (v.estado || '').toString()
+          };
+        }
+
+        function renderVacantes(vacantes) {
+          const activas = vacantes
+            .map(normalizarVacante)
+            .filter(v => v.estado && v.estado.toString().trim().toLowerCase() === 'activo');
           const container = document.getElementById('vacantes-container');
           container.innerHTML = '';
           if (activas.length === 0) {
@@ -517,11 +560,31 @@
             `;
             container.appendChild(card);
           });
-        })
-        .catch(err => {
+        }
+
+        async function cargarVacantes() {
           const container = document.getElementById('vacantes-container');
-          container.innerHTML = '<p style="text-align:center;">No se pudo cargar la lista de vacantes.</p>';
-        });
+          try {
+            if (SHEET_ID && SHEET_ID !== 'REEMPLAZAR_CON_TU_SHEET_ID' && SHEET_NAME) {
+              const url = buildGvizUrl(SHEET_ID, SHEET_NAME);
+              const res = await fetch(url, { cache: 'no-store' });
+              const text = await res.text();
+              const rows = parseGvizJSON(text);
+              // La primera fila debe ser encabezados; gviz ya separa headers en cols
+              renderVacantes(rows);
+            } else {
+              // Fallback a CSV local si no hay configuración
+              const csvText = await fetch('vacantes.csv').then(r => r.text());
+              const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
+              renderVacantes(parsed.data || []);
+            }
+          } catch (e) {
+            console.error('Error cargando vacantes:', e);
+            container.innerHTML = '<p style="text-align:center;">No se pudo cargar la lista de vacantes.</p>';
+          }
+        }
+
+        cargarVacantes();
     });
     </script>
 </body>
