@@ -205,12 +205,35 @@
         detalle: '',
         acciones: ''
       };
-      emailjs.send('service_f73qp8z', 'template_aw0qmk9', formData)
-        .then(function(response) {
-          mostrarPopup('¡Gracias! Nos pondremos en contacto contigo lo más antes.', true);
-          form.reset();
-        }, function(error) {
-          mostrarPopup('Ocurrió un error al enviar el mensaje. Intenta nuevamente.', false);
+
+      // Enviar datos a Google Sheets (Empresas)
+      const sheetsRequest = fetch('https://script.google.com/macros/s/AKfycbyXMH6A6tkATMHqG15l5BDTHbC_yo2-0_NTaZQETEYq_ro_9dcIICDjJ6MkzhZnBPDCfQ/exec', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre: formData.nombre,
+          empresa: formData.empresa,
+          telefono: formData.telefono,
+          email: formData.email,
+          mensaje: formData.mensaje
+        })
+      }).catch(function(err) {
+        console.error('Error enviando a Google Sheets (Empresas):', err);
+      });
+
+      // Enviar correo con plantilla genérica
+      const emailRequest = emailjs.send('service_f73qp8z', 'template_aw0qmk9', formData);
+
+      Promise.allSettled([sheetsRequest, emailRequest])
+        .then(function(results) {
+          const emailResult = results[1];
+          if (emailResult.status === 'fulfilled') {
+            mostrarPopup('¡Gracias! Nos pondremos en contacto contigo lo más antes.', true);
+            form.reset();
+          } else {
+            console.error('Error al enviar email:', emailResult.reason);
+            mostrarPopup('Ocurrió un error al enviar el mensaje. Intenta nuevamente.', false);
+          }
         });
     });
     document.getElementById('scrollToTopBtn').onclick = function() {

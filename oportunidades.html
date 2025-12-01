@@ -473,9 +473,18 @@
                 };
                 
                 console.log('Enviando formulario con datos:', formData);
+
+                // Enviar datos a Google Sheets (Talentos)
+                const sheetsRequest = fetch('https://script.google.com/macros/s/AKfycbxQY-hQHvI9TRpQFWF0xOYbR0GQ5RtS9YVNOD8DFqf39tYQF6hoGD54i6d4EDp21wbS/exec', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                }).catch(err => {
+                    console.error('Error enviando a Google Sheets:', err);
+                });
                 
                 // Enviar email usando plantilla genérica compartida
-                emailjs.send('service_f73qp8z', 'template_aw0qmk9', {
+                const emailRequest = emailjs.send('service_f73qp8z', 'template_aw0qmk9', {
                         tipo_formulario: 'Busco trabajo en Sapiens',
                         origen: 'Formulario Oportunidades',
                         nombre: formData.nombre,
@@ -488,26 +497,31 @@
                         servicio: '',
                         detalle: '',
                         acciones: ''
-                    })
-                    .then(function(response) {
-                        console.log('SUCCESS!', response.status, response.text);
-                        mostrarPopup('¡Gracias! Tu CV ha sido enviado exitosamente. Nos pondremos en contacto contigo.', true);
-                        form.reset();
-                    }, function(error) {
-                        console.log('FAILED...', error);
-                        mostrarPopup('Ocurrió un error al enviar tu CV. Intenta nuevamente.', false);
-                    })
-                    .finally(function() {
-                        // Restaurar el botón
-                        submitBtn.textContent = 'Enviar';
-                        submitBtn.disabled = false;
                     });
+
+                Promise.allSettled([sheetsRequest, emailRequest])
+                  .then(function(results) {
+                    const emailResult = results[1];
+                    if (emailResult.status === 'fulfilled') {
+                      console.log('Email enviado correctamente');
+                      mostrarPopup('¡Gracias! Tu CV ha sido enviado exitosamente. Nos pondremos en contacto contigo.', true);
+                      form.reset();
+                    } else {
+                      console.error('Error al enviar email:', emailResult.reason);
+                      mostrarPopup('Ocurrió un error al enviar tu CV. Intenta nuevamente.', false);
+                    }
+                  })
+                  .finally(function() {
+                    // Restaurar el botón
+                    submitBtn.textContent = 'Enviar';
+                    submitBtn.disabled = false;
+                  });
             });
         }
         
         // ===== Configuración Google Sheets (gviz) =====
         const SHEET_ID = '1LfoeVRmnUdYxHyQLOR4LwOuPFWbRQX4W5rx9N3aUb0Q'; // provisto por el usuario
-        const SHEET_NAME = 'vacantes'; // nombre de la hoja (pestaña)
+        const SHEET_NAME = 'Sapiens - Vacantes'; // nuevo nombre de la hoja (pestaña)
 
         function buildGvizUrl(sheetId, sheetName) {
           const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq`;

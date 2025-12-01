@@ -445,14 +445,51 @@
         empresa: ''
       };
 
-      // Usar plantilla genérica compartida
-      emailjs.send('service_f73qp8z', 'template_aw0qmk9', data)
-        .then(function() {
-          mostrarPopupReclamo('Se ha enviado de forma exitosa.<br>Una copia de su queja se ha enviado<br>a su correo electrónico');
-          form.reset();
+      // Enviar datos a Google Sheets (Reclamos)
+      const sheetsRequest = fetch('https://script.google.com/macros/s/AKfycbzRcVcUrJic-sGq7GuTEDDGZscZgrvp2Hdcrp2LW7npqFymOcr4_-GKXmQtqbov1awE/exec', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          hoja: data.hoja,
+          codigo: data.codigo,
+          nombre: data.nombre,
+          dni: data.dni,
+          email: data.email,
+          telefono: data.telefono,
+          direccion: data.direccion,
+          ciudad: data.ciudad,
+          distrito: data.distrito,
+          fecha_inconveniente: data.fecha_inconveniente,
+          fecha_reclamo: data.fecha_reclamo,
+          rep_nombre: data.rep_nombre,
+          rep_dni: data.rep_dni,
+          rep_email: data.rep_email,
+          rep_telefono: data.rep_telefono,
+          rep_direccion: data.rep_direccion,
+          rep_ciudad: data.rep_ciudad,
+          rep_distrito: data.rep_distrito,
+          servicio: data.servicio,
+          detalle: data.detalle,
+          acciones: data.acciones,
+          firma_texto: data.firma_texto
         })
-        .catch(function() {
-          mostrarPopupReclamo('Ocurrió un error al enviar tu reclamo. Intenta nuevamente o escríbenos a Talento@sapiens.la.');
+      }).catch(function(err) {
+        console.error('Error enviando a Google Sheets (Reclamos):', err);
+      });
+
+      // Enviar correo con plantilla genérica compartida
+      const emailRequest = emailjs.send('service_f73qp8z', 'template_aw0qmk9', data);
+
+      Promise.allSettled([sheetsRequest, emailRequest])
+        .then(function(results) {
+          const emailResult = results[1];
+          if (emailResult.status === 'fulfilled') {
+            mostrarPopupReclamo('Se ha enviado de forma exitosa.<br>Una copia de su queja se ha enviado<br>a su correo electrónico');
+            form.reset();
+          } else {
+            console.error('Error al enviar email:', emailResult.reason);
+            mostrarPopupReclamo('Ocurrió un error al enviar tu reclamo. Intenta nuevamente o escríbenos a Talento@sapiens.la.');
+          }
         })
         .finally(function() {
           btn.textContent = 'Enviar reclamo';
