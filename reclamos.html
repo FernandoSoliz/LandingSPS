@@ -1,0 +1,512 @@
+<!-- flag15 -->
+<!-- checkpoint: 2025-12-01-landing-reclamos -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Reclamos | Sapiens Digital Lab</title>
+    <meta name="description" content="Registra tus reclamos, quejas o sugerencias sobre los servicios de Sapiens Digital Lab. Te responderemos a la brevedad.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background:#f5f5f5;
+      }
+      .reclamos-page {
+        max-width: 960px;
+        margin: 32px auto 56px auto;
+        padding: 0 16px 40px 16px;
+      }
+      .reclamos-title {
+        text-align:center;
+        font-size:2rem;
+        font-weight:700;
+        margin-bottom:16px;
+      }
+      .reclamos-card {
+        background:#ffffff;
+        border-radius:18px;
+        border:1px solid #e5e7eb;
+        padding:28px 26px 28px 26px;
+        box-shadow:0 4px 16px rgba(0,0,0,0.05);
+      }
+      .reclamos-company {
+        font-size:0.9rem;
+        margin-bottom:8px;
+      }
+      .reclamos-company strong {
+        display:block;
+        font-size:1rem;
+      }
+      .reclamos-top-row {
+        display:flex;
+        justify-content:space-between;
+        align-items:flex-start;
+        font-size:0.85rem;
+        margin-top:6px;
+        margin-bottom:12px;
+        gap:16px;
+        flex-wrap:wrap;
+      }
+      .reclamos-top-row span {
+        white-space:nowrap;
+      }
+      .reclamos-section-title {
+        font-size:0.95rem;
+        font-weight:600;
+        margin:14px 0 6px 0;
+      }
+      .reclamos-row {
+        display:flex;
+        gap:14px;
+        flex-wrap:wrap;
+        margin-bottom:10px;
+      }
+      .reclamos-col {
+        flex:1 1 180px;
+        min-width:0;
+      }
+      .reclamos-label {
+        display:block;
+        font-size:0.85rem;
+        margin-bottom:4px;
+        color:#444;
+      }
+      .reclamos-input,
+      .reclamos-select,
+      .reclamos-textarea {
+        width:100%;
+        border-radius:8px;
+        border:1px solid #ddd;
+        padding:9px 11px;
+        font-size:0.9rem;
+        box-sizing:border-box;
+      }
+      .reclamos-textarea {
+        min-height:110px;
+        resize:vertical;
+      }
+      .reclamos-aviso-menor {
+        font-size:0.82rem;
+        color:#555;
+        background:#fafafa;
+        border-radius:6px;
+        padding:8px 10px;
+        margin:4px 0 10px 0;
+      }
+      .reclamos-aviso-final {
+        font-size:0.75rem;
+        color:#777;
+        margin-top:8px;
+      }
+      .reclamos-firma-row {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:14px;
+        flex-wrap:wrap;
+        margin-top:12px;
+      }
+      .reclamos-banner-wrap {
+        width:100%;
+        margin:0;
+        padding:0;
+      }
+      .reclamos-banner {
+        width:100%;
+        max-width:100%;
+        display:block;
+      }
+      .reclamos-btn-row {
+        display:flex;
+        justify-content:center;
+        margin-top:18px;
+      }
+      .reclamos-btn {
+        background:#3AC37B;
+        color:#fff;
+        border-radius:18px;
+        padding:10px 32px;
+        font-size:0.98rem;
+        border:none;
+        font-weight:600;
+        cursor:pointer;
+        transition:background 0.2s,opacity 0.2s;
+      }
+      .reclamos-btn:hover {
+        background:#2fa36a;
+      }
+      @media (max-width: 768px) {
+        .reclamos-card {
+          padding:20px 14px;
+        }
+        .reclamos-top-row {
+          flex-direction:column;
+          align-items:flex-start;
+        }
+      }
+    </style>
+</head>
+<body>
+    <!-- Header igual que las otras páginas -->
+    <header class="header" role="banner">
+        <div class="header__logo" style="justify-content: flex-start;">
+            <img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" loading="lazy">
+        </div>
+        <button class="menu-toggle" aria-label="Abrir menú" style="background:none;border:none;outline:none;cursor:pointer;">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <rect y="7" width="32" height="3" rx="1.5" fill="#222"/>
+            <rect y="14.5" width="32" height="3" rx="1.5" fill="#222"/>
+            <rect y="22" width="32" height="3" rx="1.5" fill="#222"/>
+          </svg>
+        </button>
+        <button class="menu-close" aria-label="Cerrar menú" style="background:none;border:none;outline:none;cursor:pointer;display:none;position:fixed;top:16px;right:16px;z-index:10000;font-size:2rem;line-height:1;">
+          &times;
+        </button>
+        <nav class="header__nav" role="navigation" aria-label="Menú principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="oportunidades.html">Oportunidades</a></li>
+                <li><a href="contrata-talento.html" class="btn-header"><img src="img/contratatalento.png" alt="Contrata Talento" style="height:38px;vertical-align:middle;"></a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu" aria-label="Menú móvil" tabindex="-1">
+          <ul style="list-style:none;padding:6px 0 4px 0;margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:2px;border:1.5px solid #ddd;border-radius:10px;background:#fff;">
+            <li style="margin-bottom:4px;"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" style="height:38px;"></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="oportunidades.html">Oportunidades</a></li>
+            <li><a href="contrata-talento.html"><img src="img/contratatalento.png" alt="Contrata Talento" style="height:38px;vertical-align:middle;"></a></li>
+          </ul>
+        </div>
+    </header>
+
+    <div class="reclamos-banner-wrap">
+      <img src="img/banerreclamos.png" alt="Libro de reclamaciones" class="reclamos-banner">
+    </div>
+
+    <main id="main-content">
+      <div class="reclamos-page">
+        <h1 class="reclamos-title">Completa tus datos</h1>
+        <div class="reclamos-card">
+          <div class="reclamos-company">
+            <strong>Sapiens Digital Sac</strong>
+            RUC: 206086401958<br>
+            Dirección: AV. LAS CAMELIAS NRO. 877 INT. 302 URB. SANTA CRUZ LIMA - LIMA - SAN ISIDRO
+          </div>
+          <div class="reclamos-top-row">
+            <span>Hoja N° <input class="reclamos-input" id="rec_hoja" name="rec_hoja" type="text" style="width:110px;display:inline-block;" readonly></span>
+            <span>Código de identificación: <input class="reclamos-input" id="rec_codigo" name="rec_codigo" type="text" style="width:120px;display:inline-block;" readonly></span>
+          </div>
+
+          <form id="reclamoForm">
+            <div class="reclamos-section-title">Datos del reclamante</div>
+            <div class="reclamos-row">
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rec_nombre">Nombre</label>
+                <input class="reclamos-input" id="rec_nombre" name="rec_nombre" type="text" required>
+              </div>
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rec_apellido">Apellido</label>
+                <input class="reclamos-input" id="rec_apellido" name="rec_apellido" type="text" required>
+              </div>
+            </div>
+            <div class="reclamos-row">
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rec_dni">DNI</label>
+                <input class="reclamos-input" id="rec_dni" name="rec_dni" type="text" required>
+              </div>
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rec_telefono">Número de teléfono</label>
+                <input class="reclamos-input" id="rec_telefono" name="rec_telefono" type="text" required>
+              </div>
+            </div>
+            <div class="reclamos-row">
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rec_email">Correo</label>
+                <input class="reclamos-input" id="rec_email" name="rec_email" type="email" required>
+              </div>
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rec_direccion">Dirección</label>
+                <input class="reclamos-input" id="rec_direccion" name="rec_direccion" type="text" required>
+              </div>
+            </div>
+            <div class="reclamos-row">
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rec_ciudad">Ciudad</label>
+                <input class="reclamos-input" id="rec_ciudad" name="rec_ciudad" type="text" required>
+              </div>
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rec_distrito">Distrito</label>
+                <input class="reclamos-input" id="rec_distrito" name="rec_distrito" type="text" required>
+              </div>
+            </div>
+            <div class="reclamos-row">
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rec_fecha_inconveniente">Fecha del inconveniente</label>
+                <input class="reclamos-input" id="rec_fecha_inconveniente" name="rec_fecha_inconveniente" type="date" required>
+              </div>
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rec_fecha_reclamo">Fecha del reclamo o queja</label>
+                <input class="reclamos-input" id="rec_fecha_reclamo" name="rec_fecha_reclamo" type="date" required>
+              </div>
+            </div>
+
+            <div class="reclamos-aviso-menor">
+              En caso se trate de un menor de edad, llenar con datos de uno de los padres o representantes del menor.
+            </div>
+
+            <div class="reclamos-section-title">Datos del padre, madre o representante (si aplica)</div>
+            <div class="reclamos-row">
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rep_nombre">Nombre</label>
+                <input class="reclamos-input" id="rep_nombre" name="rep_nombre" type="text">
+              </div>
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rep_apellido">Apellido</label>
+                <input class="reclamos-input" id="rep_apellido" name="rep_apellido" type="text">
+              </div>
+            </div>
+            <div class="reclamos-row">
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rep_dni">DNI</label>
+                <input class="reclamos-input" id="rep_dni" name="rep_dni" type="text">
+              </div>
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rep_telefono">Número de teléfono</label>
+                <input class="reclamos-input" id="rep_telefono" name="rep_telefono" type="text">
+              </div>
+            </div>
+            <div class="reclamos-row">
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rep_email">Correo</label>
+                <input class="reclamos-input" id="rep_email" name="rep_email" type="email">
+              </div>
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rep_direccion">Dirección</label>
+                <input class="reclamos-input" id="rep_direccion" name="rep_direccion" type="text">
+              </div>
+            </div>
+            <div class="reclamos-row">
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rep_ciudad">Ciudad</label>
+                <input class="reclamos-input" id="rep_ciudad" name="rep_ciudad" type="text">
+              </div>
+              <div class="reclamos-col">
+                <label class="reclamos-label" for="rep_distrito">Distrito</label>
+                <input class="reclamos-input" id="rep_distrito" name="rep_distrito" type="text">
+              </div>
+            </div>
+
+            <div class="reclamos-section-title">Servicio contratado</div>
+            <input class="reclamos-input" id="rec_servicio" name="rec_servicio" type="text" placeholder="Adquisición de talento, consultoría, etc." required>
+
+            <div class="reclamos-section-title">Detalle su reclamo</div>
+            <textarea class="reclamos-textarea" id="rec_detalle" name="rec_detalle" placeholder="Lo sucedido fue..." required></textarea>
+
+            <div class="reclamos-section-title">Acciones que tomó la empresa al respecto</div>
+            <textarea class="reclamos-textarea" id="rec_acciones" name="rec_acciones" placeholder="Describe las acciones que tomó la empresa, si las hubiera."></textarea>
+
+            <div class="reclamos-section-title">Firma del reclamante</div>
+            <div class="reclamos-firma-row">
+              <div style="flex:1 1 200px;min-width:0;">
+                <label class="reclamos-label" for="rec_firma_texto">Escribe tu nombre completo</label>
+                <input class="reclamos-input" id="rec_firma_texto" name="rec_firma_texto" type="text" required>
+              </div>
+            </div>
+
+            <div class="reclamos-aviso-final">
+              Al enviar este formulario, autorizas el uso de tus datos para contactarte y dar seguimiento a tu solicitud, de acuerdo con nuestra política de privacidad.
+            </div>
+
+            <div class="reclamos-btn-row">
+              <button class="reclamos-btn" type="submit" id="reclamoSubmit">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Popup de confirmación estilo tarjeta -->
+    <div id="reclamoPopup" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.35);z-index:9999;align-items:center;justify-content:center;">
+      <div style="background:linear-gradient(#00C853,#00B0FF);padding:2px;border-radius:18px;max-width:420px;width:90%;box-shadow:0 4px 24px rgba(0,0,0,0.18);">
+        <div style="background:#ffffff;border-radius:16px;padding:24px 18px;font-size:1rem;text-align:center;color:#111;">
+          <span id="reclamoPopupMsg" style="font-weight:600;display:block;line-height:1.4;">
+            Se ha enviado de forma exitosa.<br>Una copia de su queja se ha enviado<br>a su correo electrónico
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer igual que otras páginas internas -->
+    <div class="footer__bottom" style="position:relative;">
+      <div class="footer__content">
+        <div class="footer__col footer__contacto">
+          <h5>Contacto</h5>
+          <div class="footer__contacto-datos">
+            <span>Talento@sapiens.la</span>
+            <span><a href="https://wa.me/51913804251" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">+51 913804251</a></span>
+          </div>
+        </div>
+        <div class="footer__col footer__social-col">
+          <h5>Síguenos</h5>
+          <div class="footer__social">
+            <a href="https://www.linkedin.com/company/sapiens-la" target="_blank"><img src="img/botonlinkedin.png" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com/sapiens_la/" target="_blank"><img src="img/bottoning.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com/@SapiensDigitalLab" target="_blank"><img src="img/botonyt.png" alt="YouTube"></a>
+          </div>
+        </div>
+      </div>
+      <img id="scrollToTopBtn" src="img/botonscroll.png" alt="Volver arriba" style="position:absolute; right:20px; top:20px; height:60px; width:60px; cursor:pointer;">
+      <span style="display:block; width:100%; text-align:center; margin-top:24px; color:#222;">© 2025 by Sapiens Digital Lab</span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+    (function() {
+      emailjs.init('Q0_hWQQnnmPEqYRwT');
+    })();
+
+    function mostrarPopupReclamo(mensaje) {
+      var popup = document.getElementById('reclamoPopup');
+      var msg = document.getElementById('reclamoPopupMsg');
+      msg.innerHTML = mensaje;
+      popup.style.display = 'flex';
+      setTimeout(function() {
+        popup.style.display = 'none';
+      }, 7000);
+    }
+
+    // Generar número correlativo de 6 dígitos (000001, 000002, ...)
+    function getNextCorrelativo() {
+      try {
+        const key = 'sapiensReclamoCorrelativo';
+        let current = parseInt(localStorage.getItem(key) || '0', 10);
+        if (isNaN(current) || current < 0) current = 0;
+        const next = current + 1;
+        localStorage.setItem(key, String(next));
+        return String(next).padStart(6, '0');
+      } catch (e) {
+        // Si localStorage falla, usar 000001 siempre
+        return '000001';
+      }
+    }
+
+    function inicializarCorrelativos() {
+      const hojaInput = document.getElementById('rec_hoja');
+      const codigoInput = document.getElementById('rec_codigo');
+      if (!hojaInput || !codigoInput) return;
+      const correlativo = getNextCorrelativo();
+      hojaInput.value = correlativo;
+      codigoInput.value = correlativo;
+    }
+
+    document.addEventListener('DOMContentLoaded', inicializarCorrelativos);
+
+    document.getElementById('reclamoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = this;
+      const btn = document.getElementById('reclamoSubmit');
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+
+      const data = {
+        tipo_formulario: 'Reclamo / Queja / Sugerencia',
+        origen: 'Formulario Libro de Reclamaciones',
+        hoja: form.rec_hoja.value,
+        codigo: form.rec_codigo.value,
+        nombre: form.rec_nombre.value + ' ' + form.rec_apellido.value,
+        dni: form.rec_dni.value,
+        email: form.rec_email.value,
+        telefono: form.rec_telefono.value,
+        direccion: form.rec_direccion.value,
+        ciudad: form.rec_ciudad.value,
+        distrito: form.rec_distrito.value,
+        fecha_inconveniente: form.rec_fecha_inconveniente.value,
+        fecha_reclamo: form.rec_fecha_reclamo.value,
+        rep_nombre: form.rep_nombre.value + ' ' + form.rep_apellido.value,
+        rep_dni: form.rep_dni.value,
+        rep_email: form.rep_email.value,
+        rep_telefono: form.rep_telefono.value,
+        rep_direccion: form.rep_direccion.value,
+        rep_ciudad: form.rep_ciudad.value,
+        rep_distrito: form.rep_distrito.value,
+        servicio: form.rec_servicio.value,
+        detalle: form.rec_detalle.value,
+        acciones: form.rec_acciones.value,
+        firma_texto: form.rec_firma_texto.value,
+        especializacion: '',
+        linkedin: '',
+        empresa: ''
+      };
+
+      // Usar plantilla genérica compartida
+      emailjs.send('service_f73qp8z', 'template_aw0qmk9', data)
+        .then(function() {
+          mostrarPopupReclamo('Se ha enviado de forma exitosa.<br>Una copia de su queja se ha enviado<br>a su correo electrónico');
+          form.reset();
+        })
+        .catch(function() {
+          mostrarPopupReclamo('Ocurrió un error al enviar tu reclamo. Intenta nuevamente o escríbenos a Talento@sapiens.la.');
+        })
+        .finally(function() {
+          btn.textContent = 'Enviar reclamo';
+          btn.disabled = false;
+        });
+    });
+
+    // Scroll to top
+    document.getElementById('scrollToTopBtn').onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    // Mobile menu toggle (copiado de otras páginas)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuClose = document.querySelector('.menu-close');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const nav = document.querySelector('.header__nav');
+
+    function closeMobileMenu() {
+      mobileMenu.style.display = 'none';
+      menuClose.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function openMobileMenu() {
+      mobileMenu.style.display = 'block';
+      menuClose.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    menuToggle.addEventListener('click', function() {
+      openMobileMenu();
+    });
+    menuClose.addEventListener('click', function() {
+      closeMobileMenu();
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    function handleResize() {
+      if (window.innerWidth <= 600) {
+        nav.style.display = 'none';
+        closeMobileMenu();
+      } else {
+        nav.style.display = 'block';
+        menuClose.style.display = 'none';
+        closeMobileMenu();
+      }
+    }
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('DOMContentLoaded', handleResize);
+    </script>
+</body>
+</html>
+
+
