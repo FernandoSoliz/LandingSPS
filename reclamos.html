@@ -8,6 +8,7 @@
     <title>Reclamos | Sapiens Digital Lab</title>
     <meta name="description" content="Registra tus reclamos, quejas o sugerencias sobre los servicios de Sapiens Digital Lab. Te responderemos a la brevedad.">
     <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="img/favisapiens.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -150,12 +151,21 @@
         }
       }
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2FY991FT1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-D2FY991FT1');
+    </script>
 </head>
 <body>
     <!-- Header igual que las otras páginas -->
     <header class="header" role="banner">
         <div class="header__logo" style="justify-content: flex-start;">
-            <img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" loading="lazy">
+            <a href="index.html"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" loading="lazy"></a>
         </div>
         <button class="menu-toggle" aria-label="Abrir menú" style="background:none;border:none;outline:none;cursor:pointer;">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -172,7 +182,7 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="oportunidades.html">Oportunidades</a></li>
-                <li><a href="contrata-talento.html" class="btn-header"><img src="img/contratatalento.png" alt="Contrata Talento" style="height:38px;vertical-align:middle;"></a></li>
+                <li><a href="contrata-talento.html" class="btn-header btn-contrata-talento">Contrata un talento →</a></li>
             </ul>
         </nav>
         <div class="mobile-menu" aria-label="Menú móvil" tabindex="-1">
@@ -181,7 +191,7 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="oportunidades.html">Oportunidades</a></li>
-            <li><a href="contrata-talento.html"><img src="img/contratatalento.png" alt="Contrata Talento" style="height:38px;vertical-align:middle;"></a></li>
+            <li><a href="contrata-talento.html" class="btn-contrata-talento-mobile">Contrata un talento →</a></li>
           </ul>
         </div>
     </header>
@@ -343,7 +353,17 @@
       </div>
     </div>
 
-    <!-- Footer igual que otras páginas internas -->
+    <!-- Footer igual que index -->
+    <div class="footer__main">
+      <div class="footer-main-content">
+        <div class="footer-main-texto">
+          <h2>¿Algún proyecto <br>en mente?</h2>
+        </div>
+        <div class="footer-main-boton">
+          <a href="https://wa.me/51983447481" target="_blank" rel="noopener" class="btn-quiero-conversar">Quiero conversar →</a>
+        </div>
+      </div>
+    </div>
     <div class="footer__bottom" style="position:relative;">
       <div class="footer__content">
         <div class="footer__col footer__contacto">
@@ -351,18 +371,18 @@
           <div class="footer__contacto-datos">
             <span>Talento@sapiens.la</span>
             <span><a href="https://wa.me/51913804251" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">+51 913804251</a></span>
-          </div>
-        </div>
-        <div class="footer__col footer__social-col">
-          <h5>Síguenos</h5>
-          <div class="footer__social">
-            <a href="https://www.linkedin.com/company/sapiens-la" target="_blank"><img src="img/botonlinkedin.png" alt="LinkedIn"></a>
-            <a href="https://www.instagram.com/sapiens_la/" target="_blank"><img src="img/bottoning.png" alt="Instagram"></a>
-            <a href="https://www.youtube.com/@SapiensDigitalLab" target="_blank"><img src="img/botonyt.png" alt="YouTube"></a>
+            <span><a href="reclamos.html" style="color: inherit; text-decoration: underline;">Libro de Reclamaciones</a></span>
           </div>
         </div>
       </div>
-      <img id="scrollToTopBtn" src="img/botonscroll.png" alt="Volver arriba" style="position:absolute; right:20px; top:20px; height:60px; width:60px; cursor:pointer;">
+      <div class="footer__col footer__social-col footer__social-center">
+        <h5>Síguenos</h5>
+        <div class="footer__social">
+          <a href="https://www.linkedin.com/company/sapiens-la" target="_blank"><img src="img/botonlinkedin.png" alt="LinkedIn"></a>
+          <a href="https://www.instagram.com/sapiens_la/" target="_blank"><img src="img/bottoning.png" alt="Instagram"></a>
+          <a href="https://www.youtube.com/@SapiensDigitalLab" target="_blank"><img src="img/botonyt.png" alt="YouTube"></a>
+        </div>
+      </div>
       <span style="display:block; width:100%; text-align:center; margin-top:24px; color:#222;">© 2025 by Sapiens Digital Lab</span>
     </div>
 
@@ -415,39 +435,50 @@
       btn.textContent = 'Enviando...';
       btn.disabled = true;
 
+      // Obtener valores de campos fuera del formulario
+      const hojaValue = document.getElementById('rec_hoja') ? document.getElementById('rec_hoja').value : '';
+      const codigoValue = document.getElementById('rec_codigo') ? document.getElementById('rec_codigo').value : '';
+      
+      // Obtener valores de campos del formulario
+      const recNombre = form.rec_nombre ? form.rec_nombre.value : '';
+      const recApellido = form.rec_apellido ? form.rec_apellido.value : '';
+      const repNombre = form.rep_nombre ? form.rep_nombre.value : '';
+      const repApellido = form.rep_apellido ? form.rep_apellido.value : '';
+
       const data = {
         tipo_formulario: 'Reclamo / Queja / Sugerencia',
         origen: 'Formulario Libro de Reclamaciones',
-        hoja: form.rec_hoja.value,
-        codigo: form.rec_codigo.value,
-        nombre: form.rec_nombre.value + ' ' + form.rec_apellido.value,
-        dni: form.rec_dni.value,
-        email: form.rec_email.value,
-        telefono: form.rec_telefono.value,
-        direccion: form.rec_direccion.value,
-        ciudad: form.rec_ciudad.value,
-        distrito: form.rec_distrito.value,
-        fecha_inconveniente: form.rec_fecha_inconveniente.value,
-        fecha_reclamo: form.rec_fecha_reclamo.value,
-        rep_nombre: form.rep_nombre.value + ' ' + form.rep_apellido.value,
-        rep_dni: form.rep_dni.value,
-        rep_email: form.rep_email.value,
-        rep_telefono: form.rep_telefono.value,
-        rep_direccion: form.rep_direccion.value,
-        rep_ciudad: form.rep_ciudad.value,
-        rep_distrito: form.rep_distrito.value,
-        servicio: form.rec_servicio.value,
-        detalle: form.rec_detalle.value,
-        acciones: form.rec_acciones.value,
-        firma_texto: form.rec_firma_texto.value,
+        hoja: hojaValue,
+        codigo: codigoValue,
+        nombre: (recNombre + ' ' + recApellido).trim(),
+        dni: form.rec_dni ? form.rec_dni.value : '',
+        email: form.rec_email ? form.rec_email.value : '',
+        telefono: form.rec_telefono ? form.rec_telefono.value : '',
+        direccion: form.rec_direccion ? form.rec_direccion.value : '',
+        ciudad: form.rec_ciudad ? form.rec_ciudad.value : '',
+        distrito: form.rec_distrito ? form.rec_distrito.value : '',
+        fecha_inconveniente: form.rec_fecha_inconveniente ? form.rec_fecha_inconveniente.value : '',
+        fecha_reclamo: form.rec_fecha_reclamo ? form.rec_fecha_reclamo.value : '',
+        rep_nombre: (repNombre + ' ' + repApellido).trim(),
+        rep_dni: form.rep_dni ? form.rep_dni.value : '',
+        rep_email: form.rep_email ? form.rep_email.value : '',
+        rep_telefono: form.rep_telefono ? form.rep_telefono.value : '',
+        rep_direccion: form.rep_direccion ? form.rep_direccion.value : '',
+        rep_ciudad: form.rep_ciudad ? form.rep_ciudad.value : '',
+        rep_distrito: form.rep_distrito ? form.rep_distrito.value : '',
+        servicio: form.rec_servicio ? form.rec_servicio.value : '',
+        detalle: form.rec_detalle ? form.rec_detalle.value : '',
+        acciones: form.rec_acciones ? form.rec_acciones.value : '',
+        firma_texto: form.rec_firma_texto ? form.rec_firma_texto.value : '',
         especializacion: '',
         linkedin: '',
         empresa: ''
       };
 
       // Enviar datos a Google Sheets (Reclamos)
-      const sheetsRequest = fetch('https://script.google.com/macros/s/AKfycbzRcVcUrJic-sGq7GuTEDDGZscZgrvp2Hdcrp2LW7npqFymOcr4_-GKXmQtqbov1awE/exec', {
+      const sheetsRequest = fetch('https://script.google.com/macros/s/AKfycbx4rmXg2H5kAx02vuMv4tGFBy2DVgPi7PRamauJIIyvE0nTMuNZczb2QJam5Ws9vsis/exec', {
         method: 'POST',
+        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           hoja: data.hoja,
@@ -477,19 +508,62 @@
         console.error('Error enviando a Google Sheets (Reclamos):', err);
       });
 
-      // Enviar correo con plantilla genérica compartida
-      const emailRequest = emailjs.send('service_f73qp8z', 'template_aw0qmk9', data);
+      // Enviar correo con plantilla de Libro de Reclamaciones
+      // Preparar datos para EmailJS según el template proporcionado
+      const emailData = {
+        hoja: data.hoja,
+        codigo: data.codigo,
+        nombre: data.nombre,
+        dni: data.dni,
+        email: data.email,
+        telefono: data.telefono,
+        direccion: data.direccion,
+        ciudad: data.ciudad,
+        distrito: data.distrito,
+        fecha_inconveniente: data.fecha_inconveniente,
+        fecha_reclamo: data.fecha_reclamo,
+        rep_nombre: data.rep_nombre || '',
+        rep_dni: data.rep_dni || '',
+        rep_email: data.rep_email || '',
+        rep_telefono: data.rep_telefono || '',
+        rep_direccion: data.rep_direccion || '',
+        rep_ciudad: data.rep_ciudad || '',
+        rep_distrito: data.rep_distrito || '',
+        servicio: data.servicio,
+        detalle: data.detalle,
+        acciones: data.acciones || '',
+        firma_texto: data.firma_texto
+      };
+      
+      console.log('Enviando datos a Google Sheets:', data);
+      console.log('Enviando datos a EmailJS:', emailData);
+      
+      const emailRequest = emailjs.send('service_f73qp8z', 'template_aw0qmk9', emailData)
+        .then(function(response) {
+          console.log('EmailJS SUCCESS!', response.status, response.text);
+        })
+        .catch(function(error) {
+          console.error('EmailJS FAILED...', error);
+          throw error;
+        });
 
       Promise.allSettled([sheetsRequest, emailRequest])
         .then(function(results) {
+          console.log('Resultados:', results);
           const emailResult = results[1];
           if (emailResult.status === 'fulfilled') {
             mostrarPopupReclamo('Se ha enviado de forma exitosa.<br>Una copia de su queja se ha enviado<br>a su correo electrónico');
             form.reset();
+            // Reiniciar correlativos
+            inicializarCorrelativos();
           } else {
             console.error('Error al enviar email:', emailResult.reason);
             mostrarPopupReclamo('Ocurrió un error al enviar tu reclamo. Intenta nuevamente o escríbenos a Talento@sapiens.la.');
           }
+        })
+        .catch(function(error) {
+          console.error('Error general:', error);
+          mostrarPopupReclamo('Ocurrió un error al enviar tu reclamo. Intenta nuevamente o escríbenos a Talento@sapiens.la.');
         })
         .finally(function() {
           btn.textContent = 'Enviar reclamo';
@@ -497,10 +571,6 @@
         });
     });
 
-    // Scroll to top
-    document.getElementById('scrollToTopBtn').onclick = function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
 
     // Mobile menu toggle (copiado de otras páginas)
     const menuToggle = document.querySelector('.menu-toggle');

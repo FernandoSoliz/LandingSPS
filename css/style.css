@@ -76,19 +76,71 @@ body {
   letter-spacing: 0.01em;
 }
 .header__nav a.btn-header {
-  border-radius: 0;
-  padding: 0;
+  border-radius: 9999px !important;
+  padding: 8px 20px !important;
   position: relative;
   top: -7px;
 }
 .header__nav a.btn-header:hover {
-  background: none;
-  color: inherit;
   opacity: 0.85;
+}
+/* Botón Contrata Talento */
+.btn-contrata-talento {
+  display: inline-block;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #222;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  background-image: linear-gradient(white, white), linear-gradient(to right, #2ed47a, #3bb6ff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  -webkit-background-clip: padding-box, border-box;
+  padding: 8px 20px;
+  height: 38px;
+  line-height: 22px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  position: relative;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+.btn-contrata-talento:hover {
+  background-image: linear-gradient(#f0f9ff, #f0f9ff), linear-gradient(to right, #2ed47a, #3bb6ff);
+}
+/* Botón Contrata Talento Mobile */
+.btn-contrata-talento-mobile {
+  display: inline-block;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #222;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  background-image: linear-gradient(white, white), linear-gradient(to right, #2ed47a, #3bb6ff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  -webkit-background-clip: padding-box, border-box;
+  padding: 8px 20px;
+  height: 38px;
+  line-height: 22px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  position: relative;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+.btn-contrata-talento-mobile:hover {
+  background-image: linear-gradient(#f0f9ff, #f0f9ff), linear-gradient(to right, #2ed47a, #3bb6ff);
 }
 
 .hero {
-  background: #dfe3f1;
+  background: #ffffff;
   position: relative;
   padding-bottom: 0;
   min-height: 480px;
@@ -164,36 +216,55 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 0.95rem;
-  padding: 8px 22px;
+  padding: 10px 24px;
   height: 40px;
   min-width: 0;
+  text-decoration: none;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 .btn-green {
   background: url('../img/fondo-bt-quierosertalento.png') center/cover no-repeat;
   color: #fff;
   border: 1.5px solid #2ed47a;
+  box-shadow: 0 2px 8px rgba(46, 212, 122, 0.3);
 }
 .btn-green:hover {
   background: url('../img/fondo-bt-quierosertalento.png') center/cover no-repeat;
   color: #fff;
   border-color: #1fa85b;
+  box-shadow: 0 4px 12px rgba(46, 212, 122, 0.4);
+  transform: translateY(-1px);
 }
 .btn-outline {
   background: #fff;
   color: #222;
-  font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 500;
-  border: 2px solid;
+  border: 2px solid transparent;
   border-radius: 999px;
   padding: 10px 32px;
-  border-image: linear-gradient(90deg, #2ed47a 0%, #3bb6ff 100%);
-  border-image-slice: 1;
-  background-clip: padding-box;
   position: relative;
+  background-clip: padding-box;
+}
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #2ed47a 0%, #3bb6ff 100%);
 }
 .btn-outline:hover {
-  background: #eaf6ff;
+  background: #f0f9ff;
   color: #111;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 182, 255, 0.2);
 }
 .logos-section {
   margin-left: 0;
@@ -201,18 +272,19 @@ body {
   padding-left: 0;
   padding-right: 0;
   padding-top: 10px;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 80px;
+  margin-bottom: 0;
 }
 .hero__logos {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 94px;
-  margin-top: 27px;
+  margin-top: 0;
+  margin-bottom: 0;
   margin-left: 0;
   margin-right: 0;
   flex-wrap: wrap;
@@ -397,7 +469,8 @@ body {
   max-width: 400px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
 }
 .area-card img {
   height: auto;
@@ -409,6 +482,53 @@ body {
   border-radius: 0;
   margin-bottom: 16px;
   display: block;
+}
+
+/* Aumentar tamaño de imágenes de áreas en móviles */
+@media (max-width: 600px) {
+  .areas .area-card img {
+    max-width: 300px !important;
+    max-height: 300px !important;
+    width: 300px !important;
+    height: auto !important;
+  }
+  
+  /* Ocultar botones del carrusel de testimonios en móvil */
+  .testimonio-arrow {
+    display: none !important;
+  }
+  
+  /* Permitir swipe en el carrusel */
+  .testimonio-carousel {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Centrar "Síguenos" y sus iconos en móvil */
+  .footer__bottom .footer__social-center {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+  
+  .footer__bottom .footer__social-center h5 {
+    text-align: center !important;
+    margin: 0 auto 8px auto !important;
+    width: 100% !important;
+  }
+  
+  .footer__bottom .footer__social {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
 }
 .area-card h3 {
   color: #222;
@@ -426,7 +546,7 @@ body {
   margin-left: 0;
 }
 .area-card p {
-  text-align: justify;
+  text-align: center;
   max-width: 400px;
   width: 100%;
 }
@@ -623,8 +743,9 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #e0e0e0 60%, #f5f5f5 100%);
+  object-fit: cover;
   display: inline-block;
+  flex-shrink: 0;
 }
 
 .testimonio-nombre {
@@ -763,6 +884,44 @@ body {
 }
 .footer__bottom .footer__content {
   margin-left: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 60px;
+  position: relative;
+}
+.footer__bottom .footer__social-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 32px;
+  margin-left: 0;
+}
+.footer__bottom .footer__reclamos-right {
+  position: absolute;
+  right: 100px;
+  top: 32px;
+  text-align: center;
+}
+.footer__reclamos-right h5 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #222;
+}
+.footer__reclamos-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.footer__reclamos-link a {
+  color: #222;
+  text-decoration: underline;
+  font-size: 0.95rem;
+}
+.footer__reclamos-link a:hover {
+  opacity: 0.8;
 }
 
 @media (max-width: 1100px) {
@@ -987,7 +1146,27 @@ body {
   flex-direction: row;
   gap: 18px;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+}
+.footer__social-col {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footer__social-col h5 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.footer__contacto {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer__contacto h5 {
+  text-align: center;
 }
 @media (max-width: 700px) {
   .footer__social {
@@ -1219,8 +1398,36 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0;
+    justify-content: center;
+    margin: 0 auto;
     padding: 0;
+    text-align: center;
+  }
+  .footer__bottom .footer__social-center {
+    position: static;
+    transform: none;
+    left: auto;
+    top: auto;
+    margin: 0 auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .footer__bottom .footer__social-center h5 {
+    text-align: center !important;
+    margin: 0 auto 8px auto !important;
+    width: 100%;
+  }
+  .footer__bottom .footer__reclamos-right {
+    position: static;
+    right: auto;
+    top: auto;
+    width: 100vw;
+    margin-top: 16px;
+    text-align: center;
   }
   .footer__social {
     display: flex;
@@ -1228,7 +1435,8 @@ body {
     justify-content: center;
     align-items: center;
     gap: 18px;
-    margin-top: 6px;
+    margin: 6px auto 0 auto;
+    width: 100%;
   }
   .footer__social img {
     height: 28px !important;
@@ -1251,6 +1459,12 @@ body {
     color: #222;
     font-size: 0.95rem;
   }
+}
+
+/* Scroll to top button - z-index alto para estar por encima del banner */
+#scrollToTopBtn {
+  z-index: 1000 !important;
+  position: fixed !important;
 }
 
 .enfoque, .enfoque-card, .testimonio, .testimonio__content, .testimonio__autor, .footer, .footer__content, .footer__col, .footer__cta, .footer__top, .footer__bottom, .testimonio__autor img, .enfoque-card img, .latam__img img {
@@ -1327,6 +1541,8 @@ body {
   min-width: 100vw;
   max-width: 100vw;
   box-sizing: border-box;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .footer-main-texto {
   flex: 1;
@@ -1347,6 +1563,36 @@ body {
   text-align: center;
   width: 100%;
   margin-top: 32px !important;
+}
+/* Botón Quiero Conversar */
+.btn-quiero-conversar {
+  display: inline-block;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #fff !important;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  background: linear-gradient(#181c1f, #181c1f) padding-box, linear-gradient(to right, #2ed47a, #3bb6ff) border-box;
+  background-color: #181c1f !important;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  -webkit-background-clip: padding-box, border-box;
+  padding: 10px 24px;
+  height: auto;
+  line-height: 1.5;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  position: relative;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+.btn-quiero-conversar:hover {
+  background: linear-gradient(#1f2326, #1f2326) padding-box, linear-gradient(to right, #2ed47a, #3bb6ff) border-box;
+  background-color: #1f2326 !important;
+  color: #fff !important;
 }
 
 html, body {
@@ -1437,6 +1683,16 @@ img, svg {
   .header__nav a.btn-header img {
     height: 32px !important;
   }
+  .btn-contrata-talento {
+    height: auto !important;
+    min-height: 36px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+    padding: 8px 16px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+  }
   
   /* Hero section optimizado */
   .hero {
@@ -1480,9 +1736,6 @@ img, svg {
     padding: 6px 20px;
   }
   
-  .btn-green img, .btn-outline img {
-    height: 36px !important;
-  }
   
   /* Logos section */
   .hero__logos {
@@ -1588,8 +1841,8 @@ img, svg {
   
   .area-card img {
     height: auto;
-    max-height: 120px;
-    max-width: 120px;
+    max-height: 200px;
+    max-width: 200px;
     margin-bottom: 12px;
   }
   
@@ -1684,8 +1937,7 @@ img, svg {
   }
   
   .testimonio-arrow {
-    margin: 8px 0;
-    order: 2;
+    display: none !important;
   }
   
   .testimonio-arrow svg {
@@ -1787,8 +2039,10 @@ img, svg {
   
   /* Scroll to top button */
   #scrollToTopBtn {
-    right: 16px !important;
-    top: 16px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: 60px !important;
+    top: auto !important;
     height: 50px !important;
     width: 50px !important;
   }
@@ -1839,10 +2093,17 @@ img, svg {
   .header__nav a.btn-header img {
     height: 28px !important;
   }
-  
-  .btn-green img, .btn-outline img {
-    height: 32px !important;
+  .btn-contrata-talento {
+    height: auto !important;
+    min-height: 34px !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+    padding: 7px 14px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
   }
+  
   
   .hero__logos img {
     height: 24px;
@@ -1850,8 +2111,15 @@ img, svg {
   }
   
   .area-card img {
-    max-height: 100px;
-    max-width: 100px;
+    max-height: 280px;
+    max-width: 280px;
+    width: 280px;
+  }
+  .areas .area-card img {
+    max-width: 280px !important;
+    max-height: 280px !important;
+    width: 280px !important;
+    height: auto !important;
   }
   
   .enfoque-card img {
@@ -1914,10 +2182,17 @@ img, svg {
   .header__nav a.btn-header img {
     height: 24px !important;
   }
-  
-  .btn-green img, .btn-outline img {
-    height: 28px !important;
+  .btn-contrata-talento {
+    height: auto !important;
+    min-height: 32px !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+    padding: 6px 12px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
   }
+  
   
   .hero__logos img {
     height: 20px;
@@ -1925,8 +2200,15 @@ img, svg {
   }
   
   .area-card img {
-    max-height: 80px;
-    max-width: 80px;
+    max-height: 280px;
+    max-width: 280px;
+    width: 280px;
+  }
+  .areas .area-card img {
+    max-width: 280px !important;
+    max-height: 280px !important;
+    width: 280px !important;
+    height: auto !important;
   }
   
   .enfoque-card img {
@@ -2121,7 +2403,7 @@ img, svg {
     text-align: center;
   }
   .logos-section {
-    margin-bottom: 80px !important;
+    margin-bottom: 0 !important;
     padding-bottom: 0 !important;
   }
   .expertos {
@@ -2152,7 +2434,7 @@ img, svg {
   }
   .expertos__text p,
   .area-card p {
-    text-align: justify !important;
+    text-align: center !important;
   }
   .expertos__text h2 {
     text-align: center !important;
@@ -2330,6 +2612,17 @@ img, svg {
     display: block;
     width: 100vw;
   }
+  .mobile-menu ul li a.btn-contrata-talento-mobile {
+    width: auto !important;
+    padding: 8px 20px !important;
+    height: auto !important;
+    min-height: 38px !important;
+    line-height: 1.4 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin-top: 4px;
+    font-size: 1.08rem !important;
+  }
   .mobile-menu ul {
     align-items: flex-start !important;
     text-align: left !important;
@@ -2342,6 +2635,16 @@ img, svg {
   .mobile-menu ul li a {
     width: auto;
     padding-left: 0;
+  }
+  .mobile-menu ul li a.btn-contrata-talento-mobile {
+    width: auto !important;
+    padding: 8px 20px !important;
+    height: auto !important;
+    min-height: 38px !important;
+    line-height: 1.4 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin-top: 4px;
   }
   .areas h2 {
     margin-bottom: 10px;
@@ -3019,7 +3322,7 @@ img, svg {
   margin-bottom: 12px;
 }
 .form-section-subtitle {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #444;
   margin-bottom: 0;
   line-height: 1.3;
@@ -3803,6 +4106,16 @@ img, svg {
   .header__nav a.btn-header img {
     height: 32px !important;
   }
+  .btn-contrata-talento {
+    height: auto !important;
+    min-height: 36px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+    padding: 8px 16px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+  }
   
   /* Hero section optimizado */
   .hero {
@@ -3846,9 +4159,6 @@ img, svg {
     padding: 6px 20px;
   }
   
-  .btn-green img, .btn-outline img {
-    height: 36px !important;
-  }
   
   /* Logos section */
   .hero__logos {
@@ -3954,8 +4264,8 @@ img, svg {
   
   .area-card img {
     height: auto;
-    max-height: 120px;
-    max-width: 120px;
+    max-height: 200px;
+    max-width: 200px;
     margin-bottom: 12px;
   }
   
@@ -4050,8 +4360,7 @@ img, svg {
   }
   
   .testimonio-arrow {
-    margin: 8px 0;
-    order: 2;
+    display: none !important;
   }
   
   .testimonio-arrow svg {
@@ -4153,8 +4462,10 @@ img, svg {
   
   /* Scroll to top button */
   #scrollToTopBtn {
-    right: 16px !important;
-    top: 16px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: 60px !important;
+    top: auto !important;
     height: 50px !important;
     width: 50px !important;
   }
@@ -4246,10 +4557,17 @@ body, html {
   .header__nav a.btn-header img {
     height: 28px !important;
   }
-  
-  .btn-green img, .btn-outline img {
-    height: 32px !important;
+  .btn-contrata-talento {
+    height: auto !important;
+    min-height: 34px !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+    padding: 7px 14px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
   }
+  
   
   .hero__logos img {
     height: 24px;
@@ -4257,8 +4575,15 @@ body, html {
   }
   
   .area-card img {
-    max-height: 100px;
-    max-width: 100px;
+    max-height: 280px;
+    max-width: 280px;
+    width: 280px;
+  }
+  .areas .area-card img {
+    max-width: 280px !important;
+    max-height: 280px !important;
+    width: 280px !important;
+    height: auto !important;
   }
   
   .enfoque-card img {
@@ -4321,10 +4646,17 @@ body, html {
   .header__nav a.btn-header img {
     height: 24px !important;
   }
-  
-  .btn-green img, .btn-outline img {
-    height: 28px !important;
+  .btn-contrata-talento {
+    height: auto !important;
+    min-height: 32px !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+    padding: 6px 12px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
   }
+  
   
   .hero__logos img {
     height: 20px;
@@ -4332,8 +4664,15 @@ body, html {
   }
   
   .area-card img {
-    max-height: 80px;
-    max-width: 80px;
+    max-height: 280px;
+    max-width: 280px;
+    width: 280px;
+  }
+  .areas .area-card img {
+    max-width: 280px !important;
+    max-height: 280px !important;
+    width: 280px !important;
+    height: auto !important;
   }
   
   .enfoque-card img {
@@ -4528,7 +4867,7 @@ body, html {
     text-align: center;
   }
   .logos-section {
-    margin-bottom: 80px !important;
+    margin-bottom: 0 !important;
     padding-bottom: 0 !important;
   }
   .expertos {
@@ -4559,7 +4898,7 @@ body, html {
   }
   .expertos__text p,
   .area-card p {
-    text-align: justify !important;
+    text-align: center !important;
   }
   .expertos__text h2 {
     text-align: center !important;
@@ -4737,6 +5076,17 @@ body, html {
     display: block;
     width: 100vw;
   }
+  .mobile-menu ul li a.btn-contrata-talento-mobile {
+    width: auto !important;
+    padding: 8px 20px !important;
+    height: auto !important;
+    min-height: 38px !important;
+    line-height: 1.4 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin-top: 4px;
+    font-size: 1.08rem !important;
+  }
   .mobile-menu ul {
     align-items: flex-start !important;
     text-align: left !important;
@@ -4749,6 +5099,16 @@ body, html {
   .mobile-menu ul li a {
     width: auto;
     padding-left: 0;
+  }
+  .mobile-menu ul li a.btn-contrata-talento-mobile {
+    width: auto !important;
+    padding: 8px 20px !important;
+    height: auto !important;
+    min-height: 38px !important;
+    line-height: 1.4 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin-top: 4px;
   }
   .areas h2 {
     margin-bottom: 10px;
@@ -5426,7 +5786,7 @@ body, html {
   margin-bottom: 12px;
 }
 .form-section-subtitle {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #444;
   margin-bottom: 0;
   line-height: 1.3;
@@ -6210,6 +6570,16 @@ body, html {
   .header__nav a.btn-header img {
     height: 32px !important;
   }
+  .btn-contrata-talento {
+    height: auto !important;
+    min-height: 36px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+    padding: 8px 16px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+  }
   
   /* Hero section optimizado */
   .hero {
@@ -6253,9 +6623,6 @@ body, html {
     padding: 6px 20px;
   }
   
-  .btn-green img, .btn-outline img {
-    height: 36px !important;
-  }
   
   /* Logos section */
   .hero__logos {
@@ -6361,8 +6728,8 @@ body, html {
   
   .area-card img {
     height: auto;
-    max-height: 120px;
-    max-width: 120px;
+    max-height: 200px;
+    max-width: 200px;
     margin-bottom: 12px;
   }
   
@@ -6457,8 +6824,7 @@ body, html {
   }
   
   .testimonio-arrow {
-    margin: 8px 0;
-    order: 2;
+    display: none !important;
   }
   
   .testimonio-arrow svg {
@@ -6560,8 +6926,10 @@ body, html {
   
   /* Scroll to top button */
   #scrollToTopBtn {
-    right: 16px !important;
-    top: 16px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: 60px !important;
+    top: auto !important;
     height: 50px !important;
     width: 50px !important;
   }
@@ -6653,10 +7021,17 @@ body, html {
   .header__nav a.btn-header img {
     height: 28px !important;
   }
-  
-  .btn-green img, .btn-outline img {
-    height: 32px !important;
+  .btn-contrata-talento {
+    height: auto !important;
+    min-height: 34px !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+    padding: 7px 14px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
   }
+  
   
   .hero__logos img {
     height: 24px;
@@ -6664,8 +7039,15 @@ body, html {
   }
   
   .area-card img {
-    max-height: 100px;
-    max-width: 100px;
+    max-height: 280px;
+    max-width: 280px;
+    width: 280px;
+  }
+  .areas .area-card img {
+    max-width: 280px !important;
+    max-height: 280px !important;
+    width: 280px !important;
+    height: auto !important;
   }
   
   .enfoque-card img {
@@ -6728,10 +7110,17 @@ body, html {
   .header__nav a.btn-header img {
     height: 24px !important;
   }
-  
-  .btn-green img, .btn-outline img {
-    height: 28px !important;
+  .btn-contrata-talento {
+    height: auto !important;
+    min-height: 32px !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+    padding: 6px 12px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
   }
+  
   
   .hero__logos img {
     height: 20px;
@@ -6739,8 +7128,15 @@ body, html {
   }
   
   .area-card img {
-    max-height: 80px;
-    max-width: 80px;
+    max-height: 280px;
+    max-width: 280px;
+    width: 280px;
+  }
+  .areas .area-card img {
+    max-width: 280px !important;
+    max-height: 280px !important;
+    width: 280px !important;
+    height: auto !important;
   }
   
   .enfoque-card img {
@@ -6935,7 +7331,7 @@ body, html {
     text-align: center;
   }
   .logos-section {
-    margin-bottom: 80px !important;
+    margin-bottom: 0 !important;
     padding-bottom: 0 !important;
   }
   .expertos {
@@ -6966,7 +7362,7 @@ body, html {
   }
   .expertos__text p,
   .area-card p {
-    text-align: justify !important;
+    text-align: center !important;
   }
   .expertos__text h2 {
     text-align: center !important;
@@ -7144,6 +7540,17 @@ body, html {
     display: block;
     width: 100vw;
   }
+  .mobile-menu ul li a.btn-contrata-talento-mobile {
+    width: auto !important;
+    padding: 8px 20px !important;
+    height: auto !important;
+    min-height: 38px !important;
+    line-height: 1.4 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin-top: 4px;
+    font-size: 1.08rem !important;
+  }
   .mobile-menu ul {
     align-items: flex-start !important;
     text-align: left !important;
@@ -7156,6 +7563,16 @@ body, html {
   .mobile-menu ul li a {
     width: auto;
     padding-left: 0;
+  }
+  .mobile-menu ul li a.btn-contrata-talento-mobile {
+    width: auto !important;
+    padding: 8px 20px !important;
+    height: auto !important;
+    min-height: 38px !important;
+    line-height: 1.4 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin-top: 4px;
   }
   .areas h2 {
     margin-bottom: 10px;
@@ -7833,7 +8250,7 @@ body, html {
   margin-bottom: 12px;
 }
 .form-section-subtitle {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #444;
   margin-bottom: 0;
   line-height: 1.3;
@@ -8345,6 +8762,16 @@ body, html {
   .header__nav a.btn-header img {
     height: 32px !important;
   }
+  .btn-contrata-talento {
+    height: auto !important;
+    min-height: 36px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+    padding: 8px 16px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+  }
   
   /* Hero section optimizado */
   .hero {
@@ -8388,9 +8815,6 @@ body, html {
     padding: 6px 20px;
   }
   
-  .btn-green img, .btn-outline img {
-    height: 36px !important;
-  }
   
   /* Logos section */
   .hero__logos {
@@ -8496,8 +8920,8 @@ body, html {
   
   .area-card img {
     height: auto;
-    max-height: 120px;
-    max-width: 120px;
+    max-height: 200px;
+    max-width: 200px;
     margin-bottom: 12px;
   }
   
@@ -8592,8 +9016,7 @@ body, html {
   }
   
   .testimonio-arrow {
-    margin: 8px 0;
-    order: 2;
+    display: none !important;
   }
   
   .testimonio-arrow svg {
@@ -8695,8 +9118,10 @@ body, html {
   
   /* Scroll to top button */
   #scrollToTopBtn {
-    right: 16px !important;
-    top: 16px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: 60px !important;
+    top: auto !important;
     height: 50px !important;
     width: 50px !important;
   }
@@ -8788,10 +9213,17 @@ body, html {
   .header__nav a.btn-header img {
     height: 28px !important;
   }
-  
-  .btn-green img, .btn-outline img {
-    height: 32px !important;
+  .btn-contrata-talento {
+    height: auto !important;
+    min-height: 34px !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+    padding: 7px 14px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
   }
+  
   
   .hero__logos img {
     height: 24px;
@@ -8799,8 +9231,15 @@ body, html {
   }
   
   .area-card img {
-    max-height: 100px;
-    max-width: 100px;
+    max-height: 280px;
+    max-width: 280px;
+    width: 280px;
+  }
+  .areas .area-card img {
+    max-width: 280px !important;
+    max-height: 280px !important;
+    width: 280px !important;
+    height: auto !important;
   }
   
   .enfoque-card img {
@@ -8863,10 +9302,17 @@ body, html {
   .header__nav a.btn-header img {
     height: 24px !important;
   }
-  
-  .btn-green img, .btn-outline img {
-    height: 28px !important;
+  .btn-contrata-talento {
+    height: auto !important;
+    min-height: 32px !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+    padding: 6px 12px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
   }
+  
   
   .hero__logos img {
     height: 20px;
@@ -8874,8 +9320,15 @@ body, html {
   }
   
   .area-card img {
-    max-height: 80px;
-    max-width: 80px;
+    max-height: 280px;
+    max-width: 280px;
+    width: 280px;
+  }
+  .areas .area-card img {
+    max-width: 280px !important;
+    max-height: 280px !important;
+    width: 280px !important;
+    height: auto !important;
   }
   
   .enfoque-card img {
@@ -9070,7 +9523,7 @@ body, html {
     text-align: center;
   }
   .logos-section {
-    margin-bottom: 80px !important;
+    margin-bottom: 0 !important;
     padding-bottom: 0 !important;
   }
   .expertos {
@@ -9101,7 +9554,7 @@ body, html {
   }
   .expertos__text p,
   .area-card p {
-    text-align: justify !important;
+    text-align: center !important;
   }
   .expertos__text h2 {
     text-align: center !important;
@@ -9279,6 +9732,17 @@ body, html {
     display: block;
     width: 100vw;
   }
+  .mobile-menu ul li a.btn-contrata-talento-mobile {
+    width: auto !important;
+    padding: 8px 20px !important;
+    height: auto !important;
+    min-height: 38px !important;
+    line-height: 1.4 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin-top: 4px;
+    font-size: 1.08rem !important;
+  }
   .mobile-menu ul {
     align-items: flex-start !important;
     text-align: left !important;
@@ -9291,6 +9755,16 @@ body, html {
   .mobile-menu ul li a {
     width: auto;
     padding-left: 0;
+  }
+  .mobile-menu ul li a.btn-contrata-talento-mobile {
+    width: auto !important;
+    padding: 8px 20px !important;
+    height: auto !important;
+    min-height: 38px !important;
+    line-height: 1.4 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin-top: 4px;
   }
   .areas h2 {
     margin-bottom: 10px;
@@ -9968,7 +10442,7 @@ body, html {
   margin-bottom: 12px;
 }
 .form-section-subtitle {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #444;
   margin-bottom: 0;
   line-height: 1.3;
@@ -10726,7 +11200,7 @@ body, html {
     text-align: center;
   }
   .logos-section {
-    margin-bottom: 80px !important;
+    margin-bottom: 0 !important;
     padding-bottom: 0 !important;
   }
   .expertos {
@@ -10757,7 +11231,7 @@ body, html {
   }
   .expertos__text p,
   .area-card p {
-    text-align: justify !important;
+    text-align: center !important;
   }
   .expertos__text h2 {
     text-align: center !important;
@@ -10935,6 +11409,17 @@ body, html {
     display: block;
     width: 100vw;
   }
+  .mobile-menu ul li a.btn-contrata-talento-mobile {
+    width: auto !important;
+    padding: 8px 20px !important;
+    height: auto !important;
+    min-height: 38px !important;
+    line-height: 1.4 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin-top: 4px;
+    font-size: 1.08rem !important;
+  }
   .mobile-menu ul {
     align-items: flex-start !important;
     text-align: left !important;
@@ -10947,6 +11432,16 @@ body, html {
   .mobile-menu ul li a {
     width: auto;
     padding-left: 0;
+  }
+  .mobile-menu ul li a.btn-contrata-talento-mobile {
+    width: auto !important;
+    padding: 8px 20px !important;
+    height: auto !important;
+    min-height: 38px !important;
+    line-height: 1.4 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin-top: 4px;
   }
   .areas h2 {
     margin-bottom: 10px;

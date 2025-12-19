@@ -8,6 +8,7 @@
     <title>Oportunidades | Sapiens Digital Lab</title>
     <meta name="description" content="Encuentra oportunidades laborales en tecnología, marketing y diseño en Sapiens Digital Lab. Postula y conecta con empresas líderes.">
     <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="img/favisapiens.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,8 +45,71 @@
         display: flex; 
         gap: 22px; 
         justify-content: center; 
+        flex-wrap: wrap;
     }
-    .hero__buttons img { height: 68px; }
+    
+    /* Hero Buttons */
+    .btn-envianos-cv, .btn-siguenos-linkedin {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Montserrat', Arial, sans-serif;
+        font-size: 1.08rem;
+        font-weight: 500;
+        padding: 12px 28px;
+        height: 50px;
+        border-radius: 32px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        border: none;
+        cursor: pointer;
+    }
+    .btn-envianos-cv {
+        background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat;
+        color: #fff;
+        border: 1.5px solid #2ed47a;
+        box-shadow: 0 2px 8px rgba(46, 212, 122, 0.3);
+    }
+    .btn-envianos-cv:hover {
+        opacity: 0.9;
+        box-shadow: 0 4px 12px rgba(46, 212, 122, 0.4);
+        transform: translateY(-1px);
+    }
+    .btn-siguenos-linkedin {
+        background: transparent !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        color: #fff !important;
+        font-weight: 500;
+        border: 2px solid transparent;
+        border-radius: 999px;
+        position: relative;
+    }
+    .btn-siguenos-linkedin::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: -1;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #2ed47a 0%, #3bb6ff 100%);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+        -webkit-mask-composite: destination-out;
+        padding: 2px;
+    }
+    .btn-siguenos-linkedin:hover {
+        background: transparent !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        color: #fff !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(59, 182, 255, 0.3);
+    }
     
     /* Buttons */
     .btn-main { 
@@ -236,7 +300,7 @@
         font-size: 1rem; 
     }
     .form-fields button { 
-        background: #3AC37B; 
+        background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat; 
         color: #fff; 
         border-radius: 18px; 
         padding: 10px 0; 
@@ -244,9 +308,9 @@
         border: none; 
         font-weight: 600; 
         cursor: pointer; 
-        transition: background 0.2s; 
+        transition: opacity 0.2s; 
     }
-    .form-fields button:hover { background: #2fa36a; }
+    .form-fields button:hover { opacity: 0.9; }
     
     /* Responsive */
     @media (max-width: 900px) {
@@ -260,7 +324,18 @@
     @media (max-width: 600px) {
         .hero__title { font-size: 3.2rem; }
         .hero__subtitle { font-size: 1.4rem; }
-        .hero__buttons img { height: 50px; }
+        .hero__buttons {
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+        .btn-envianos-cv, .btn-siguenos-linkedin {
+            width: 100%;
+            max-width: 280px;
+            font-size: 0.95rem;
+            padding: 10px 24px;
+            height: 44px;
+        }
         .form-fields { padding: 18px 8px; }
         .job-card-actions {
             padding-bottom: 18px;
@@ -272,12 +347,21 @@
     @media (min-width: 601px) {
     }
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2FY991FT1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-D2FY991FT1');
+    </script>
 </head>
 <body>
     <!-- Header igual que index -->
     <header class="header" role="banner">
         <div class="header__logo" style="justify-content: flex-start;">
-            <img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" loading="lazy">
+            <a href="index.html"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" loading="lazy"></a>
         </div>
         <button class="menu-toggle" aria-label="Abrir menú" style="background:none;border:none;outline:none;cursor:pointer;">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -294,7 +378,7 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="oportunidades.html">Oportunidades</a></li>
-                <li><a href="contrata-talento.html" class="btn-header"><img src="img/contratatalento.png" alt="Contrata Talento" style="height:38px;vertical-align:middle;"></a></li>
+                <li><a href="contrata-talento.html" class="btn-header btn-contrata-talento">Contrata un talento →</a></li>
             </ul>
         </nav>
         <div class="mobile-menu" aria-label="Menú móvil" tabindex="-1">
@@ -303,7 +387,7 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="oportunidades.html">Oportunidades</a></li>
-                            <li><a href="contrata-talento.html"><img src="img/contratatalento.png" alt="Contrata Talento" style="height:38px;vertical-align:middle;"></a></li>
+                            <li><a href="contrata-talento.html" class="btn-contrata-talento-mobile">Contrata un talento →</a></li>
           </ul>
         </div>
     </header>
@@ -313,8 +397,8 @@
         <h1 class="hero__title">Oportunidades</h1>
         <div class="hero__subtitle">Tu futuro profesional ahora</div>
         <div class="hero__buttons">
-            <a href="#form-cv"><img src="img/envianosboton.png" alt="Envíanos tu CV" style="height:50px;vertical-align:middle;"></a>
-            <a href="https://www.linkedin.com/company/82234284" target="_blank" rel="noopener"><img src="img/siguenosboton.png" alt="Síguenos en LinkedIn" style="height:50px;vertical-align:middle;"></a>
+            <a href="#form-cv" class="btn-envianos-cv">Envíanos tu CV</a>
+            <a href="https://www.linkedin.com/company/82234284" target="_blank" rel="noopener" class="btn-siguenos-linkedin">Síguenos en LinkedIn</a>
         </div>
     </section>
     
@@ -337,7 +421,7 @@
             <input class="input-field" id="nombre" name="nombre" type="text" placeholder="Nombre" required>
             <input class="input-field" id="apellido" name="apellido" type="text" placeholder="Apellido" required>
             <input class="input-field" id="email" name="email" type="email" placeholder="Correo electrónico" required>
-            <input class="input-field" id="telefono" name="telefono" type="text" placeholder="Celular" required>
+            <input class="input-field" id="telefono" name="telefono" type="tel" placeholder="Número de contacto" required>
             <input class="input-field" id="especializacion" name="especializacion" type="text" placeholder="Área de especialización (Data, Digital o Agile)" required>
             <input class="input-field" id="linkedin" name="linkedin" type="text" placeholder="Perfil de LinkedIn">
             <button class="btn-main" type="button" id="submit-btn">Enviar</button>
@@ -345,6 +429,16 @@
     </section>
     </main>
     <!-- Footer igual que index -->
+    <div class="footer__main">
+      <div class="footer-main-content">
+        <div class="footer-main-texto">
+          <h2>¿Algún proyecto <br>en mente?</h2>
+        </div>
+        <div class="footer-main-boton">
+          <a href="https://wa.me/51983447481" target="_blank" rel="noopener" class="btn-quiero-conversar">Quiero conversar →</a>
+        </div>
+      </div>
+    </div>
     <div class="footer__bottom" style="position:relative;">
       <div class="footer__content">
         <div class="footer__col footer__contacto">
@@ -352,28 +446,22 @@
           <div class="footer__contacto-datos">
             <span>Talento@sapiens.la</span>
             <span><a href="https://wa.me/51913804251" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">+51 913804251</a></span>
-            <span><a href="reclamos.html" style="color: inherit; text-decoration: underline;">Libro de reclamaciones</a></span>
-          </div>
-        </div>
-        <div class="footer__col footer__social-col">
-          <h5>Síguenos</h5>
-          <div class="footer__social">
-            <a href="https://www.linkedin.com/company/sapiens-la" target="_blank"><img src="img/botonlinkedin.png" alt="LinkedIn"></a>
-            <a href="https://www.instagram.com/sapiens_la/" target="_blank"><img src="img/bottoning.png" alt="Instagram"></a>
-            <a href="https://www.youtube.com/@SapiensDigitalLab" target="_blank"><img src="img/botonyt.png" alt="YouTube"></a>
-            <a href="#" target="_blank"><img src="img/botonfb.png" alt="Facebook"></a>
+            <span><a href="reclamos.html" style="color: inherit; text-decoration: underline;">Libro de Reclamaciones</a></span>
           </div>
         </div>
       </div>
-      <img id="scrollToTopBtn" src="img/botonscroll.png" alt="Volver arriba" style="position:absolute; right:20px; top:20px; height:60px; width:60px; cursor:pointer;">
+      <div class="footer__col footer__social-col footer__social-center">
+        <h5>Síguenos</h5>
+        <div class="footer__social">
+          <a href="https://www.linkedin.com/company/sapiens-la" target="_blank"><img src="img/botonlinkedin.png" alt="LinkedIn"></a>
+          <a href="https://www.instagram.com/sapiens_la/" target="_blank"><img src="img/bottoning.png" alt="Instagram"></a>
+          <a href="https://www.youtube.com/@SapiensDigitalLab" target="_blank"><img src="img/botonyt.png" alt="YouTube"></a>
+        </div>
+      </div>
       <span style="display:block; width:100%; text-align:center; margin-top:24px; color:#222;">© 2025 by Sapiens Digital Lab</span>
     </div>
     
     <script>
-    document.getElementById('scrollToTopBtn').onclick = function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-    
     // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const menuClose = document.querySelector('.menu-close');
@@ -463,7 +551,7 @@
                 submitBtn.textContent = 'Enviando...';
                 submitBtn.disabled = true;
                 
-                // Recopilar los datos del formulario
+                // Recopilar los datos del formulario para Google Sheets
                 const formData = {
                     nombre: nombre + ' ' + apellido,
                     email: email,
@@ -472,56 +560,61 @@
                     linkedin: document.getElementById('linkedin').value
                 };
                 
+                // Datos para EmailJS (incluye todos los campos del template)
+                const emailData = {
+                    tipo_formulario: 'Envío de CV',
+                    origen: 'Página Oportunidades',
+                    nombre: nombre + ' ' + apellido,
+                    email: email,
+                    telefono: telefono,
+                    empresa: '',
+                    especializacion: especializacion,
+                    linkedin: document.getElementById('linkedin').value,
+                    mensaje: ''
+                };
+                
                 console.log('Enviando formulario con datos:', formData);
-
-                // Enviar datos a Google Sheets (Talentos)
-                const sheetsRequest = fetch('https://script.google.com/macros/s/AKfycbxQY-hQHvI9TRpQFWF0xOYbR0GQ5RtS9YVNOD8DFqf39tYQF6hoGD54i6d4EDp21wbS/exec', {
+                
+                // URL del Google Apps Script
+                const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxOAon4b-6gbhgTcbn0q_7RXVlItm-nZ6b3YZ-EcVJqSxE7cpqFmBuuaUWzOgwIRTfw/exec';
+                
+                // Enviar a Google Sheets
+                fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
                     body: JSON.stringify(formData)
-                }).catch(err => {
-                    console.error('Error enviando a Google Sheets:', err);
+                })
+                .then(function() {
+                    console.log('Datos enviados a Google Sheets');
+                })
+                .catch(function(error) {
+                    console.log('Error enviando a Google Sheets:', error);
                 });
                 
-                // Enviar email usando plantilla genérica compartida
-                const emailRequest = emailjs.send('service_f73qp8z', 'template_aw0qmk9', {
-                        tipo_formulario: 'Busco trabajo en Sapiens',
-                        origen: 'Formulario Oportunidades',
-                        nombre: formData.nombre,
-                        empresa: '',
-                        telefono: formData.telefono,
-                        email: formData.email,
-                        especializacion: formData.especializacion,
-                        linkedin: formData.linkedin,
-                        mensaje: '',
-                        servicio: '',
-                        detalle: '',
-                        acciones: ''
+                // Enviar email usando EmailJS
+                emailjs.send('service_f73qp8z', 'template_aw0qmk9', emailData)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        mostrarPopup('¡Gracias! Tu CV ha sido enviado exitosamente. Nos pondremos en contacto contigo.', true);
+                        form.reset();
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        mostrarPopup('Ocurrió un error al enviar tu CV. Intenta nuevamente.', false);
+                    })
+                    .finally(function() {
+                        // Restaurar el botón
+                        submitBtn.textContent = 'Enviar';
+                        submitBtn.disabled = false;
                     });
-
-                Promise.allSettled([sheetsRequest, emailRequest])
-                  .then(function(results) {
-                    const emailResult = results[1];
-                    if (emailResult.status === 'fulfilled') {
-                      console.log('Email enviado correctamente');
-                      mostrarPopup('¡Gracias! Tu CV ha sido enviado exitosamente. Nos pondremos en contacto contigo.', true);
-                      form.reset();
-                    } else {
-                      console.error('Error al enviar email:', emailResult.reason);
-                      mostrarPopup('Ocurrió un error al enviar tu CV. Intenta nuevamente.', false);
-                    }
-                  })
-                  .finally(function() {
-                    // Restaurar el botón
-                    submitBtn.textContent = 'Enviar';
-                    submitBtn.disabled = false;
-                  });
             });
         }
         
         // ===== Configuración Google Sheets (gviz) =====
         const SHEET_ID = '1LfoeVRmnUdYxHyQLOR4LwOuPFWbRQX4W5rx9N3aUb0Q'; // provisto por el usuario
-        const SHEET_NAME = 'Sapiens - Vacantes'; // nuevo nombre de la hoja (pestaña)
+        const SHEET_NAME = 'vacantes'; // nombre de la hoja (pestaña)
 
         function buildGvizUrl(sheetId, sheetName) {
           const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq`;
