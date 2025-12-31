@@ -902,7 +902,7 @@ body {
   position: absolute;
   right: 100px;
   top: 32px;
-  text-align: center;
+  text-align: left;
 }
 .footer__reclamos-right h5 {
   margin-bottom: 10px;
@@ -912,8 +912,25 @@ body {
 .footer__reclamos-link {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2px;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+/* Contacto: correo y número en columna y alineados a la izquierda */
+.footer__contacto-datos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  text-align: left;
+}
+
+/* Dar más altura al footer en desktop (los bloques absolutos no aportan altura) */
+@media (min-width: 901px) {
+  .footer__bottom {
+    padding-bottom: 56px;
+    min-height: 220px;
+  }
 }
 .footer__reclamos-link a {
   color: #222;
@@ -1390,8 +1407,9 @@ body {
   .footer__contacto-datos {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 2px;
+    align-items: flex-start;
+    gap: 6px;
+    text-align: left;
   }
   .footer__social-col {
     width: 100vw;
@@ -1427,7 +1445,7 @@ body {
     top: auto;
     width: 100vw;
     margin-top: 16px;
-    text-align: center;
+    text-align: left;
   }
   .footer__social {
     display: flex;
@@ -2394,13 +2412,13 @@ img, svg {
     margin-bottom: 0;
   }
   .footer__contacto-datos {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 6px;
     margin-bottom: 8px;
     width: 100%;
-    text-align: center;
+    text-align: left;
   }
   .logos-section {
     margin-bottom: 0 !important;
