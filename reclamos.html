@@ -116,11 +116,41 @@
         width:100%;
         margin:0;
         padding:0;
+        position:relative;
       }
       .reclamos-banner {
         width:100%;
         max-width:100%;
         display:block;
+      }
+      .reclamos-banner-text {
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        color:#fff;
+        text-align:center;
+        width:100%;
+        z-index:2;
+      }
+      .reclamos-banner-title {
+        font-size:3.5rem;
+        font-weight:700;
+        margin-bottom:12px;
+        text-shadow:0 2px 8px rgba(0,0,0,0.3);
+      }
+      .reclamos-banner-subtitle {
+        font-size:1.5rem;
+        font-weight:400;
+        text-shadow:0 2px 8px rgba(0,0,0,0.3);
+      }
+      @media (max-width: 768px) {
+        .reclamos-banner-title {
+          font-size:2.5rem;
+        }
+        .reclamos-banner-subtitle {
+          font-size:1.2rem;
+        }
       }
       .reclamos-btn-row {
         display:flex;
@@ -140,6 +170,43 @@
       }
       .reclamos-btn:hover {
         background:#2fa36a;
+      }
+      .reclamos-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background:#3AC37B;
+      }
+      .reclamos-btn:disabled:hover {
+        background:#3AC37B;
+      }
+      /* Terms checkbox styles */
+      .terms-checkbox-container {
+        margin: 16px 0;
+      }
+      .terms-checkbox-label {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.9rem;
+        color: #222;
+        cursor: pointer;
+        line-height: 1.5;
+      }
+      .terms-checkbox-label input[type="checkbox"] {
+        margin-top: 2px;
+        cursor: pointer;
+        min-width: 18px;
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+      }
+      .terms-link {
+        color: #3AC37B;
+        text-decoration: underline;
+        font-weight: 500;
+      }
+      .terms-link:hover {
+        color: #2fa36a;
       }
       @media (max-width: 768px) {
         .reclamos-card {
@@ -198,6 +265,10 @@
 
     <div class="reclamos-banner-wrap">
       <img src="img/banerreclamos.png" alt="Libro de reclamaciones" class="reclamos-banner">
+      <div class="reclamos-banner-text">
+        <div class="reclamos-banner-title">Libro de reclamos</div>
+        <div class="reclamos-banner-subtitle">Escuchamos tus sugerencias y reclamos</div>
+      </div>
     </div>
 
     <main id="main-content">
@@ -331,11 +402,18 @@
             </div>
 
             <div class="reclamos-aviso-final">
-              Al enviar este formulario, autorizas el uso de tus datos para contactarte y dar seguimiento a tu solicitud, de acuerdo con nuestra política de privacidad.
+              Al enviar este formulario, autorizas el uso de tus datos para contactarte y dar seguimiento a tu solicitud, de acuerdo con nuestra <a href="politica-privacidad.html" target="_blank" style="color: #3AC37B; text-decoration: underline;">política de privacidad</a>.
+            </div>
+
+            <div class="terms-checkbox-container">
+                <label class="terms-checkbox-label">
+                    <input type="checkbox" id="terms-checkbox-reclamo" name="terms" required>
+                    <span>Al hacer clic aquí, declaro que he leído y entendido los <a href="terminos-condiciones.html" target="_blank" rel="noopener" class="terms-link">términos y condiciones</a></span>
+                </label>
             </div>
 
             <div class="reclamos-btn-row">
-              <button class="reclamos-btn" type="submit" id="reclamoSubmit">Enviar</button>
+              <button class="reclamos-btn" type="submit" id="reclamoSubmit" disabled>Enviar</button>
             </div>
           </form>
         </div>
@@ -428,10 +506,27 @@
 
     document.addEventListener('DOMContentLoaded', inicializarCorrelativos);
 
+    // Controlar habilitación del botón según el checkbox
+    const termsCheckboxReclamo = document.getElementById('terms-checkbox-reclamo');
+    const reclamoSubmitBtn = document.getElementById('reclamoSubmit');
+    
+    if (termsCheckboxReclamo && reclamoSubmitBtn) {
+      termsCheckboxReclamo.addEventListener('change', function() {
+        reclamoSubmitBtn.disabled = !this.checked;
+      });
+    }
+
     document.getElementById('reclamoForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const form = this;
       const btn = document.getElementById('reclamoSubmit');
+      
+      // Validar checkbox de términos
+      if (!termsCheckboxReclamo || !termsCheckboxReclamo.checked) {
+        alert('Por favor, acepta los términos y condiciones para continuar.');
+        return;
+      }
+      
       btn.textContent = 'Enviando...';
       btn.disabled = true;
 
@@ -556,6 +651,11 @@
             form.reset();
             // Reiniciar correlativos
             inicializarCorrelativos();
+            // Resetear checkbox y deshabilitar botón
+            if (termsCheckboxReclamo) {
+              termsCheckboxReclamo.checked = false;
+            }
+            btn.disabled = true;
           } else {
             console.error('Error al enviar email:', emailResult.reason);
             mostrarPopupReclamo('Ocurrió un error al enviar tu reclamo. Intenta nuevamente o escríbenos a Talento@sapiens.la.');
@@ -566,8 +666,13 @@
           mostrarPopupReclamo('Ocurrió un error al enviar tu reclamo. Intenta nuevamente o escríbenos a Talento@sapiens.la.');
         })
         .finally(function() {
-          btn.textContent = 'Enviar reclamo';
-          btn.disabled = false;
+          btn.textContent = 'Enviar';
+          // Solo habilitar si el checkbox está marcado
+          if (termsCheckboxReclamo && termsCheckboxReclamo.checked) {
+            btn.disabled = false;
+          } else {
+            btn.disabled = true;
+          }
         });
     });
 

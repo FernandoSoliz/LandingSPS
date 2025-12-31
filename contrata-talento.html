@@ -22,6 +22,42 @@
 
       gtag('config', 'G-D2FY991FT1');
     </script>
+    <style>
+    /* Terms checkbox styles */
+    .terms-checkbox-container {
+        margin: 16px 0;
+    }
+    .terms-checkbox-label {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.9rem;
+        color: #222;
+        cursor: pointer;
+        line-height: 1.5;
+    }
+    .terms-checkbox-label input[type="checkbox"] {
+        margin-top: 2px;
+        cursor: pointer;
+        min-width: 18px;
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+    }
+    .terms-link {
+        color: #3AC37B;
+        text-decoration: underline;
+        font-weight: 500;
+    }
+    .terms-link:hover {
+        color: #2fa36a;
+    }
+    .btn-main:disabled,
+    .gradient-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    </style>
 </head>
 <body>
     <!-- Header igual que index -->
@@ -142,8 +178,14 @@
           <label for="mensaje">Mensaje</label>
           <textarea class="input-field" id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto o requerimiento" required></textarea>
         </div>
+        <div class="terms-checkbox-container">
+            <label class="terms-checkbox-label">
+                <input type="checkbox" id="terms-checkbox-contrata" name="terms" required>
+                <span>Al hacer clic aquí, declaro que he leído y entendido los <a href="terminos-condiciones.html" target="_blank" rel="noopener" class="terms-link">términos y condiciones</a></span>
+            </label>
+        </div>
         <div class="form-btn-row">
-          <button class="btn-main gradient-btn" type="submit">Enviar</button>
+          <button class="btn-main gradient-btn" type="submit" id="contrata-submit-btn" disabled>Enviar</button>
         </div>
       </form>
     </section>
@@ -208,9 +250,25 @@
         }, 8000);
       }
     }
+    // Controlar habilitación del botón según el checkbox
+    const termsCheckboxContrata = document.getElementById('terms-checkbox-contrata');
+    const contrataSubmitBtn = document.getElementById('contrata-submit-btn');
+    
+    if (termsCheckboxContrata && contrataSubmitBtn) {
+      termsCheckboxContrata.addEventListener('change', function() {
+        contrataSubmitBtn.disabled = !this.checked;
+      });
+    }
+    
     document.getElementById('contrataTalentoForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const form = this;
+      
+      // Validar checkbox de términos
+      if (!termsCheckboxContrata || !termsCheckboxContrata.checked) {
+        alert('Por favor, acepta los términos y condiciones para continuar.');
+        return;
+      }
       
       // Datos para Google Sheets
       const formData = {
@@ -261,9 +319,20 @@
           console.log('SUCCESS!', response.status, response.text);
           mostrarPopup('¡Gracias! Nos pondremos en contacto contigo lo más antes.', true);
           form.reset();
+          // Resetear checkbox y deshabilitar botón
+          if (termsCheckboxContrata) {
+            termsCheckboxContrata.checked = false;
+          }
+          contrataSubmitBtn.disabled = true;
         }, function(error) {
           console.log('FAILED...', error);
           mostrarPopup('Ocurrió un error al enviar el mensaje. Intenta nuevamente.', false);
+          // Solo habilitar si el checkbox está marcado
+          if (termsCheckboxContrata && termsCheckboxContrata.checked) {
+            contrataSubmitBtn.disabled = false;
+          } else {
+            contrataSubmitBtn.disabled = true;
+          }
         });
     });
     // Mobile menu toggle
