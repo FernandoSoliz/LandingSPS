@@ -38,11 +38,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  /* Altura aproximada del header para compensar cuando es fixed */
+  --header-height: 88px;
+}
 body {
   font-family: 'Montserrat', Arial, sans-serif;
   background: #fff;
   color: #222;
   line-height: 1.6;
+  padding-top: var(--header-height);
 }
 
 /* =====================
@@ -54,9 +59,13 @@ body {
   align-items: center;
   padding: 32px 7vw 18px 7vw;
   background: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 .header__logo img {
   height: 38px;
@@ -2548,13 +2557,20 @@ img, svg {
 }
 
 @media (max-width: 600px) {
+  :root {
+    --header-height: 62px;
+  }
   .header {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
     padding: 12px 16px 12px 16px !important;
-    position: relative;
+    /* Mantener fijo también en mobile */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0;
+    right: 0;
   }
   .header__logo {
     flex: 0 0 auto;
@@ -5012,13 +5028,20 @@ body, html {
 }
 
 @media (max-width: 600px) {
+  :root {
+    --header-height: 62px;
+  }
   .header {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
     padding: 12px 16px 12px 16px !important;
-    position: relative;
+    /* Mantener fijo también en mobile */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0;
+    right: 0;
   }
   .header__logo {
     flex: 0 0 auto;
@@ -7476,13 +7499,20 @@ body, html {
 }
 
 @media (max-width: 600px) {
+  :root {
+    --header-height: 62px;
+  }
   .header {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
     padding: 12px 16px 12px 16px !important;
-    position: relative;
+    /* Mantener fijo también en mobile */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0;
+    right: 0;
   }
   .header__logo {
     flex: 0 0 auto;
