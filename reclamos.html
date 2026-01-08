@@ -9,10 +9,11 @@
     <meta name="description" content="Registra tus reclamos, quejas o sugerencias sobre los servicios de Sapiens Digital Lab. Te responderemos a la brevedad.">
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/png" href="img/favisapiens.png">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <style>
       body {
         background:#f5f5f5;
@@ -218,32 +219,28 @@
         }
       }
     </style>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2FY991FT1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
       gtag('config', 'G-D2FY991FT1');
     </script>
 </head>
 <body>
     <!-- Header igual que las otras páginas -->
     <header class="header" role="banner">
-        <div class="header__logo" style="justify-content: flex-start;">
-            <a href="index.html"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" loading="lazy"></a>
+        <div class="header__logo">
+            <a href="index.html"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" width="150" height="38"></a>
         </div>
-        <button class="menu-toggle" aria-label="Abrir menú" style="background:none;border:none;outline:none;cursor:pointer;">
+        <button class="menu-toggle" aria-label="Abrir menú">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
             <rect y="7" width="32" height="3" rx="1.5" fill="#222"/>
             <rect y="14.5" width="32" height="3" rx="1.5" fill="#222"/>
             <rect y="22" width="32" height="3" rx="1.5" fill="#222"/>
           </svg>
         </button>
-        <button class="menu-close" aria-label="Cerrar menú" style="background:none;border:none;outline:none;cursor:pointer;display:none;position:fixed;top:16px;right:16px;z-index:10000;font-size:2rem;line-height:1;">
-          &times;
-        </button>
+        <button class="menu-close" aria-label="Cerrar menú">&times;</button>
         <nav class="header__nav" role="navigation" aria-label="Menú principal">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -253,8 +250,8 @@
             </ul>
         </nav>
         <div class="mobile-menu" aria-label="Menú móvil" tabindex="-1">
-          <ul style="list-style:none;padding:6px 0 4px 0;margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:2px;border:1.5px solid #ddd;border-radius:10px;background:#fff;">
-            <li style="margin-bottom:4px;"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" style="height:38px;"></li>
+          <ul>
+            <li><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab"></li>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="oportunidades.html">Oportunidades</a></li>
@@ -442,7 +439,7 @@
         </div>
       </div>
     </div>
-    <div class="footer__bottom" style="position:relative;">
+    <div class="footer__bottom">
       <div class="footer__content">
         <div class="footer__col footer__contacto">
           <h5>Contacto</h5>
@@ -478,13 +475,12 @@
     })();
 
     function mostrarPopupReclamo(mensaje) {
-      var popup = document.getElementById('reclamoPopup');
-      var msg = document.getElementById('reclamoPopupMsg');
+      const popup = document.getElementById('reclamoPopup');
+      const msg = document.getElementById('reclamoPopupMsg');
+      if (!popup || !msg) return;
       msg.innerHTML = mensaje;
       popup.style.display = 'flex';
-      setTimeout(function() {
-        popup.style.display = 'none';
-      }, 7000);
+      setTimeout(() => popup.style.display = 'none', 7000);
     }
 
     // Generar número correlativo de 6 dígitos (000001, 000002, ...)
@@ -606,9 +602,7 @@
           acciones: data.acciones,
           firma_texto: data.firma_texto
         })
-      }).catch(function(err) {
-        console.error('Error enviando a Google Sheets (Reclamos):', err);
-      });
+        }).catch(() => {});
 
       // Enviar correo con plantilla de Libro de Reclamaciones
       // Preparar datos para EmailJS según el template proporcionado
@@ -637,93 +631,77 @@
         firma_texto: data.firma_texto
       };
       
-      console.log('Enviando datos a Google Sheets:', data);
-      console.log('Enviando datos a EmailJS:', emailData);
-      
       const emailRequest = emailjs.send('service_f73qp8z', 'template_aw0qmk9', emailData)
-        .then(function(response) {
-          console.log('EmailJS SUCCESS!', response.status, response.text);
-        })
-        .catch(function(error) {
-          console.error('EmailJS FAILED...', error);
+        .catch(error => {
+          console.error('EmailJS error:', error);
           throw error;
         });
 
       Promise.allSettled([sheetsRequest, emailRequest])
-        .then(function(results) {
-          console.log('Resultados:', results);
+        .then(results => {
           const emailResult = results[1];
           if (emailResult.status === 'fulfilled') {
             mostrarPopupReclamo('Se ha enviado de forma exitosa.<br>Una copia de su queja se ha enviado<br>a su correo electrónico');
             form.reset();
-            // Reiniciar correlativos
             inicializarCorrelativos();
-            // Resetear checkbox y deshabilitar botón
-            if (termsCheckboxReclamo) {
-              termsCheckboxReclamo.checked = false;
-            }
+            if (termsCheckboxReclamo) termsCheckboxReclamo.checked = false;
             btn.disabled = true;
           } else {
-            console.error('Error al enviar email:', emailResult.reason);
             mostrarPopupReclamo('Ocurrió un error al enviar tu reclamo. Intenta nuevamente o escríbenos a Talento@sapiens.la.');
           }
         })
-        .catch(function(error) {
-          console.error('Error general:', error);
+        .catch(() => {
           mostrarPopupReclamo('Ocurrió un error al enviar tu reclamo. Intenta nuevamente o escríbenos a Talento@sapiens.la.');
         })
-        .finally(function() {
+        .finally(() => {
           btn.textContent = 'Enviar';
-          // Solo habilitar si el checkbox está marcado
-          if (termsCheckboxReclamo && termsCheckboxReclamo.checked) {
-            btn.disabled = false;
-          } else {
-            btn.disabled = true;
-          }
+          btn.disabled = !termsCheckboxReclamo || !termsCheckboxReclamo.checked;
         });
     });
 
 
-    // Mobile menu toggle (copiado de otras páginas)
+    // Mobile menu
     const menuToggle = document.querySelector('.menu-toggle');
     const menuClose = document.querySelector('.menu-close');
     const mobileMenu = document.querySelector('.mobile-menu');
     const nav = document.querySelector('.header__nav');
 
     function closeMobileMenu() {
-      mobileMenu.style.display = 'none';
-      menuClose.style.display = 'none';
+      if (mobileMenu) mobileMenu.style.display = 'none';
+      if (menuClose) menuClose.style.display = 'none';
       document.body.style.overflow = '';
     }
 
     function openMobileMenu() {
-      mobileMenu.style.display = 'block';
-      menuClose.style.display = 'block';
+      if (mobileMenu) mobileMenu.style.display = 'block';
+      if (menuClose) menuClose.style.display = 'block';
       document.body.style.overflow = 'hidden';
     }
 
-    menuToggle.addEventListener('click', function() {
-      openMobileMenu();
-    });
-    menuClose.addEventListener('click', function() {
-      closeMobileMenu();
-    });
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMobileMenu);
-    });
+    if (menuToggle) menuToggle.addEventListener('click', openMobileMenu);
+    if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
+    if (mobileMenu) {
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+    }
 
     function handleResize() {
       if (window.innerWidth <= 600) {
-        nav.style.display = 'none';
+        if (nav) nav.style.display = 'none';
         closeMobileMenu();
       } else {
-        nav.style.display = 'block';
-        menuClose.style.display = 'none';
+        if (nav) nav.style.display = 'block';
+        if (menuClose) menuClose.style.display = 'none';
         closeMobileMenu();
       }
     }
     window.addEventListener('resize', handleResize);
-    window.addEventListener('DOMContentLoaded', handleResize);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', handleResize);
+    } else {
+      handleResize();
+    }
     </script>
 </body>
 </html>

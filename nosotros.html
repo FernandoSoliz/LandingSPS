@@ -9,36 +9,33 @@
     <meta name="description" content="Conoce a Sapiens Digital Lab, expertos en outsourcing digital y vinculación de talentos digitales con proyectos de transformación.">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" href="img/favisapiens.png">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Analytics (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2FY991FT1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
       gtag('config', 'G-D2FY991FT1');
     </script>
 </head>
 <body style="background:#fff;">
     <!-- Header igual que index -->
     <header class="header" role="banner">
-        <div class="header__logo" style="justify-content: flex-start;">
-            <a href="index.html"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" loading="lazy"></a>
+        <div class="header__logo">
+            <a href="index.html"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" width="150" height="38"></a>
         </div>
-        <button class="menu-toggle" aria-label="Abrir menú" style="background:none;border:none;outline:none;cursor:pointer;">
+        <button class="menu-toggle" aria-label="Abrir menú">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
             <rect y="7" width="32" height="3" rx="1.5" fill="#222"/>
             <rect y="14.5" width="32" height="3" rx="1.5" fill="#222"/>
             <rect y="22" width="32" height="3" rx="1.5" fill="#222"/>
           </svg>
         </button>
-        <button class="menu-close" aria-label="Cerrar menú" style="background:none;border:none;outline:none;cursor:pointer;display:none;position:fixed;top:16px;right:16px;z-index:10000;font-size:2rem;line-height:1;">
-          &times;
-        </button>
+        <button class="menu-close" aria-label="Cerrar menú">&times;</button>
         <nav class="header__nav" role="navigation" aria-label="Menú principal">
             <ul>
                 <li><a href="index.html#inicio">Inicio</a></li>
@@ -48,18 +45,18 @@
             </ul>
         </nav>
         <div class="mobile-menu" aria-label="Menú móvil" tabindex="-1">
-          <ul style="list-style:none;padding:6px 0 4px 0;margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:2px;border:1.5px solid #ddd;border-radius:10px;background:#fff;">
-            <li style="margin-bottom:4px;"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" style="height:38px;"></li>
+          <ul>
+            <li><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab"></li>
             <li><a href="index.html#inicio">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="oportunidades.html">Oportunidades</a></li>
-                            <li><a href="contrata-talento.html" class="btn-contrata-talento-mobile">Contrata un talento →</a></li>
+            <li><a href="contrata-talento.html" class="btn-contrata-talento-mobile">Contrata un talento →</a></li>
           </ul>
         </div>
     </header>
     <!-- Hero principal -->
     <main id="main-content">
-    <section class="hero" style="background-color:#ffffff !important;background-image:url('img/bg-nosotros.png');background-size:cover;background-position:center;min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:75px 0 50px 0;filter:none;opacity:1;">
+    <section class="hero" style="background-color:#ffffff !important;background-image:url('img/bg-nosotros.png');background-size:cover;background-position:center;min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:75px 0 50px 0;">
         <h1 class="hero__title" style="font-size:3.75rem;font-weight:700;color:#3AC37B;margin-bottom:10px;">Somos Sapiens</h1>
         <div class="hero__subtitle" style="font-size:1.88rem;color:#888;">Talento + Oportunidades</div>
     </section>
@@ -177,33 +174,36 @@
             </div>
         </div>
         <script>
-        // FAQ acordeón: solo una abierta a la vez, chevron SVG rota 180° y fondo cambia
+        // FAQ acordeón
         document.querySelectorAll('.faq-question').forEach(q => {
           q.onclick = function() {
-            document.querySelectorAll('.faq-item').forEach(item => {
-              const chevron = item.querySelector('.faq-chevron');
-              if(item.contains(q)) {
-                const ans = item.querySelector('.faq-answer');
-                const isOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item').forEach(i => {
-                  i.classList.remove('open');
-                  i.querySelector('.faq-answer').style.maxHeight = '0';
-                  i.querySelector('.faq-answer').style.paddingBottom = '0';
-                  i.querySelector('.faq-answer').style.paddingTop = '0';
-                  i.style.background = '#f5f5f5';
-                  i.querySelector('.faq-chevron svg').style.transform = 'rotate(0deg)';
-                });
-                if(!isOpen) {
-                  item.classList.add('open');
-                  ans.style.maxHeight = ans.scrollHeight + 32 + 'px';
-                  ans.style.paddingBottom = '24px';
-                  ans.style.paddingTop = '8px';
-                  chevron.querySelector('svg').style.transform = 'rotate(180deg)';
-                  item.style.background = '#fff';
-                }
-              }
+            const item = q.closest('.faq-item');
+            const ans = item.querySelector('.faq-answer');
+            const chevron = item.querySelector('.faq-chevron svg');
+            const isOpen = item.classList.contains('open');
+            
+            // Cerrar todos
+            document.querySelectorAll('.faq-item').forEach(i => {
+              i.classList.remove('open');
+              const iAns = i.querySelector('.faq-answer');
+              const iChevron = i.querySelector('.faq-chevron svg');
+              iAns.style.maxHeight = '0';
+              iAns.style.paddingBottom = '0';
+              iAns.style.paddingTop = '0';
+              i.style.background = '#f5f5f5';
+              iChevron.style.transform = 'rotate(0deg)';
             });
-          }
+            
+            // Abrir el seleccionado si estaba cerrado
+            if (!isOpen) {
+              item.classList.add('open');
+              ans.style.maxHeight = ans.scrollHeight + 32 + 'px';
+              ans.style.paddingBottom = '24px';
+              ans.style.paddingTop = '8px';
+              chevron.style.transform = 'rotate(180deg)';
+              item.style.background = '#fff';
+            }
+          };
         });
         </script>
     </div>
@@ -218,7 +218,7 @@
         </div>
       </div>
     </div>
-    <div class="footer__bottom" style="position:relative;">
+    <div class="footer__bottom">
       <div class="footer__content">
         <div class="footer__col footer__contacto">
           <h5>Contacto</h5>
@@ -247,44 +247,48 @@
       <span style="display:block; width:100%; text-align:center; margin-top:24px; color:#222;">© 2025 by Sapiens Digital Lab</span>
     </div>
     <script>
-    // Mobile menu toggle
+    // Mobile menu
     const menuToggle = document.querySelector('.menu-toggle');
     const menuClose = document.querySelector('.menu-close');
     const mobileMenu = document.querySelector('.mobile-menu');
     const nav = document.querySelector('.header__nav');
+    
     function closeMobileMenu() {
-      mobileMenu.style.display = 'none';
-      menuClose.style.display = 'none';
+      if (mobileMenu) mobileMenu.style.display = 'none';
+      if (menuClose) menuClose.style.display = 'none';
       document.body.style.overflow = '';
     }
+    
     function openMobileMenu() {
-      mobileMenu.style.display = 'block';
-      menuClose.style.display = 'block';
+      if (mobileMenu) mobileMenu.style.display = 'block';
+      if (menuClose) menuClose.style.display = 'block';
       document.body.style.overflow = 'hidden';
     }
-    menuToggle.addEventListener('click', function() {
-      openMobileMenu();
-    });
-    menuClose.addEventListener('click', function() {
-      closeMobileMenu();
-    });
-    // Cerrar menú al hacer clic en un enlace
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMobileMenu);
-    });
-    // Mostrar/ocultar menú y botones según tamaño
+    
+    if (menuToggle) menuToggle.addEventListener('click', openMobileMenu);
+    if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
+    if (mobileMenu) {
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+    }
+    
     function handleResize() {
       if (window.innerWidth <= 600) {
-        nav.style.display = 'none';
+        if (nav) nav.style.display = 'none';
         closeMobileMenu();
       } else {
-        nav.style.display = 'block';
-        menuClose.style.display = 'none';
+        if (nav) nav.style.display = 'block';
+        if (menuClose) menuClose.style.display = 'none';
         closeMobileMenu();
       }
     }
     window.addEventListener('resize', handleResize);
-    window.addEventListener('DOMContentLoaded', handleResize);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', handleResize);
+    } else {
+      handleResize();
+    }
     </script>
 </body>
 </html> 

@@ -9,10 +9,15 @@
     <meta name="description" content="Conecta con profesionales expertos en Agile, Data & Analytics y Experiencia Digital para acelerar tu negocio. Sapiens Digital Lab, talento y transformación digital.">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" href="img/favisapiens.png">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Preconnect temprano para recursos críticos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+    <!-- DNS prefetch para recursos no críticos -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- Cargar CSS de fuentes con display=swap (ya optimizado) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS principal - crítico, carga antes del contenido -->
+    <link rel="stylesheet" href="css/style.css">
     <style>
     @media (max-width: 600px) {
       .logos-section {
@@ -20,31 +25,27 @@
       }
     }
     </style>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2FY991FT1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
       gtag('config', 'G-D2FY991FT1');
     </script>
 </head>
 <body>
     <header class="header" role="banner">
-        <div class="header__logo" style="justify-content: flex-start;">
-            <a href="index.html"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" loading="lazy"></a>
+        <div class="header__logo">
+            <a href="index.html"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" width="150" height="38"></a>
         </div>
-        <button class="menu-toggle" aria-label="Abrir menú" style="background:none;border:none;outline:none;cursor:pointer;">
+        <button class="menu-toggle" aria-label="Abrir menú">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
             <rect y="7" width="32" height="3" rx="1.5" fill="#222"/>
             <rect y="14.5" width="32" height="3" rx="1.5" fill="#222"/>
             <rect y="22" width="32" height="3" rx="1.5" fill="#222"/>
           </svg>
         </button>
-        <button class="menu-close" aria-label="Cerrar menú" style="background:none;border:none;outline:none;cursor:pointer;display:none;position:fixed;top:16px;right:16px;z-index:10000;font-size:2rem;line-height:1;">
-          &times;
-        </button>
+        <button class="menu-close" aria-label="Cerrar menú">&times;</button>
         <nav class="header__nav" role="navigation" aria-label="Menú principal">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -54,12 +55,12 @@
             </ul>
         </nav>
         <div class="mobile-menu" aria-label="Menú móvil" tabindex="-1">
-          <ul style="list-style:none;padding:6px 0 4px 0;margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:2px;border:1.5px solid #ddd;border-radius:10px;background:#fff;">
-            <li style="margin-bottom:4px;"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" style="height:38px;"></li>
+          <ul>
+            <li><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab"></li>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="oportunidades.html">Oportunidades</a></li>
-                            <li><a href="contrata-talento.html" class="btn-contrata-talento-mobile">Contrata un talento →</a></li>
+            <li><a href="contrata-talento.html" class="btn-contrata-talento-mobile">Contrata un talento →</a></li>
           </ul>
         </div>
     </header>
@@ -67,7 +68,7 @@
     <main id="main-content">
     <section class="hero" id="inicio">
         <div class="hero__bg">
-            <img src="img/hero-circle.png" alt="Fondo círculo decorativo" class="hero__circle" loading="lazy">
+            <img src="img/hero-circle.png" alt="Fondo círculo decorativo" class="hero__circle" fetchpriority="high">
         </div>
         <div class="hero__content">
             <h1>Impulsa tu transformación digital</h1>
@@ -268,17 +269,8 @@
         </div>
       </div>
     </div>
-    <div class="footer__bottom" style="position:relative;">
+    <div class="footer__bottom">
       <div class="footer__content">
-        <!-- <div class="footer__col footer__menu">
-          <h5>Menú</h5>
-          <div class="footer__menu-links">
-            <a href="#inicio">Inicio</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#oportunidades">Postula</a>
-            <a href="#contacto">Contáctanos</a>
-          </div>
-        </div> -->
         <div class="footer__col footer__contacto">
           <h5>Contacto</h5>
           <div class="footer__contacto-datos">
@@ -306,190 +298,144 @@
       <span style="display:block; width:100%; text-align:center; margin-top:24px; color:#222;">© 2025 by Sapiens Digital Lab</span>
     </div>
     <script>
-    // Mobile menu toggle
+    // Mobile menu
     const menuToggle = document.querySelector('.menu-toggle');
     const menuClose = document.querySelector('.menu-close');
     const mobileMenu = document.querySelector('.mobile-menu');
     const nav = document.querySelector('.header__nav');
+    
     function closeMobileMenu() {
       mobileMenu.style.display = 'none';
       menuClose.style.display = 'none';
       document.body.style.overflow = '';
     }
+    
     function openMobileMenu() {
       mobileMenu.style.display = 'block';
       menuClose.style.display = 'block';
       document.body.style.overflow = 'hidden';
     }
-    menuToggle.addEventListener('click', function() {
-      openMobileMenu();
-    });
-    menuClose.addEventListener('click', function() {
-      closeMobileMenu();
-    });
-    // Cerrar menú al hacer clic en un enlace
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMobileMenu);
-    });
-    // Mostrar/ocultar menú y botones según tamaño
+    
+    if (menuToggle) menuToggle.addEventListener('click', openMobileMenu);
+    if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
+    if (mobileMenu) {
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+    }
+    
+    // Responsive menu handling
     function handleResize() {
       if (window.innerWidth <= 600) {
-        nav.style.display = 'none';
+        if (nav) nav.style.display = 'none';
         closeMobileMenu();
       } else {
-        nav.style.display = 'block';
-        menuClose.style.display = 'none';
+        if (nav) nav.style.display = 'block';
+        if (menuClose) menuClose.style.display = 'none';
         closeMobileMenu();
       }
     }
     window.addEventListener('resize', handleResize);
-    window.addEventListener('DOMContentLoaded', handleResize);
-    // Logos carousel
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', handleResize);
+    } else {
+      handleResize();
+    }
+    
+    // Logos carousel (solo desktop, la sección está oculta en mobile)
     const slides = document.querySelectorAll('.logos-slide');
     const prevBtn = document.querySelector('.logos-arrow.left');
     const nextBtn = document.querySelector('.logos-arrow.right');
-    let currentSlide = 0;
-    let carouselInterval;
     
-    function showSlide(index) {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = index;
-      if (currentSlide >= slides.length) currentSlide = 0;
-      if (currentSlide < 0) currentSlide = slides.length - 1;
-      slides[currentSlide].classList.add('active');
-    }
-    
-    function nextSlide() {
-      showSlide(currentSlide + 1);
-    }
-    
-    function prevSlide() {
-      showSlide(currentSlide - 1);
-    }
-    
-    function startCarousel() {
-      if (window.innerWidth <= 600) {
-        carouselInterval = setInterval(nextSlide, 2500);
-      }
-    }
-    
-    function stopCarousel() {
-      if (carouselInterval) {
-        clearInterval(carouselInterval);
-      }
-    }
-    
-    // Event listeners for arrow buttons
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', function() {
-        stopCarousel();
-        prevSlide();
-        startCarousel();
-      });
+    if (slides.length > 0 && prevBtn && nextBtn) {
+      let currentSlide = 0;
       
-      nextBtn.addEventListener('click', function() {
-        stopCarousel();
-        nextSlide();
-        startCarousel();
-      });
-    }
-    
-    // Start carousel on mobile/tablet
-    startCarousel();
-    
-    // Restart carousel on resize
-    window.addEventListener('resize', function() {
-      stopCarousel();
-      if (window.innerWidth <= 600) {
-        // Reset to first slide
-        slides.forEach(slide => slide.classList.remove('active'));
-        slides[0].classList.add('active');
-        currentSlide = 0;
-        startCarousel();
+      function showSlide(index) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = index;
+        if (currentSlide >= slides.length) currentSlide = 0;
+        if (currentSlide < 0) currentSlide = slides.length - 1;
+        slides[currentSlide].classList.add('active');
       }
-    });
+      
+      prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+      nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+    }
 
-    // Carrusel de testimonios
+    // Testimonios carousel
     const testimonioSlides = document.querySelectorAll('.testimonio-slide');
     const testimonioPrevBtn = document.querySelector('.testimonio-arrow.left');
     const testimonioNextBtn = document.querySelector('.testimonio-arrow.right');
     const testimonioCarousel = document.querySelector('.testimonio-carousel');
-    let testimonioCurrent = 0;
-    let testimonioInterval;
+    
+    if (testimonioSlides.length > 0) {
+      let testimonioCurrent = 0;
+      let testimonioInterval;
 
-    function showTestimonio(index) {
-      testimonioSlides[testimonioCurrent].classList.remove('active');
-      testimonioCurrent = index;
-      if (testimonioCurrent >= testimonioSlides.length) testimonioCurrent = 0;
-      if (testimonioCurrent < 0) testimonioCurrent = testimonioSlides.length - 1;
-      testimonioSlides[testimonioCurrent].classList.add('active');
-    }
-
-    function nextTestimonio() {
-      showTestimonio(testimonioCurrent + 1);
-    }
-
-    function prevTestimonio() {
-      showTestimonio(testimonioCurrent - 1);
-    }
-
-    function startTestimonioCarousel() {
-      testimonioInterval = setInterval(nextTestimonio, 9000);
-    }
-
-    function stopTestimonioCarousel() {
-      if (testimonioInterval) clearInterval(testimonioInterval);
-    }
-
-    // Event listeners para botones (solo en desktop)
-    if (testimonioPrevBtn && testimonioNextBtn) {
-      testimonioPrevBtn.addEventListener('click', function() {
-        stopTestimonioCarousel();
-        prevTestimonio();
-        startTestimonioCarousel();
-      });
-      testimonioNextBtn.addEventListener('click', function() {
-        stopTestimonioCarousel();
-        nextTestimonio();
-        startTestimonioCarousel();
-      });
-    }
-
-    // Funcionalidad de swipe/touch para móviles
-    if (testimonioCarousel) {
-      let touchStartX = 0;
-      let touchEndX = 0;
-      let minSwipeDistance = 50; // Distancia mínima para considerar un swipe
-
-      testimonioCarousel.addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
-
-      testimonioCarousel.addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-      }, { passive: true });
-
-      function handleSwipe() {
-        const swipeDistance = touchEndX - touchStartX;
-        
-        if (Math.abs(swipeDistance) > minSwipeDistance) {
-          stopTestimonioCarousel();
-          
-          if (swipeDistance > 0) {
-            // Swipe hacia la derecha - anterior
-            prevTestimonio();
-          } else {
-            // Swipe hacia la izquierda - siguiente
-            nextTestimonio();
-          }
-          
-          startTestimonioCarousel();
-        }
+      function showTestimonio(index) {
+        testimonioSlides[testimonioCurrent].classList.remove('active');
+        testimonioCurrent = index;
+        if (testimonioCurrent >= testimonioSlides.length) testimonioCurrent = 0;
+        if (testimonioCurrent < 0) testimonioCurrent = testimonioSlides.length - 1;
+        testimonioSlides[testimonioCurrent].classList.add('active');
       }
-    }
 
-    startTestimonioCarousel();
+      function nextTestimonio() {
+        showTestimonio(testimonioCurrent + 1);
+      }
+
+      function prevTestimonio() {
+        showTestimonio(testimonioCurrent - 1);
+      }
+
+      function startTestimonioCarousel() {
+        testimonioInterval = setInterval(nextTestimonio, 9000);
+      }
+
+      function stopTestimonioCarousel() {
+        if (testimonioInterval) clearInterval(testimonioInterval);
+      }
+
+      if (testimonioPrevBtn && testimonioNextBtn) {
+        testimonioPrevBtn.addEventListener('click', () => {
+          stopTestimonioCarousel();
+          prevTestimonio();
+          startTestimonioCarousel();
+        });
+        testimonioNextBtn.addEventListener('click', () => {
+          stopTestimonioCarousel();
+          nextTestimonio();
+          startTestimonioCarousel();
+        });
+      }
+
+      // Touch swipe support
+      if (testimonioCarousel) {
+        let touchStartX = 0;
+        const minSwipeDistance = 50;
+
+        testimonioCarousel.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        testimonioCarousel.addEventListener('touchend', (e) => {
+          const touchEndX = e.changedTouches[0].screenX;
+          const swipeDistance = touchEndX - touchStartX;
+          
+          if (Math.abs(swipeDistance) > minSwipeDistance) {
+            stopTestimonioCarousel();
+            if (swipeDistance > 0) {
+              prevTestimonio();
+            } else {
+              nextTestimonio();
+            }
+            startTestimonioCarousel();
+          }
+        }, { passive: true });
+      }
+
+      startTestimonioCarousel();
+    }
     </script>
 </body>
 </html> 

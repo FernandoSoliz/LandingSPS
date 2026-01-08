@@ -9,17 +9,16 @@
     <meta name="description" content="Contrata talento digital de LATAM con Sapiens Digital Lab. Encuentra expertos para tus proyectos de transformación digital.">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" href="img/favisapiens.png">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Analytics (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2FY991FT1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
       gtag('config', 'G-D2FY991FT1');
     </script>
     <style>
@@ -62,19 +61,17 @@
 <body>
     <!-- Header igual que index -->
     <header class="header" role="banner">
-        <div class="header__logo" style="justify-content: flex-start;">
-            <a href="index.html"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" loading="lazy"></a>
+        <div class="header__logo">
+            <a href="index.html"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" width="150" height="38"></a>
         </div>
-        <button class="menu-toggle" aria-label="Abrir menú" style="background:none;border:none;outline:none;cursor:pointer;">
+        <button class="menu-toggle" aria-label="Abrir menú">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
             <rect y="7" width="32" height="3" rx="1.5" fill="#222"/>
             <rect y="14.5" width="32" height="3" rx="1.5" fill="#222"/>
             <rect y="22" width="32" height="3" rx="1.5" fill="#222"/>
           </svg>
         </button>
-        <button class="menu-close" aria-label="Cerrar menú" style="background:none;border:none;outline:none;cursor:pointer;display:none;position:fixed;top:16px;right:16px;z-index:10000;font-size:2rem;line-height:1;">
-          &times;
-        </button>
+        <button class="menu-close" aria-label="Cerrar menú">&times;</button>
         <nav class="header__nav" role="navigation" aria-label="Menú principal">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -84,12 +81,12 @@
             </ul>
         </nav>
         <div class="mobile-menu" aria-label="Menú móvil" tabindex="-1">
-          <ul style="list-style:none;padding:6px 0 4px 0;margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:2px;border:1.5px solid #ddd;border-radius:10px;background:#fff;">
-            <li style="margin-bottom:4px;"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" style="height:38px;"></li>
+          <ul>
+            <li><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab"></li>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="oportunidades.html">Oportunidades</a></li>
-                            <li><a href="contrata-talento.html" class="btn-contrata-talento-mobile">Contrata un talento →</a></li>
+            <li><a href="contrata-talento.html" class="btn-contrata-talento-mobile">Contrata un talento →</a></li>
           </ul>
         </div>
     </header>
@@ -103,7 +100,7 @@
     <!-- Pasos -->
     <section class="contrata-talento-pasos" style="padding-bottom:0;">
       <h2 class="section-title" style="font-size:2.6rem;font-weight:700;text-align:center;margin-bottom:12px;">Complementa tus equipos con talentos adecuados</h2>
-      <div class="section-subtitle contrata-talento-subtitle" style="font-size:1.18rem;text-align:center;margin-bottom:38px;max-width:700px;margin-left:auto;margin-right:auto;">Suma talentos a tus equipos en pocos días, escala tus equipos sin muchos inconvenientes. Te ayudamos con la busqueda, filtrado y gestion del talento.</div>
+      <div class="section-subtitle contrata-talento-subtitle" style="font-size:1rem;text-align:center;margin-bottom:38px;max-width:700px;margin-left:auto;margin-right:auto;">Suma talentos a tus equipos en pocos días, escala tus equipos sin muchos inconvenientes. Te ayudamos con la busqueda, filtrado y gestion del talento.</div>
       <div style="display:flex;flex-direction:column;gap:32px;align-items:center;">
         <div style="display:flex;flex-direction:row;gap:32px;width:100%;max-width:1200px;">
           <div style="flex:1;background:#fff;border-radius:22px;box-shadow:0 6px 18px rgba(0,0,0,0.10);padding:32px 32px;display:flex;flex-direction:column;align-items:center;min-height:370px;">
@@ -146,7 +143,7 @@
       <div class="form-section-subtitle">Toma una decisión inteligente, contrata talento de LATAM con alto compromiso, mejor alineación cultural y salarios más competitivos</div>
     </section>
     <!-- Formulario buscar expertos -->
-    <section class="form-section form-flex" style="display:flex;align-items:flex-start;gap:44px;padding:0;margin:0;">
+    <section class="form-section form-flex" style="display:flex;align-items:flex-start;gap:44px;padding:0 0 80px 0;margin:0;">
       <div class="form-img-wrap">
         <img class="form-img" src="img/form-contrata.png" alt="Buscar expertos">
       </div>
@@ -208,7 +205,7 @@
         </div>
       </div>
     </div>
-    <div class="footer__bottom" style="position:relative;">
+    <div class="footer__bottom">
       <div class="footer__content">
         <div class="footer__col footer__contacto">
           <h5>Contacto</h5>
@@ -242,20 +239,13 @@
       emailjs.init('Q0_hWQQnnmPEqYRwT');
     })();
     function mostrarPopup(mensaje, esExito) {
-      var popup = document.getElementById('popupConfirm');
-      var popupMsg = document.getElementById('popupMessage');
+      const popup = document.getElementById('popupConfirm');
+      const popupMsg = document.getElementById('popupMessage');
+      if (!popup || !popupMsg) return;
       popupMsg.textContent = mensaje;
       popupMsg.style.color = esExito ? '#2ed47a' : '#e74c3c';
       popup.style.display = 'flex';
-      if (esExito) {
-        setTimeout(function() {
-          window.location.reload();
-        }, 8000);
-      } else {
-        setTimeout(function() {
-          window.location.reload();
-        }, 8000);
-      }
+      setTimeout(() => window.location.reload(), 8000);
     }
     // Controlar habilitación del botón según el checkbox
     const termsCheckboxContrata = document.getElementById('terms-checkbox-contrata');
@@ -299,87 +289,71 @@
         mensaje: form.mensaje.value
       };
       
-      console.log('Enviando formulario con datos:', formData);
-      
-      // URL del Google Apps Script para Contrata Talento
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzmbqzonNqf8J73LER75IOkbDylJYTgX0s2YQxLE1QrefKAg5B48JEfY9SQ8YeB8LdFtA/exec';
-      
       // Enviar a Google Sheets
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzmbqzonNqf8J73LER75IOkbDylJYTgX0s2YQxLE1QrefKAg5B48JEfY9SQ8YeB8LdFtA/exec';
       fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
-      })
-      .then(function() {
-        console.log('Datos enviados a Google Sheets');
-      })
-      .catch(function(error) {
-        console.log('Error enviando a Google Sheets:', error);
-      });
+      }).catch(() => {});
       
       // Enviar email usando EmailJS
       emailjs.send('service_f73qp8z', 'template_aw0qmk9', emailData)
-        .then(function(response) {
-          console.log('SUCCESS!', response.status, response.text);
+        .then(() => {
           mostrarPopup('¡Gracias! Nos pondremos en contacto contigo lo más antes.', true);
           form.reset();
-          // Resetear checkbox y deshabilitar botón
-          if (termsCheckboxContrata) {
-            termsCheckboxContrata.checked = false;
-          }
+          if (termsCheckboxContrata) termsCheckboxContrata.checked = false;
           contrataSubmitBtn.disabled = true;
-        }, function(error) {
-          console.log('FAILED...', error);
+        })
+        .catch(() => {
           mostrarPopup('Ocurrió un error al enviar el mensaje. Intenta nuevamente.', false);
-          // Solo habilitar si el checkbox está marcado
-          if (termsCheckboxContrata && termsCheckboxContrata.checked) {
-            contrataSubmitBtn.disabled = false;
-          } else {
-            contrataSubmitBtn.disabled = true;
-          }
+          contrataSubmitBtn.disabled = !termsCheckboxContrata || !termsCheckboxContrata.checked;
         });
     });
-    // Mobile menu toggle
+    
+    // Mobile menu
     const menuToggle = document.querySelector('.menu-toggle');
     const menuClose = document.querySelector('.menu-close');
     const mobileMenu = document.querySelector('.mobile-menu');
     const nav = document.querySelector('.header__nav');
+    
     function closeMobileMenu() {
-      mobileMenu.style.display = 'none';
-      menuClose.style.display = 'none';
+      if (mobileMenu) mobileMenu.style.display = 'none';
+      if (menuClose) menuClose.style.display = 'none';
       document.body.style.overflow = '';
     }
+    
     function openMobileMenu() {
-      mobileMenu.style.display = 'block';
-      menuClose.style.display = 'block';
+      if (mobileMenu) mobileMenu.style.display = 'block';
+      if (menuClose) menuClose.style.display = 'block';
       document.body.style.overflow = 'hidden';
     }
-    menuToggle.addEventListener('click', function() {
-      openMobileMenu();
-    });
-    menuClose.addEventListener('click', function() {
-      closeMobileMenu();
-    });
-    // Cerrar menú al hacer clic en un enlace
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMobileMenu);
-    });
-    // Mostrar/ocultar menú y botones según tamaño
+    
+    if (menuToggle) menuToggle.addEventListener('click', openMobileMenu);
+    if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
+    if (mobileMenu) {
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+    }
+    
     function handleResize() {
       if (window.innerWidth <= 600) {
-        nav.style.display = 'none';
+        if (nav) nav.style.display = 'none';
         closeMobileMenu();
       } else {
-        nav.style.display = 'block';
-        menuClose.style.display = 'none';
+        if (nav) nav.style.display = 'block';
+        if (menuClose) menuClose.style.display = 'none';
         closeMobileMenu();
       }
     }
     window.addEventListener('resize', handleResize);
-    window.addEventListener('DOMContentLoaded', handleResize);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', handleResize);
+    } else {
+      handleResize();
+    }
     </script>
 </body>
 </html> 
