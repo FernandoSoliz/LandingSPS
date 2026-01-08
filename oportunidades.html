@@ -263,126 +263,6 @@
         font-weight: 500;
     }
     
-    /* Form Section (solo Oportunidades) */
-    .form-section.oportunidades-form { 
-        max-width: 1300px; 
-        margin: 0 auto 64px auto; 
-        display: flex; 
-        align-items: flex-start; 
-        gap: 48px; 
-        padding: 0 16px; 
-    }
-    /* Override fuerte para ganar a css/style.css (!important) en desktop */
-    @media (min-width: 901px) {
-        .form-section.oportunidades-form .form-img-wrap {
-            width: 55% !important;
-            max-width: 55% !important;
-            flex: 0 0 55% !important;
-            min-width: 0 !important;
-            height: 560px !important;
-            display: flex !important;
-            align-items: stretch !important;
-            justify-content: flex-start !important;
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-        .form-section.oportunidades-form .form-img-wrap img.form-img {
-            width: 100% !important;
-            max-width: 100% !important;
-            min-width: 0 !important;
-            height: 560px !important;
-            aspect-ratio: auto !important;
-            border-radius: 18px;
-            object-fit: cover;
-            display: block !important;
-            margin: 0 !important;
-        }
-        .form-section.oportunidades-form .form-fields {
-            width: 45% !important;
-            max-width: 45% !important;
-            flex: 0 0 45% !important;
-            min-width: 0 !important;
-            margin: 0 !important;
-        }
-    }
-    .form-fields { 
-        flex: 1; 
-        display: flex; 
-        flex-direction: column; 
-        gap: 14px; 
-        background: #fff; 
-        border-radius: 18px; 
-        padding: 24px; 
-        border: 1.5px solid #e5e7eb; 
-    }
-    .form-fields h3 { 
-        font-size: 1.5rem; 
-        font-weight: 700; 
-        margin-bottom: 4px; 
-    }
-    .input-field { 
-        border-radius: 8px; 
-        border: 1px solid #ddd; 
-        padding: 10px 12px; 
-        font-size: 1rem; 
-    }
-    .form-fields button { 
-        background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat; 
-        color: #fff; 
-        border-radius: 18px; 
-        padding: 10px 0; 
-        font-size: 1.1rem; 
-        border: none; 
-        font-weight: 600; 
-        cursor: pointer; 
-        transition: opacity 0.2s; 
-    }
-    .form-fields button:hover { opacity: 0.9; }
-    .form-fields button:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-    
-    /* Terms checkbox styles */
-    .terms-checkbox-container {
-        margin: 16px 0;
-    }
-    .terms-checkbox-label {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        font-size: 0.9rem;
-        color: #222;
-        cursor: pointer;
-        line-height: 1.5;
-    }
-    .terms-checkbox-label input[type="checkbox"] {
-        margin-top: 2px;
-        cursor: pointer;
-        min-width: 18px;
-        width: 18px;
-        height: 18px;
-        flex-shrink: 0;
-    }
-    .terms-link {
-        color: #3AC37B;
-        text-decoration: underline;
-        font-weight: 500;
-    }
-    .terms-link:hover {
-        color: #2fa36a;
-    }
-    
-    /* Responsive */
-    @media (max-width: 900px) {
-        .form-section.oportunidades-form { 
-            flex-direction: column; 
-            align-items: stretch; 
-            gap: 24px; 
-        }
-        .form-section.oportunidades-form .form-img-wrap { height: auto !important; }
-        .form-section.oportunidades-form .form-img { width: 100% !important; max-width: 100% !important; height: auto !important; }
-    }
     @media (max-width: 600px) {
         .hero__title { font-size: 3.2rem; }
         .hero__subtitle { font-size: 1.4rem; }
@@ -398,7 +278,6 @@
             padding: 10px 24px;
             height: 44px;
         }
-        .form-fields { padding: 18px 8px; }
         .job-card-actions {
             padding-bottom: 18px;
         }
@@ -459,8 +338,8 @@
         <h1 class="hero__title">Oportunidades</h1>
         <div class="hero__subtitle">Tu futuro profesional ahora</div>
         <div class="hero__buttons">
-            <a href="#form-cv" class="btn-envianos-cv">Envíanos tu CV</a>
-            <a href="https://www.linkedin.com/company/82234284" target="_blank" rel="noopener" class="btn-siguenos-linkedin">Síguenos en LinkedIn</a>
+            <a href="https://airtable.com/appKGZKefaZP5XbEU/pagyaVx8YqVfRrGlr/form" target="_blank" rel="noopener" class="btn-envianos-cv">Envíanos tu CV</a>
+            <a href="https://www.linkedin.com/company/sapiens-la" target="_blank" rel="noopener" class="btn-siguenos-linkedin">Síguenos en LinkedIn</a>
         </div>
     </section>
     
@@ -473,34 +352,6 @@
         </div>
     </section>
     
-    <!-- Formulario de CV -->
-    <section class="form-section oportunidades-form" id="form-cv">
-        <div class="form-img-wrap">
-            <img class="form-img" src="img/form-cv.png" alt="Buscar expertos">
-        </div>
-        <form class="form-fields" id="cv-form">
-            <h3>Envía tu CV</h3>
-            <div class="form-row">
-                <div class="form-col">
-                    <input class="input-field" id="nombre" name="nombre" type="text" placeholder="Nombre" required>
-                </div>
-                <div class="form-col">
-                    <input class="input-field" id="apellido" name="apellido" type="text" placeholder="Apellido" required>
-                </div>
-            </div>
-            <input class="input-field" id="email" name="email" type="email" placeholder="Correo electrónico" required>
-            <input class="input-field" id="telefono" name="telefono" type="tel" placeholder="Número de contacto" required>
-            <input class="input-field" id="especializacion" name="especializacion" type="text" placeholder="Perfil (Data Engineer, Fullstack, Scrum Master, etc.)" required>
-            <input class="input-field" id="linkedin" name="linkedin" type="text" placeholder="Perfil de LinkedIn">
-            <div class="terms-checkbox-container">
-                <label class="terms-checkbox-label">
-                    <input type="checkbox" id="terms-checkbox-cv" name="terms" required>
-                    <span>Al hacer clic aquí, declaro que he leído y entendido los <a href="terminos-condiciones.html" target="_blank" rel="noopener" class="terms-link">términos y condiciones</a></span>
-                </label>
-            </div>
-            <button class="btn-main" type="button" id="submit-btn" disabled>Enviar</button>
-        </form>
-    </section>
     </main>
     <!-- Footer igual que index -->
     <div class="footer__main">
@@ -589,134 +440,10 @@
     window.addEventListener('DOMContentLoaded', handleResize);
     </script>
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
-    // Inicializar EmailJS
-    (function() {
-      emailjs.init('Q0_hWQQnnmPEqYRwT');
-      console.log('EmailJS inicializado correctamente');
-    })();
     
-    function mostrarPopup(mensaje, esExito) {
-      alert(mensaje);
-    }
-    
-    // Cargar vacantes y configurar formulario
+    // Cargar vacantes
     document.addEventListener('DOMContentLoaded', function() {
-        // Configurar formulario de CV
-        const form = document.getElementById('cv-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const termsCheckbox = document.getElementById('terms-checkbox-cv');
-        
-        // Controlar habilitación del botón según el checkbox
-        if (termsCheckbox && submitBtn) {
-            termsCheckbox.addEventListener('change', function() {
-                submitBtn.disabled = !this.checked;
-            });
-        }
-        
-        if (form && submitBtn) {
-            console.log('Formulario encontrado, configurando event listeners');
-            
-            // Event listener principal al botón
-            submitBtn.addEventListener('click', function(e) {
-                console.log('Botón clickeado');
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Validar checkbox de términos
-                if (!termsCheckbox || !termsCheckbox.checked) {
-                    alert('Por favor, acepta los términos y condiciones para continuar.');
-                    return;
-                }
-                
-                // Validar formulario
-                const nombre = document.getElementById('nombre').value;
-                const apellido = document.getElementById('apellido').value;
-                const email = document.getElementById('email').value;
-                const telefono = document.getElementById('telefono').value;
-                const especializacion = document.getElementById('especializacion').value;
-                
-                if (!nombre || !apellido || !email || !telefono || !especializacion) {
-                    alert('Por favor, completa todos los campos requeridos.');
-                    return;
-                }
-                
-                // Cambiar el texto del botón mientras se envía
-                submitBtn.textContent = 'Enviando...';
-                submitBtn.disabled = true;
-                
-                // Recopilar los datos del formulario para Google Sheets
-                const formData = {
-                    nombre: nombre + ' ' + apellido,
-                    email: email,
-                    telefono: telefono,
-                    especializacion: especializacion,
-                    linkedin: document.getElementById('linkedin').value
-                };
-                
-                // Datos para EmailJS (incluye todos los campos del template)
-                const emailData = {
-                    tipo_formulario: 'Envío de CV',
-                    origen: 'Página Oportunidades',
-                    nombre: nombre + ' ' + apellido,
-                    email: email,
-                    telefono: telefono,
-                    empresa: '',
-                    especializacion: especializacion,
-                    linkedin: document.getElementById('linkedin').value,
-                    mensaje: ''
-                };
-                
-                console.log('Enviando formulario con datos:', formData);
-                
-                // URL del Google Apps Script
-                const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxOAon4b-6gbhgTcbn0q_7RXVlItm-nZ6b3YZ-EcVJqSxE7cpqFmBuuaUWzOgwIRTfw/exec';
-                
-                // Enviar a Google Sheets
-                fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                })
-                .then(function() {
-                    console.log('Datos enviados a Google Sheets');
-                })
-                .catch(function(error) {
-                    console.log('Error enviando a Google Sheets:', error);
-                });
-                
-                // Enviar email usando EmailJS
-                emailjs.send('service_f73qp8z', 'template_aw0qmk9', emailData)
-                    .then(function(response) {
-                        console.log('SUCCESS!', response.status, response.text);
-                        mostrarPopup('¡Gracias! Tu CV ha sido enviado exitosamente. Nos pondremos en contacto contigo.', true);
-                        form.reset();
-                        // Resetear checkbox y deshabilitar botón
-                        if (termsCheckbox) {
-                            termsCheckbox.checked = false;
-                        }
-                        submitBtn.disabled = true;
-                    }, function(error) {
-                        console.log('FAILED...', error);
-                        mostrarPopup('Ocurrió un error al enviar tu CV. Intenta nuevamente.', false);
-                    })
-                    .finally(function() {
-                        // Restaurar el botón
-                        submitBtn.textContent = 'Enviar';
-                        // Solo habilitar si el checkbox está marcado
-                        if (termsCheckbox && termsCheckbox.checked) {
-                            submitBtn.disabled = false;
-                        } else {
-                            submitBtn.disabled = true;
-                        }
-                    });
-            });
-        }
-        
         // ===== Configuración Google Sheets (gviz) =====
         const SHEET_ID = '1LfoeVRmnUdYxHyQLOR4LwOuPFWbRQX4W5rx9N3aUb0Q'; // provisto por el usuario
         const SHEET_NAME = 'vacantes'; // nombre de la hoja (pestaña)
