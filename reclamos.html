@@ -1,5 +1,3 @@
-<!-- flag15 -->
-<!-- checkpoint: 2025-12-01-landing-reclamos -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +6,7 @@
     <title>Reclamos | Sapiens Digital Lab</title>
     <meta name="description" content="Registra tus reclamos, quejas o sugerencias sobre los servicios de Sapiens Digital Lab. Te responderemos a la brevedad.">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="icon" type="image/png" href="img/favisapiens.png">
+    <link rel="icon" type="image/webp" href="img/favisapiens.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
@@ -231,7 +229,7 @@
     <!-- Header igual que las otras páginas -->
     <header class="header" role="banner">
         <div class="header__logo">
-            <a href="index.html"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" width="150" height="38"></a>
+            <a href="index.html"><img src="img/logo-sapiens.webp" alt="Logo Sapiens Digital Lab" width="150" height="38"></a>
         </div>
         <button class="menu-toggle" aria-label="Abrir menú">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -251,7 +249,7 @@
         </nav>
         <div class="mobile-menu" aria-label="Menú móvil" tabindex="-1">
           <ul>
-            <li><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab"></li>
+            <li><img src="img/logo-sapiens.webp" alt="Logo Sapiens Digital Lab"></li>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="oportunidades.html">Oportunidades</a></li>
@@ -261,7 +259,7 @@
     </header>
 
     <div class="reclamos-banner-wrap">
-      <img src="img/banerreclamos.png" alt="Libro de reclamaciones" class="reclamos-banner">
+      <img src="img/banerreclamos.webp" alt="Libro de reclamaciones" class="reclamos-banner" loading="lazy">
       <div class="reclamos-banner-text">
         <div class="reclamos-banner-title">Libro de reclamos</div>
         <div class="reclamos-banner-subtitle">Escuchamos tus sugerencias y reclamos</div>
@@ -452,9 +450,9 @@
       <div class="footer__col footer__social-col footer__social-center">
         <h5>Síguenos</h5>
         <div class="footer__social">
-          <a href="https://www.linkedin.com/company/sapiens-la" target="_blank"><img src="img/botonlinkedin.png" alt="LinkedIn"></a>
-          <a href="https://www.instagram.com/sapiens_la/" target="_blank"><img src="img/bottoning.png" alt="Instagram"></a>
-          <a href="https://www.youtube.com/@SapiensDigitalLab" target="_blank"><img src="img/botonyt.png" alt="YouTube"></a>
+          <a href="https://www.linkedin.com/company/sapiens-la" target="_blank"><img src="img/botonlinkedin.webp" alt="LinkedIn" loading="lazy"></a>
+          <a href="https://www.instagram.com/sapiens_la/" target="_blank"><img src="img/bottoning.webp" alt="Instagram" loading="lazy"></a>
+          <a href="https://www.youtube.com/@SapiensDigitalLab" target="_blank"><img src="img/botonyt.webp" alt="YouTube" loading="lazy"></a>
         </div>
       </div>
       <div class="footer__col footer__reclamos-right">
@@ -468,7 +466,7 @@
       <span style="display:block; width:100%; text-align:center; margin-top:24px; color:#222;">© 2025 by Sapiens Digital Lab</span>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
     <script>
     (function() {
       emailjs.init('Q0_hWQQnnmPEqYRwT');
@@ -633,7 +631,6 @@
       
       const emailRequest = emailjs.send('service_f73qp8z', 'template_aw0qmk9', emailData)
         .catch(error => {
-          console.error('EmailJS error:', error);
           throw error;
         });
 

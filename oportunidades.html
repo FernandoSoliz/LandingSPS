@@ -1,5 +1,3 @@
-<!-- flag15 -->
-<!-- checkpoint: 2025-10-15-landing-1 -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +6,7 @@
     <title>Oportunidades | Sapiens Digital Lab</title>
     <meta name="description" content="Encuentra oportunidades laborales en tecnología, marketing y diseño en Sapiens Digital Lab. Postula y conecta con empresas líderes.">
     <meta name="robots" content="index, follow">
-    <link rel="icon" type="image/png" href="img/favisapiens.png">
+    <link rel="icon" type="image/webp" href="img/favisapiens.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
@@ -20,7 +18,7 @@
     /* Hero Section */
     .hero { 
         position: relative; 
-        background: url('img/bg-oportunidades.png') center/cover no-repeat; 
+        background: url('img/bg-oportunidades.webp') center/cover no-repeat; 
         min-height: 459px; 
         display: flex; 
         flex-direction: column; 
@@ -67,7 +65,7 @@
         cursor: pointer;
     }
     .btn-envianos-cv {
-        background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat;
+        background: url('img/fondo-bt-quierosertalento.webp') center/cover no-repeat;
         color: #fff;
         border: 1.5px solid #2ed47a;
         box-shadow: 0 2px 8px rgba(46, 212, 122, 0.3);
@@ -114,7 +112,7 @@
     
     /* Buttons */
     .btn-main { 
-        background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat; 
+        background: url('img/fondo-bt-quierosertalento.webp') center/cover no-repeat; 
         border-radius: 6px; 
         padding: 10px 28px; 
         font-size: 1.08rem; 
@@ -186,7 +184,7 @@
         min-width: 0;
     }
     .job-card-apply { 
-        background: url('img/fondosps.png') center/cover no-repeat; 
+        background: url('img/fondosps.webp') center/cover no-repeat; 
         color: #fff; 
         border-radius: 6px !important;
         padding: 9px 24px;
@@ -229,12 +227,6 @@
     .job-card-apply:hover {
         opacity: 0.9;
         background: #2fa36a;
-    }
-    .job-card-date { 
-        text-align: right; 
-        font-size: 0.95rem; 
-        color: #aaa; 
-        margin: 0 36px 0 0; 
     }
     .job-card-external { 
         position: absolute; 
@@ -301,7 +293,7 @@
     <!-- Header igual que index -->
     <header class="header" role="banner">
         <div class="header__logo">
-            <a href="index.html"><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab" width="150" height="38"></a>
+            <a href="index.html"><img src="img/logo-sapiens.webp" alt="Logo Sapiens Digital Lab" width="150" height="38"></a>
         </div>
         <button class="menu-toggle" aria-label="Abrir menú">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -321,7 +313,7 @@
         </nav>
         <div class="mobile-menu" aria-label="Menú móvil" tabindex="-1">
           <ul>
-            <li><img src="img/logo-sapiens.png" alt="Logo Sapiens Digital Lab"></li>
+            <li><img src="img/logo-sapiens.webp" alt="Logo Sapiens Digital Lab"></li>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="oportunidades.html">Oportunidades</a></li>
@@ -374,9 +366,9 @@
       <div class="footer__col footer__social-col footer__social-center">
         <h5>Síguenos</h5>
         <div class="footer__social">
-          <a href="https://www.linkedin.com/company/sapiens-la" target="_blank"><img src="img/botonlinkedin.png" alt="LinkedIn"></a>
-          <a href="https://www.instagram.com/sapiens_la/" target="_blank"><img src="img/bottoning.png" alt="Instagram"></a>
-          <a href="https://www.youtube.com/@SapiensDigitalLab" target="_blank"><img src="img/botonyt.png" alt="YouTube"></a>
+          <a href="https://www.linkedin.com/company/sapiens-la" target="_blank"><img src="img/botonlinkedin.webp" alt="LinkedIn" loading="lazy"></a>
+          <a href="https://www.instagram.com/sapiens_la/" target="_blank"><img src="img/bottoning.webp" alt="Instagram" loading="lazy"></a>
+          <a href="https://www.youtube.com/@SapiensDigitalLab" target="_blank"><img src="img/botonyt.webp" alt="YouTube" loading="lazy"></a>
         </div>
       </div>
       <div class="footer__col footer__reclamos-right">
@@ -434,7 +426,7 @@
       handleResize();
     }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
     <script>
     
     // Cargar vacantes
@@ -502,17 +494,16 @@
             card.className = 'job-card';
             card.innerHTML = `
               <div class="job-card-content">
-                <div class="job-card-icon"><img src="img/icon-job.png" alt="icon"></div>
+                <div class="job-card-icon"><img src="img/icon-job.webp" alt="icon" loading="lazy"></div>
                 <div class="job-card-info">
                   <div class="job-card-title">${v.perfil || ''}</div>
                   <div class="job-card-company">${v.cliente || ''}</div>
                   <div class="job-card-location">${v.ubicacion || ''} | ${v.modalidad || ''}</div>
                   <div class="job-card-desc">${v.detalle || ''}</div>
-                  <div class="job-card-date" style="color:#aaa;font-size:0.98rem;margin-top:8px;">${v.fecha || ''}</div>
                 </div>
-                ${v.url ? `<a href="${v.url}" target="_blank" rel="noopener" class="job-card-apply job-card-apply-desktop">Postular</a>` : ''}
+                <a href="https://airtable.com/appKGZKefaZP5XbEU/pagyaVx8YqVfRrGlr/form" target="_blank" rel="noopener" class="job-card-apply job-card-apply-desktop">Postular</a>
               </div>
-              ${v.url ? `<a href="${v.url}" target="_blank" rel="noopener" class="job-card-apply job-card-apply-mobile">Postular</a>` : ''}
+              <a href="https://airtable.com/appKGZKefaZP5XbEU/pagyaVx8YqVfRrGlr/form" target="_blank" rel="noopener" class="job-card-apply job-card-apply-mobile">Postular</a>
             `;
             container.appendChild(card);
           });
@@ -534,14 +525,12 @@
               return;
             }
           } catch (e) {
-            console.warn('[Vacantes] Falla Google Sheets, usando CSV local:', e);
             try {
               const csvText = await fetch('vacantes.csv', { cache: 'no-store' }).then(r => r.text());
               const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
               renderVacantes(parsed.data || []);
               return;
             } catch (e2) {
-              console.error('[Vacantes] Falla CSV local:', e2);
             }
           }
           container.innerHTML = '<p style="text-align:center;">No se pudo cargar la lista de vacantes.</p>';

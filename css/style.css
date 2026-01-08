@@ -1,13 +1,8 @@
-/* --- Overrides finales: asegurar visibilidad del hero en móviles --- */
 @media (max-width: 700px) {
   .hero {
     display: flex !important;
   }
 }
-
-/* checkpoint: 2025-10-15-landing-1 */
-
-/* Aumentar tamaño de imágenes de áreas en escritorio (130%) */
 @media (min-width: 901px) {
   .areas .area-card img {
     max-width: 260px;
@@ -15,16 +10,15 @@
   }
 }
 
-/* En escritorio, ajustar imagen al mismo ancho del texto debajo (ancho del contenido) */
 @media (min-width: 901px) {
   .areas .area-card-content {
-    max-width: 400px; /* ya definido arriba; se reafirma para claridad de layout */
+    max-width: 400px;
   }
   .areas .area-card img {
-    width: 100%;        /* ocupar el mismo ancho que el texto */
-    max-width: 400px;   /* coincide con el ancho del bloque de texto */
-    height: auto;       /* mantener proporción */
-    max-height: none;   /* anular límite anterior para permitir el ancho completo */
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    max-height: none;
   }
 }
 /* Montserrat se carga desde HTML para mejor rendimiento - @import eliminado */
@@ -278,13 +272,13 @@ body {
   white-space: nowrap;
 }
 .btn-green {
-  background: url('../img/fondo-bt-quierosertalento.png') center/cover no-repeat;
+  background: url('../img/fondo-bt-quierosertalento.webp') center/cover no-repeat;
   color: #fff;
   border: 1.5px solid #2ed47a;
   box-shadow: 0 2px 8px rgba(46, 212, 122, 0.3);
 }
 .btn-green:hover {
-  background: url('../img/fondo-bt-quierosertalento.png') center/cover no-repeat;
+  background: url('../img/fondo-bt-quierosertalento.webp') center/cover no-repeat;
   color: #fff;
   border-color: #1fa85b;
   box-shadow: 0 4px 12px rgba(46, 212, 122, 0.4);
@@ -417,7 +411,7 @@ body {
 /* Bignumbers Section */
 .bignumbers {
   width: 100%;
-  background: url('../img/fondosps.png') center/cover no-repeat;
+  background: url('../img/fondosps.webp') center/cover no-repeat;
   padding: 48px 0;
   display: flex;
   align-items: center;
@@ -607,7 +601,7 @@ body {
 }
 
 .latam {
-  background: #181c1f url('../img/mapa-latam.png') center center/cover no-repeat;
+  background: #181c1f url('../img/mapa-latam.webp') center center/cover no-repeat;
   color: #fff;
   padding: 70px 7vw 70px 7vw;
   display: flex;
@@ -723,7 +717,7 @@ body {
    TESTIMONIOS
    ===================== */
 .testimonio {
-  background-image: url('../img/fondosps.png');
+  background-image: url('../img/fondosps.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -827,7 +821,7 @@ body {
 
 .testimonio-independiente {
   background-color: #1a237e;
-  background: url('img/fondoverde.png') repeat;
+  background: url('img/fondoverde.webp') repeat;
   background-size: 50px 50px;
   color: #fff;
   padding: 60px 7vw 30px 7vw;
@@ -1198,8 +1192,8 @@ body {
 }
 /* --- FIN AJUSTE --- */
 
-/* --- AJUSTE: Imagen form-contrata.png al 50% en todos los tamaños --- */
-.form-img-wrap img.form-img[src*="form-contrata.png"] {
+/* --- AJUSTE: Imagen form-contrata.webp al 50% en todos los tamaños --- */
+.form-img-wrap img.form-img[src*="form-contrata.webp"] {
   width: 50% !important;
   max-width: 50% !important;
   min-width: 0 !important;
@@ -1564,14 +1558,14 @@ body {
   width: 100%;
   height: 30px;
   margin-top: 25px;
-  background: url('img/fondo-bt-quierosertalento.png') repeat-x center/cover;
+  background: url('img/fondo-bt-quierosertalento.webp') repeat-x center/cover;
   border-radius: 4px;
   position: relative;
   z-index: 10;
 }
 
 .testimonio-fondo {
-  background: url('img/fondoverde.png') center center/cover no-repeat;
+  background: url('img/fondoverde.webp') center center/cover no-repeat;
   width: 100vw;
   margin: 0 auto;
   padding: 32px 0;
@@ -3157,7 +3151,7 @@ img, svg {
   box-shadow: none;
 }
 .contrata-talento-form-fields .btn-main {
-  background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat !important;
+  background: url('img/fondo-bt-quierosertalento.webp') center/cover no-repeat !important;
   color: #fff;
   border-radius: 6px;
   padding: 10px 0;
@@ -3510,7 +3504,7 @@ img, svg {
   margin-top: 18px;
 }
 .gradient-btn {
-  background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat !important;
+  background: url('img/fondo-bt-quierosertalento.webp') center/cover no-repeat !important;
   color: #fff;
   border-radius: 6px;
   padding: 10px 0;
@@ -3751,8 +3745,8 @@ img, svg {
 }
 
 @media (max-width: 600px) {
-  /* Imagen de 'form-contrata.png' al 60% del tamaño actual y centrada */
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  /* Imagen de 'form-contrata.webp' al 60% del tamaño actual y centrada */
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 60% !important;
     max-width: 60% !important;
     margin-left: auto !important;
@@ -3762,8 +3756,8 @@ img, svg {
 }
 
 @media (max-width: 600px) {
-  /* Forzar tamaño de form-contrata.png al 60% y sobrescribir inline */
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  /* Forzar tamaño de form-contrata.webp al 60% y sobrescribir inline */
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 60% !important;
     max-width: 60% !important;
     min-width: 0 !important;
@@ -3777,8 +3771,8 @@ img, svg {
 }
 
 @media (max-width: 600px) {
-  /* Aumentar tamaño de form-contrata.png a 180% y sobrescribir inline */
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  /* Aumentar tamaño de form-contrata.webp a 180% y sobrescribir inline */
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 180% !important;
     max-width: 180% !important;
     min-width: 0 !important;
@@ -3792,14 +3786,14 @@ img, svg {
 }
 
 @media (max-width: 600px) {
-  /* Imagen form-contrata.png al 180%, centrada y alineada al centro */
+  /* Imagen form-contrata.webp al 180%, centrada y alineada al centro */
   .form-img-wrap {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
   }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 180% !important;
     max-width: 180% !important;
     min-width: 0 !important;
@@ -3814,7 +3808,7 @@ img, svg {
 }
 
 @media (max-width: 600px) {
-  /* Imagen form-contrata.png al 180%, centrada visualmente */
+  /* Imagen form-contrata.webp al 180%, centrada visualmente */
   .form-img-wrap {
     display: flex !important;
     justify-content: center !important;
@@ -3823,7 +3817,7 @@ img, svg {
     overflow: visible !important;
     position: relative !important;
   }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 180% !important;
     max-width: 180% !important;
     min-width: 0 !important;
@@ -3867,7 +3861,7 @@ img, svg {
     left: unset;
     transform: none !important;
   }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
@@ -3898,7 +3892,7 @@ img, svg {
     left: unset;
     transform: none !important;
   }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
@@ -5628,7 +5622,7 @@ body, html {
   box-shadow: none;
 }
 .contrata-talento-form-fields .btn-main {
-  background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat !important;
+  background: url('img/fondo-bt-quierosertalento.webp') center/cover no-repeat !important;
   color: #fff;
   border-radius: 6px;
   padding: 10px 0;
@@ -5981,7 +5975,7 @@ body, html {
   margin-top: 18px;
 }
 .gradient-btn {
-  background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat !important;
+  background: url('img/fondo-bt-quierosertalento.webp') center/cover no-repeat !important;
   color: #fff;
   border-radius: 6px;
   padding: 10px 0;
@@ -6222,8 +6216,8 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* Imagen de 'form-contrata.png' al 60% del tamaño actual y centrada */
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  /* Imagen de 'form-contrata.webp' al 60% del tamaño actual y centrada */
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 60% !important;
     max-width: 60% !important;
     margin-left: auto !important;
@@ -6233,8 +6227,8 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* Forzar tamaño de form-contrata.png al 60% y sobrescribir inline */
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  /* Forzar tamaño de form-contrata.webp al 60% y sobrescribir inline */
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 60% !important;
     max-width: 60% !important;
     min-width: 0 !important;
@@ -6248,8 +6242,8 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* Aumentar tamaño de form-contrata.png a 180% y sobrescribir inline */
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  /* Aumentar tamaño de form-contrata.webp a 180% y sobrescribir inline */
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 180% !important;
     max-width: 180% !important;
     min-width: 0 !important;
@@ -6263,14 +6257,14 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* Imagen form-contrata.png al 180%, centrada y alineada al centro */
+  /* Imagen form-contrata.webp al 180%, centrada y alineada al centro */
   .form-img-wrap {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
   }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 180% !important;
     max-width: 180% !important;
     min-width: 0 !important;
@@ -6285,7 +6279,7 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* Imagen form-contrata.png al 180%, centrada visualmente */
+  /* Imagen form-contrata.webp al 180%, centrada visualmente */
   .form-img-wrap {
     display: flex !important;
     justify-content: center !important;
@@ -6294,7 +6288,7 @@ body, html {
     overflow: visible !important;
     position: relative !important;
   }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 180% !important;
     max-width: 180% !important;
     min-width: 0 !important;
@@ -6338,7 +6332,7 @@ body, html {
     left: unset;
     transform: none !important;
   }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
@@ -6369,7 +6363,7 @@ body, html {
     left: unset;
     transform: none !important;
   }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
@@ -8099,7 +8093,7 @@ body, html {
   box-shadow: none;
 }
 .contrata-talento-form-fields .btn-main {
-  background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat !important;
+  background: url('img/fondo-bt-quierosertalento.webp') center/cover no-repeat !important;
   color: #fff;
   border-radius: 6px;
   padding: 10px 0;
@@ -8452,7 +8446,7 @@ body, html {
   margin-top: 18px;
 }
 .gradient-btn {
-  background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat !important;
+  background: url('img/fondo-bt-quierosertalento.webp') center/cover no-repeat !important;
   color: #fff;
   border-radius: 6px;
   padding: 10px 0;
@@ -8540,7 +8534,7 @@ body, html {
     margin: 0 auto 18px auto !important;
     text-align: center !important;
   }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 50% !important;
     max-width: 50% !important;
     min-width: 0 !important;
@@ -10291,7 +10285,7 @@ body, html {
   box-shadow: none;
 }
 .contrata-talento-form-fields .btn-main {
-  background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat !important;
+  background: url('img/fondo-bt-quierosertalento.webp') center/cover no-repeat !important;
   color: #fff;
   border-radius: 6px;
   padding: 10px 0;
@@ -10644,7 +10638,7 @@ body, html {
   margin-top: 18px;
 }
 .gradient-btn {
-  background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat !important;
+  background: url('img/fondo-bt-quierosertalento.webp') center/cover no-repeat !important;
   color: #fff;
   border-radius: 6px;
   padding: 10px 0;
@@ -10885,8 +10879,8 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* Imagen de 'form-contrata.png' al 60% del tamaño actual y centrada */
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  /* Imagen de 'form-contrata.webp' al 60% del tamaño actual y centrada */
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 60% !important;
     max-width: 60% !important;
     margin-left: auto !important;
@@ -10896,8 +10890,8 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* Forzar tamaño de form-contrata.png al 60% y sobrescribir inline */
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  /* Forzar tamaño de form-contrata.webp al 60% y sobrescribir inline */
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 60% !important;
     max-width: 60% !important;
     min-width: 0 !important;
@@ -10911,8 +10905,8 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* Aumentar tamaño de form-contrata.png a 180% y sobrescribir inline */
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  /* Aumentar tamaño de form-contrata.webp a 180% y sobrescribir inline */
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 180% !important;
     max-width: 180% !important;
     min-width: 0 !important;
@@ -10926,14 +10920,14 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* Imagen form-contrata.png al 180%, centrada y alineada al centro */
+  /* Imagen form-contrata.webp al 180%, centrada y alineada al centro */
   .form-img-wrap {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
   }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 180% !important;
     max-width: 180% !important;
     min-width: 0 !important;
@@ -10948,7 +10942,7 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* Imagen form-contrata.png al 180%, centrada visualmente */
+  /* Imagen form-contrata.webp al 180%, centrada visualmente */
   .form-img-wrap {
     display: flex !important;
     justify-content: center !important;
@@ -10957,7 +10951,7 @@ body, html {
     overflow: visible !important;
     position: relative !important;
   }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 180% !important;
     max-width: 180% !important;
     min-width: 0 !important;
@@ -10997,7 +10991,7 @@ body, html {
     margin: 0 auto 18px auto !important;
     text-align: center !important;
   }
-  .form-img-wrap img.form-img[src*="form-contrata.png"] {
+  .form-img-wrap img.form-img[src*="form-contrata.webp"] {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
@@ -11968,7 +11962,7 @@ body, html {
   box-shadow: none;
 }
 .contrata-talento-form-fields .btn-main {
-  background: url('img/fondo-bt-quierosertalento.png') center/cover no-repeat !important;
+  background: url('img/fondo-bt-quierosertalento.webp') center/cover no-repeat !important;
   color: #fff;
   border-radius: 6px;
   padding: 10px 0;
