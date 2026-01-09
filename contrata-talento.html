@@ -151,37 +151,39 @@
         <div class="form-row">
           <div class="form-col">
             <label for="nombre">Nombre</label>
-            <input class="input-field" id="nombre" name="nombre" type="text" placeholder="Jane" required>
+            <input class="input-field" id="nombre" name="nombre" type="text" placeholder="Jane">
           </div>
           <div class="form-col">
             <label for="apellido">Apellido</label>
-            <input class="input-field" id="apellido" name="apellido" type="text" placeholder="Smitherton" required>
+            <input class="input-field" id="apellido" name="apellido" type="text" placeholder="Smitherton">
           </div>
         </div>
         <div>
           <label for="empresa">Nombre de tu empresa</label>
-          <input class="input-field" id="empresa" name="empresa" type="text" placeholder="Mi empresa" required style="width:100%;">
+          <input class="input-field" id="empresa" name="empresa" type="text" placeholder="Mi empresa" style="width:100%;">
         </div>
         <div>
           <label for="telefono">Numero de telefono</label>
-          <input class="input-field" id="telefono" name="telefono" type="text" placeholder="+51 999 999 999" required style="width:100%;">
+          <input class="input-field" id="telefono" name="telefono" type="text" placeholder="+51 999 999 999" style="width:100%;">
         </div>
         <div>
           <label for="correo">Correo corporativo</label>
-          <input class="input-field" id="correo" name="email" type="email" placeholder="email@sapiens.la" required style="width:100%;">
+          <input class="input-field" id="correo" name="email" type="text" placeholder="email@sapiens.la" style="width:100%;">
+          <span id="correo-error" style="display:none;color:#e74c3c;font-size:0.85rem;margin-top:4px;">Por favor, ingresa un correo electrónico válido</span>
         </div>
         <div>
           <label for="mensaje">Mensaje</label>
-          <textarea class="input-field" id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto o requerimiento" required></textarea>
+          <textarea class="input-field" id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto o requerimiento"></textarea>
         </div>
         <div class="terms-checkbox-container">
             <label class="terms-checkbox-label">
-                <input type="checkbox" id="terms-checkbox-contrata" name="terms" required>
+                <input type="checkbox" id="terms-checkbox-contrata" name="terms">
                 <span>Al hacer clic aquí, declaro que he leído y entendido los <a href="terminos-condiciones.html" target="_blank" rel="noopener" class="terms-link">términos y condiciones</a></span>
             </label>
         </div>
         <div class="form-btn-row">
-          <button class="btn-main gradient-btn" type="submit" id="contrata-submit-btn" disabled>Enviar</button>
+          <div id="form-error-message" style="display:none;color:#e74c3c;font-size:0.9rem;margin-bottom:12px;text-align:center;font-weight:500;"></div>
+          <button class="btn-main gradient-btn" type="submit" id="contrata-submit-btn">Enviar</button>
         </div>
       </form>
     </section>
@@ -232,11 +234,14 @@
       </div>
       <span style="display:block; width:100%; text-align:center; margin-top:24px; color:#222;">© 2025 by Sapiens Digital Lab</span>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
-    (function() {
-      emailjs.init('Q0_hWQQnnmPEqYRwT');
-    })();
+    // Función para validar formato de correo electrónico
+    function validarEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+    
     function mostrarPopup(mensaje, esExito) {
       const popup = document.getElementById('popupConfirm');
       const popupMsg = document.getElementById('popupMessage');
@@ -246,69 +251,179 @@
       popup.style.display = 'flex';
       setTimeout(() => window.location.reload(), 8000);
     }
-    // Controlar habilitación del botón según el checkbox
-    const termsCheckboxContrata = document.getElementById('terms-checkbox-contrata');
-    const contrataSubmitBtn = document.getElementById('contrata-submit-btn');
     
-    if (termsCheckboxContrata && contrataSubmitBtn) {
-      termsCheckboxContrata.addEventListener('change', function() {
-        contrataSubmitBtn.disabled = !this.checked;
-      });
+    // Inicializar EmailJS cuando esté disponible
+    function initEmailJS() {
+      if (typeof emailjs !== 'undefined') {
+        emailjs.init('Q0_hWQQnnmPEqYRwT');
+      } else {
+        // Si EmailJS aún no está cargado, intentar de nuevo
+        setTimeout(initEmailJS, 100);
+      }
     }
     
-    document.getElementById('contrataTalentoForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = this;
+    // Inicializar EmailJS
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initEmailJS);
+    } else {
+      initEmailJS();
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contrataTalentoForm');
       
-      // Validar checkbox de términos
-      if (!termsCheckboxContrata || !termsCheckboxContrata.checked) {
-        alert('Por favor, acepta los términos y condiciones para continuar.');
-        return;
-      }
-      
-      // Datos para Google Sheets
-      const formData = {
-        nombre: form.nombre.value + ' ' + form.apellido.value,
-        empresa: form.empresa.value,
-        telefono: form.telefono.value,
-        email: form.email.value,
-        mensaje: form.mensaje.value
-      };
-      
-      // Datos para EmailJS (incluye todos los campos del template)
-      const emailData = {
-        tipo_formulario: 'Contrata Talento',
-        origen: 'Página Contrata Talento',
-        nombre: form.nombre.value + ' ' + form.apellido.value,
-        email: form.email.value,
-        telefono: form.telefono.value,
-        empresa: form.empresa.value,
-        especializacion: '',
-        linkedin: '',
-        mensaje: form.mensaje.value
-      };
-      
-      // Enviar a Google Sheets
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzmbqzonNqf8J73LER75IOkbDylJYTgX0s2YQxLE1QrefKAg5B48JEfY9SQ8YeB8LdFtA/exec';
-      fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      }).catch(() => {});
-      
-      // Enviar email usando EmailJS
-      emailjs.send('service_f73qp8z', 'template_aw0qmk9', emailData)
-        .then(() => {
-          mostrarPopup('¡Gracias! Nos pondremos en contacto contigo lo más antes.', true);
-          form.reset();
-          if (termsCheckboxContrata) termsCheckboxContrata.checked = false;
-          contrataSubmitBtn.disabled = true;
-        })
-        .catch(() => {
-          mostrarPopup('Ocurrió un error al enviar el mensaje. Intenta nuevamente.', false);
-          contrataSubmitBtn.disabled = !termsCheckboxContrata || !termsCheckboxContrata.checked;
+      // Configurar el evento de submit del formulario
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          // Prevenir el envío del formulario (no cambiar de página)
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const formEl = this;
+          const btn = document.getElementById('contrata-submit-btn');
+          const termsCheckbox = document.getElementById('terms-checkbox-contrata');
+          const correoField = document.getElementById('correo');
+          const correoErrorMsg = document.getElementById('correo-error');
+          const formErrorMsg = document.getElementById('form-error-message');
+          
+          // Limpiar mensajes de error previos
+          if (formErrorMsg) {
+            formErrorMsg.style.display = 'none';
+            formErrorMsg.textContent = '';
+          }
+          if (correoErrorMsg) correoErrorMsg.style.display = 'none';
+          if (correoField) correoField.style.borderColor = '';
+          
+          let hayErrores = false;
+          let mensajeError = '';
+          
+          // VALIDACIÓN 1: Checkbox de términos y condiciones
+          if (!termsCheckbox || !termsCheckbox.checked) {
+            mensajeError = 'Por favor, acepta los términos y condiciones para continuar.';
+            hayErrores = true;
+            if (termsCheckbox) {
+              termsCheckbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              setTimeout(function() {
+                termsCheckbox.focus();
+              }, 300);
+            }
+          }
+          // VALIDACIÓN 2: Correo electrónico válido
+          else {
+            const emailValue = correoField ? correoField.value.trim() : '';
+            if (!emailValue) {
+              mensajeError = 'Por favor, ingresa un correo electrónico.';
+              hayErrores = true;
+              if (correoField) {
+                correoField.style.borderColor = '#e74c3c';
+                correoField.focus();
+              }
+              if (correoErrorMsg) {
+                correoErrorMsg.textContent = 'Por favor, ingresa un correo electrónico.';
+                correoErrorMsg.style.display = 'block';
+              }
+            } else if (!validarEmail(emailValue)) {
+              mensajeError = 'Por favor, ingresa un correo electrónico válido.';
+              hayErrores = true;
+              if (correoField) {
+                correoField.style.borderColor = '#e74c3c';
+                correoField.focus();
+              }
+              if (correoErrorMsg) {
+                correoErrorMsg.textContent = 'Por favor, ingresa un correo electrónico válido.';
+                correoErrorMsg.style.display = 'block';
+              }
+            }
+          }
+          
+          // Si hay errores, mostrar mensaje en rojo encima del botón y no continuar
+          if (hayErrores) {
+            if (formErrorMsg) {
+              formErrorMsg.textContent = mensajeError;
+              formErrorMsg.style.display = 'block';
+              // Hacer scroll al mensaje de error para que sea visible
+              formErrorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return false; // Detener la ejecución aquí
+          }
+          
+          // Si llegamos aquí, no hay errores, proceder con el envío
+          // Datos para Google Sheets
+          const formData = {
+            nombre: formEl.nombre.value + ' ' + formEl.apellido.value,
+            empresa: formEl.empresa.value,
+            telefono: formEl.telefono.value,
+            email: formEl.email.value,
+            mensaje: formEl.mensaje.value
+          };
+          
+          // Datos para EmailJS (incluye todos los campos del template)
+          const emailData = {
+            tipo_formulario: 'Contrata Talento',
+            origen: 'Página Contrata Talento',
+            nombre: formEl.nombre.value + ' ' + formEl.apellido.value,
+            email: formEl.email.value,
+            telefono: formEl.telefono.value,
+            empresa: formEl.empresa.value,
+            especializacion: '',
+            linkedin: '',
+            mensaje: formEl.mensaje.value
+          };
+          
+          btn.textContent = 'Enviando...';
+          btn.disabled = true;
+          
+          // Enviar a Google Sheets
+          const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzmbqzonNqf8J73LER75IOkbDylJYTgX0s2YQxLE1QrefKAg5B48JEfY9SQ8YeB8LdFtA/exec';
+          fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          }).catch(() => {});
+          
+          // Verificar que EmailJS esté disponible antes de enviar
+          if (typeof emailjs === 'undefined') {
+            mostrarPopup('Error: El servicio de email no está disponible. Por favor, recarga la página e intenta nuevamente.', false);
+            btn.textContent = 'Enviar';
+            btn.disabled = false;
+            return false;
+          }
+          
+          // Enviar email usando EmailJS
+          emailjs.send('service_f73qp8z', 'template_aw0qmk9', emailData)
+            .then(function(response) {
+              console.log('Email enviado exitosamente:', response.status, response.text);
+              mostrarPopup('¡Gracias! Nos pondremos en contacto contigo lo más antes.', true);
+              formEl.reset();
+              if (termsCheckbox) termsCheckbox.checked = false;
+              if (correoField) {
+                correoField.style.borderColor = '';
+              }
+              const correoErrorMsg = document.getElementById('correo-error');
+              if (correoErrorMsg) correoErrorMsg.style.display = 'none';
+              const formErrorMsg = document.getElementById('form-error-message');
+              if (formErrorMsg) {
+                formErrorMsg.style.display = 'none';
+                formErrorMsg.textContent = '';
+              }
+              btn.textContent = 'Enviar';
+              btn.disabled = false;
+            })
+            .catch(function(error) {
+              console.error('Error al enviar email:', error);
+              mostrarPopup('Ocurrió un error al enviar el mensaje. Intenta nuevamente.', false);
+              btn.textContent = 'Enviar';
+              btn.disabled = false;
+              // Limpiar mensajes de error del formulario
+              const formErrorMsg = document.getElementById('form-error-message');
+              if (formErrorMsg) {
+                formErrorMsg.style.display = 'none';
+                formErrorMsg.textContent = '';
+              }
+            });
         });
+      }
     });
     
     // Mobile menu

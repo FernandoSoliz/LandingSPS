@@ -286,51 +286,51 @@
             <div class="reclamos-row">
               <div class="reclamos-col">
                 <label class="reclamos-label" for="rec_nombre">Nombre</label>
-                <input class="reclamos-input" id="rec_nombre" name="rec_nombre" type="text" required>
+                <input class="reclamos-input" id="rec_nombre" name="rec_nombre" type="text">
               </div>
               <div class="reclamos-col">
                 <label class="reclamos-label" for="rec_apellido">Apellido</label>
-                <input class="reclamos-input" id="rec_apellido" name="rec_apellido" type="text" required>
+                <input class="reclamos-input" id="rec_apellido" name="rec_apellido" type="text">
               </div>
             </div>
             <div class="reclamos-row">
               <div class="reclamos-col">
                 <label class="reclamos-label" for="rec_dni">DNI</label>
-                <input class="reclamos-input" id="rec_dni" name="rec_dni" type="text" required>
+                <input class="reclamos-input" id="rec_dni" name="rec_dni" type="text">
               </div>
               <div class="reclamos-col">
                 <label class="reclamos-label" for="rec_telefono">Número de teléfono</label>
-                <input class="reclamos-input" id="rec_telefono" name="rec_telefono" type="text" required>
+                <input class="reclamos-input" id="rec_telefono" name="rec_telefono" type="text">
               </div>
             </div>
             <div class="reclamos-row">
               <div class="reclamos-col">
                 <label class="reclamos-label" for="rec_email">Correo</label>
-                <input class="reclamos-input" id="rec_email" name="rec_email" type="email" required>
+                <input class="reclamos-input" id="rec_email" name="rec_email" type="text">
               </div>
               <div class="reclamos-col">
                 <label class="reclamos-label" for="rec_direccion">Dirección</label>
-                <input class="reclamos-input" id="rec_direccion" name="rec_direccion" type="text" required>
+                <input class="reclamos-input" id="rec_direccion" name="rec_direccion" type="text">
               </div>
             </div>
             <div class="reclamos-row">
               <div class="reclamos-col">
                 <label class="reclamos-label" for="rec_ciudad">Ciudad</label>
-                <input class="reclamos-input" id="rec_ciudad" name="rec_ciudad" type="text" required>
+                <input class="reclamos-input" id="rec_ciudad" name="rec_ciudad" type="text">
               </div>
               <div class="reclamos-col">
                 <label class="reclamos-label" for="rec_distrito">Distrito</label>
-                <input class="reclamos-input" id="rec_distrito" name="rec_distrito" type="text" required>
+                <input class="reclamos-input" id="rec_distrito" name="rec_distrito" type="text">
               </div>
             </div>
             <div class="reclamos-row">
               <div class="reclamos-col">
                 <label class="reclamos-label" for="rec_fecha_inconveniente">Fecha del inconveniente</label>
-                <input class="reclamos-input" id="rec_fecha_inconveniente" name="rec_fecha_inconveniente" type="date" required>
+                <input class="reclamos-input" id="rec_fecha_inconveniente" name="rec_fecha_inconveniente" type="date">
               </div>
               <div class="reclamos-col">
                 <label class="reclamos-label" for="rec_fecha_reclamo">Fecha del reclamo o queja</label>
-                <input class="reclamos-input" id="rec_fecha_reclamo" name="rec_fecha_reclamo" type="date" required>
+                <input class="reclamos-input" id="rec_fecha_reclamo" name="rec_fecha_reclamo" type="date">
               </div>
             </div>
 
@@ -381,10 +381,10 @@
             </div>
 
             <div class="reclamos-section-title">Servicio contratado</div>
-            <input class="reclamos-input" id="rec_servicio" name="rec_servicio" type="text" placeholder="Adquisición de talento, consultoría, etc." required>
+            <input class="reclamos-input" id="rec_servicio" name="rec_servicio" type="text" placeholder="Adquisición de talento, consultoría, etc.">
 
             <div class="reclamos-section-title">Detalle su reclamo</div>
-            <textarea class="reclamos-textarea" id="rec_detalle" name="rec_detalle" placeholder="Lo sucedido fue..." required></textarea>
+            <textarea class="reclamos-textarea" id="rec_detalle" name="rec_detalle" placeholder="Lo sucedido fue..."></textarea>
 
             <div class="reclamos-section-title">Acciones que tomó la empresa al respecto</div>
             <textarea class="reclamos-textarea" id="rec_acciones" name="rec_acciones" placeholder="Describe las acciones que tomó la empresa, si las hubiera."></textarea>
@@ -393,7 +393,7 @@
             <div class="reclamos-firma-row">
               <div style="flex:1 1 200px;min-width:0;">
                 <label class="reclamos-label" for="rec_firma_texto">Escribe tu nombre completo</label>
-                <input class="reclamos-input" id="rec_firma_texto" name="rec_firma_texto" type="text" required>
+                <input class="reclamos-input" id="rec_firma_texto" name="rec_firma_texto" type="text">
               </div>
             </div>
 
@@ -403,13 +403,14 @@
 
             <div class="terms-checkbox-container">
                 <label class="terms-checkbox-label">
-                    <input type="checkbox" id="terms-checkbox-reclamo" name="terms" required>
+                    <input type="checkbox" id="terms-checkbox-reclamo" name="terms">
                     <span>Al hacer clic aquí, declaro que he leído y entendido los <a href="terminos-condiciones.html" target="_blank" rel="noopener" class="terms-link">términos y condiciones</a></span>
                 </label>
             </div>
 
             <div class="reclamos-btn-row">
-              <button class="reclamos-btn" type="submit" id="reclamoSubmit" disabled>Enviar</button>
+              <div id="reclamo-error-message" style="display:none;color:#e74c3c;font-size:0.9rem;margin-bottom:12px;text-align:center;font-weight:500;"></div>
+              <button class="reclamos-btn" type="submit" id="reclamoSubmit">Enviar</button>
             </div>
           </form>
         </div>
@@ -467,11 +468,24 @@
       <span style="display:block; width:100%; text-align:center; margin-top:24px; color:#222;">© 2025 by Sapiens Digital Lab</span>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
-    (function() {
-      emailjs.init('Q0_hWQQnnmPEqYRwT');
-    })();
+    // Inicializar EmailJS cuando esté disponible
+    function initEmailJS() {
+      if (typeof emailjs !== 'undefined') {
+        emailjs.init('Q0_hWQQnnmPEqYRwT');
+      } else {
+        // Si EmailJS aún no está cargado, intentar de nuevo
+        setTimeout(initEmailJS, 100);
+      }
+    }
+    
+    // Inicializar EmailJS
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initEmailJS);
+    } else {
+      initEmailJS();
+    }
 
     function mostrarPopupReclamo(mensaje) {
       const popup = document.getElementById('reclamoPopup');
@@ -506,155 +520,201 @@
       codigoInput.value = correlativo;
     }
 
-    document.addEventListener('DOMContentLoaded', inicializarCorrelativos);
+    document.addEventListener('DOMContentLoaded', function() {
+      inicializarCorrelativos();
 
-    // Controlar habilitación del botón según el checkbox
-    const termsCheckboxReclamo = document.getElementById('terms-checkbox-reclamo');
-    const reclamoSubmitBtn = document.getElementById('reclamoSubmit');
-    
-    if (termsCheckboxReclamo && reclamoSubmitBtn) {
-      termsCheckboxReclamo.addEventListener('change', function() {
-        reclamoSubmitBtn.disabled = !this.checked;
-      });
-    }
-
-    document.getElementById('reclamoForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = this;
-      const btn = document.getElementById('reclamoSubmit');
-      
-      // Validar checkbox de términos
-      if (!termsCheckboxReclamo || !termsCheckboxReclamo.checked) {
-        alert('Por favor, acepta los términos y condiciones para continuar.');
-        return;
-      }
+      // Configurar el evento de submit del formulario
+      const form = document.getElementById('reclamoForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          // Prevenir el envío del formulario (no cambiar de página)
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const formEl = this;
+          const btn = document.getElementById('reclamoSubmit');
+          const termsCheckbox = document.getElementById('terms-checkbox-reclamo');
+          const formErrorMsg = document.getElementById('reclamo-error-message');
+          
+          // Limpiar mensajes de error previos
+          if (formErrorMsg) {
+            formErrorMsg.style.display = 'none';
+            formErrorMsg.textContent = '';
+          }
+          
+          // VALIDACIÓN: Checkbox de términos y condiciones
+          if (!termsCheckbox || !termsCheckbox.checked) {
+            const mensajeError = 'Por favor, acepta los términos y condiciones para continuar.';
+            if (formErrorMsg) {
+              formErrorMsg.textContent = mensajeError;
+              formErrorMsg.style.display = 'block';
+              // Hacer scroll al mensaje de error para que sea visible
+              formErrorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            if (termsCheckbox) {
+              setTimeout(function() {
+                termsCheckbox.focus();
+              }, 300);
+            }
+            return false; // Detener la ejecución aquí
+          }
+          
+          // Si llegamos aquí, no hay errores, proceder con el envío
       
       btn.textContent = 'Enviando...';
       btn.disabled = true;
+          
+          // Obtener valores de campos fuera del formulario
+          const hojaValue = document.getElementById('rec_hoja') ? document.getElementById('rec_hoja').value : '';
+          const codigoValue = document.getElementById('rec_codigo') ? document.getElementById('rec_codigo').value : '';
+          
+          // Obtener valores de campos del formulario
+          const recNombre = formEl.rec_nombre ? formEl.rec_nombre.value : '';
+          const recApellido = formEl.rec_apellido ? formEl.rec_apellido.value : '';
+          const repNombre = formEl.rep_nombre ? formEl.rep_nombre.value : '';
+          const repApellido = formEl.rep_apellido ? formEl.rep_apellido.value : '';
 
-      // Obtener valores de campos fuera del formulario
-      const hojaValue = document.getElementById('rec_hoja') ? document.getElementById('rec_hoja').value : '';
-      const codigoValue = document.getElementById('rec_codigo') ? document.getElementById('rec_codigo').value : '';
-      
-      // Obtener valores de campos del formulario
-      const recNombre = form.rec_nombre ? form.rec_nombre.value : '';
-      const recApellido = form.rec_apellido ? form.rec_apellido.value : '';
-      const repNombre = form.rep_nombre ? form.rep_nombre.value : '';
-      const repApellido = form.rep_apellido ? form.rep_apellido.value : '';
+          const data = {
+            tipo_formulario: 'Reclamo / Queja / Sugerencia',
+            origen: 'Formulario Libro de Reclamaciones',
+            hoja: hojaValue,
+            codigo: codigoValue,
+            nombre: (recNombre + ' ' + recApellido).trim(),
+            dni: formEl.rec_dni ? formEl.rec_dni.value : '',
+            email: formEl.rec_email ? formEl.rec_email.value : '',
+            telefono: formEl.rec_telefono ? formEl.rec_telefono.value : '',
+            direccion: formEl.rec_direccion ? formEl.rec_direccion.value : '',
+            ciudad: formEl.rec_ciudad ? formEl.rec_ciudad.value : '',
+            distrito: formEl.rec_distrito ? formEl.rec_distrito.value : '',
+            fecha_inconveniente: formEl.rec_fecha_inconveniente ? formEl.rec_fecha_inconveniente.value : '',
+            fecha_reclamo: formEl.rec_fecha_reclamo ? formEl.rec_fecha_reclamo.value : '',
+            rep_nombre: (repNombre + ' ' + repApellido).trim(),
+            rep_dni: formEl.rep_dni ? formEl.rep_dni.value : '',
+            rep_email: formEl.rep_email ? formEl.rep_email.value : '',
+            rep_telefono: formEl.rep_telefono ? formEl.rep_telefono.value : '',
+            rep_direccion: formEl.rep_direccion ? formEl.rep_direccion.value : '',
+            rep_ciudad: formEl.rep_ciudad ? formEl.rep_ciudad.value : '',
+            rep_distrito: formEl.rep_distrito ? formEl.rep_distrito.value : '',
+            servicio: formEl.rec_servicio ? formEl.rec_servicio.value : '',
+            detalle: formEl.rec_detalle ? formEl.rec_detalle.value : '',
+            acciones: formEl.rec_acciones ? formEl.rec_acciones.value : '',
+            firma_texto: formEl.rec_firma_texto ? formEl.rec_firma_texto.value : '',
+            especializacion: '',
+            linkedin: '',
+            empresa: ''
+          };
 
-      const data = {
-        tipo_formulario: 'Reclamo / Queja / Sugerencia',
-        origen: 'Formulario Libro de Reclamaciones',
-        hoja: hojaValue,
-        codigo: codigoValue,
-        nombre: (recNombre + ' ' + recApellido).trim(),
-        dni: form.rec_dni ? form.rec_dni.value : '',
-        email: form.rec_email ? form.rec_email.value : '',
-        telefono: form.rec_telefono ? form.rec_telefono.value : '',
-        direccion: form.rec_direccion ? form.rec_direccion.value : '',
-        ciudad: form.rec_ciudad ? form.rec_ciudad.value : '',
-        distrito: form.rec_distrito ? form.rec_distrito.value : '',
-        fecha_inconveniente: form.rec_fecha_inconveniente ? form.rec_fecha_inconveniente.value : '',
-        fecha_reclamo: form.rec_fecha_reclamo ? form.rec_fecha_reclamo.value : '',
-        rep_nombre: (repNombre + ' ' + repApellido).trim(),
-        rep_dni: form.rep_dni ? form.rep_dni.value : '',
-        rep_email: form.rep_email ? form.rep_email.value : '',
-        rep_telefono: form.rep_telefono ? form.rep_telefono.value : '',
-        rep_direccion: form.rep_direccion ? form.rep_direccion.value : '',
-        rep_ciudad: form.rep_ciudad ? form.rep_ciudad.value : '',
-        rep_distrito: form.rep_distrito ? form.rep_distrito.value : '',
-        servicio: form.rec_servicio ? form.rec_servicio.value : '',
-        detalle: form.rec_detalle ? form.rec_detalle.value : '',
-        acciones: form.rec_acciones ? form.rec_acciones.value : '',
-        firma_texto: form.rec_firma_texto ? form.rec_firma_texto.value : '',
-        especializacion: '',
-        linkedin: '',
-        empresa: ''
-      };
+          // Enviar datos a Google Sheets (Reclamos)
+          const sheetsRequest = fetch('https://script.google.com/macros/s/AKfycbx4rmXg2H5kAx02vuMv4tGFBy2DVgPi7PRamauJIIyvE0nTMuNZczb2QJam5Ws9vsis/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              hoja: data.hoja,
+              codigo: data.codigo,
+              nombre: data.nombre,
+              dni: data.dni,
+              email: data.email,
+              telefono: data.telefono,
+              direccion: data.direccion,
+              ciudad: data.ciudad,
+              distrito: data.distrito,
+              fecha_inconveniente: data.fecha_inconveniente,
+              fecha_reclamo: data.fecha_reclamo,
+              rep_nombre: data.rep_nombre,
+              rep_dni: data.rep_dni,
+              rep_email: data.rep_email,
+              rep_telefono: data.rep_telefono,
+              rep_direccion: data.rep_direccion,
+              rep_ciudad: data.rep_ciudad,
+              rep_distrito: data.rep_distrito,
+              servicio: data.servicio,
+              detalle: data.detalle,
+              acciones: data.acciones,
+              firma_texto: data.firma_texto
+            })
+            }).catch(() => {});
 
-      // Enviar datos a Google Sheets (Reclamos)
-      const sheetsRequest = fetch('https://script.google.com/macros/s/AKfycbx4rmXg2H5kAx02vuMv4tGFBy2DVgPi7PRamauJIIyvE0nTMuNZczb2QJam5Ws9vsis/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          hoja: data.hoja,
-          codigo: data.codigo,
-          nombre: data.nombre,
-          dni: data.dni,
-          email: data.email,
-          telefono: data.telefono,
-          direccion: data.direccion,
-          ciudad: data.ciudad,
-          distrito: data.distrito,
-          fecha_inconveniente: data.fecha_inconveniente,
-          fecha_reclamo: data.fecha_reclamo,
-          rep_nombre: data.rep_nombre,
-          rep_dni: data.rep_dni,
-          rep_email: data.rep_email,
-          rep_telefono: data.rep_telefono,
-          rep_direccion: data.rep_direccion,
-          rep_ciudad: data.rep_ciudad,
-          rep_distrito: data.rep_distrito,
-          servicio: data.servicio,
-          detalle: data.detalle,
-          acciones: data.acciones,
-          firma_texto: data.firma_texto
-        })
-        }).catch(() => {});
-
-      // Enviar correo con plantilla de Libro de Reclamaciones
-      // Preparar datos para EmailJS según el template proporcionado
-      const emailData = {
-        hoja: data.hoja,
-        codigo: data.codigo,
-        nombre: data.nombre,
-        dni: data.dni,
-        email: data.email,
-        telefono: data.telefono,
-        direccion: data.direccion,
-        ciudad: data.ciudad,
-        distrito: data.distrito,
-        fecha_inconveniente: data.fecha_inconveniente,
-        fecha_reclamo: data.fecha_reclamo,
-        rep_nombre: data.rep_nombre || '',
-        rep_dni: data.rep_dni || '',
-        rep_email: data.rep_email || '',
-        rep_telefono: data.rep_telefono || '',
-        rep_direccion: data.rep_direccion || '',
-        rep_ciudad: data.rep_ciudad || '',
-        rep_distrito: data.rep_distrito || '',
-        servicio: data.servicio,
-        detalle: data.detalle,
-        acciones: data.acciones || '',
-        firma_texto: data.firma_texto
-      };
-      
-      const emailRequest = emailjs.send('service_f73qp8z', 'template_aw0qmk9', emailData)
-        .catch(error => {
-          throw error;
-        });
-
-      Promise.allSettled([sheetsRequest, emailRequest])
-        .then(results => {
-          const emailResult = results[1];
-          if (emailResult.status === 'fulfilled') {
-            mostrarPopupReclamo('Se ha enviado de forma exitosa.<br>Una copia de su queja se ha enviado<br>a su correo electrónico');
-            form.reset();
-            inicializarCorrelativos();
-            if (termsCheckboxReclamo) termsCheckboxReclamo.checked = false;
-            btn.disabled = true;
-          } else {
-            mostrarPopupReclamo('Ocurrió un error al enviar tu reclamo. Intenta nuevamente o escríbenos a Talento@sapiens.la.');
+          // Enviar correo con plantilla de Libro de Reclamaciones
+          // Preparar datos para EmailJS según el template proporcionado
+          const emailData = {
+            hoja: data.hoja,
+            codigo: data.codigo,
+            nombre: data.nombre,
+            dni: data.dni,
+            email: data.email,
+            telefono: data.telefono,
+            direccion: data.direccion,
+            ciudad: data.ciudad,
+            distrito: data.distrito,
+            fecha_inconveniente: data.fecha_inconveniente,
+            fecha_reclamo: data.fecha_reclamo,
+            rep_nombre: data.rep_nombre || '',
+            rep_dni: data.rep_dni || '',
+            rep_email: data.rep_email || '',
+            rep_telefono: data.rep_telefono || '',
+            rep_direccion: data.rep_direccion || '',
+            rep_ciudad: data.rep_ciudad || '',
+            rep_distrito: data.rep_distrito || '',
+            servicio: data.servicio,
+            detalle: data.detalle,
+            acciones: data.acciones || '',
+            firma_texto: data.firma_texto
+          };
+          
+          // Verificar que EmailJS esté disponible antes de enviar
+          if (typeof emailjs === 'undefined') {
+            mostrarPopupReclamo('Error: El servicio de email no está disponible. Por favor, recarga la página e intenta nuevamente.');
+            btn.textContent = 'Enviar';
+            btn.disabled = false;
+            return false;
           }
-        })
-        .catch(() => {
-          mostrarPopupReclamo('Ocurrió un error al enviar tu reclamo. Intenta nuevamente o escríbenos a Talento@sapiens.la.');
-        })
-        .finally(() => {
-          btn.textContent = 'Enviar';
-          btn.disabled = !termsCheckboxReclamo || !termsCheckboxReclamo.checked;
+          
+          const emailRequest = emailjs.send('service_f73qp8z', 'template_aw0qmk9', emailData)
+            .then(function(response) {
+              console.log('Email enviado exitosamente:', response.status, response.text);
+              return response;
+            })
+            .catch(error => {
+              console.error('Error al enviar email:', error);
+              throw error;
+            });
+
+          Promise.allSettled([sheetsRequest, emailRequest])
+            .then(results => {
+              const emailResult = results[1];
+              if (emailResult.status === 'fulfilled') {
+                mostrarPopupReclamo('Se ha enviado de forma exitosa.<br>Una copia de su queja se ha enviado<br>a su correo electrónico');
+                formEl.reset();
+                inicializarCorrelativos();
+                if (termsCheckbox) termsCheckbox.checked = false;
+                btn.textContent = 'Enviar';
+                btn.disabled = false;
+                // Limpiar mensajes de error
+                const formErrorMsg = document.getElementById('reclamo-error-message');
+                if (formErrorMsg) {
+                  formErrorMsg.style.display = 'none';
+                  formErrorMsg.textContent = '';
+                }
+              } else {
+                mostrarPopupReclamo('Ocurrió un error al enviar tu reclamo. Intenta nuevamente o escríbenos a Talento@sapiens.la.');
+              }
+            })
+            .catch(() => {
+              mostrarPopupReclamo('Ocurrió un error al enviar tu reclamo. Intenta nuevamente o escríbenos a Talento@sapiens.la.');
+            })
+            .finally(() => {
+              btn.textContent = 'Enviar';
+              btn.disabled = false;
+              // Limpiar mensajes de error del formulario
+              const formErrorMsg = document.getElementById('reclamo-error-message');
+              if (formErrorMsg) {
+                formErrorMsg.style.display = 'none';
+                formErrorMsg.textContent = '';
+              }
+            });
         });
+      }
     });
 
 
