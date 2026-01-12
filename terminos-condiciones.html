@@ -102,14 +102,7 @@
         }
       }
     </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2FY991FT1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-D2FY991FT1');
-    </script>
+    <!-- Google Analytics se carga solo con consentimiento del usuario (ver js/cookies.js) -->
 </head>
 <body>
     <!-- Header igual que index -->
@@ -275,6 +268,24 @@
       handleResize();
     }
     </script>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" role="dialog" aria-label="Política de cookies" aria-live="polite">
+      <div class="cookie-banner-content">
+        <svg class="cookie-banner-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#3AC37B"/>
+        </svg>
+        <div class="cookie-banner-text">
+          Utilizamos cookies para mejorar tu experiencia y analizar el tráfico del sitio. Al continuar navegando, aceptas nuestro uso de cookies. 
+          <a href="politica-privacidad.html#cookies" id="cookie-settings-link">Más información</a>
+        </div>
+      </div>
+      <div class="cookie-banner-actions">
+        <button id="cookie-reject" class="cookie-btn cookie-btn-reject" aria-label="Rechazar cookies">Rechazar</button>
+        <button id="cookie-accept" class="cookie-btn cookie-btn-accept" aria-label="Aceptar cookies">Aceptar</button>
+      </div>
+    </div>
+    <!-- Script de gestión de cookies -->
+    <script src="js/cookies.js"></script>
 </body>
 </html>
 

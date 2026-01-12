@@ -113,14 +113,7 @@
         }
       }
     </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2FY991FT1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-D2FY991FT1');
-    </script>
+    <!-- Google Analytics se carga solo con consentimiento del usuario (ver js/cookies.js) -->
 </head>
 <body>
     <!-- Header igual que index -->
@@ -192,8 +185,15 @@
         <h2>6. Enlaces a Terceros y Redes Sociales</h2>
         <p>El Sitio Web puede contener enlaces a sitios de terceros y permitir la interacción con redes sociales (como LinkedIn). Sapiens.la no controla estos sitios y no se hace responsable de su contenido. El uso de estas plataformas se rige por sus propios términos y condiciones.</p>
 
-        <h2>7. Cookies</h2>
-        <p>El Sitio Web utiliza "cookies" para mejorar la experiencia del usuario y analizar el tráfico. Al navegar por sapiens.la, el usuario acepta el uso de estas herramientas según se detalla en su Política de Privacidad.</p>
+        <h2 id="cookies">7. Cookies</h2>
+        <p>El Sitio Web utiliza "cookies" para mejorar la experiencia del usuario y analizar el tráfico. Utilizamos cookies de análisis a través de Google Analytics para entender cómo los usuarios interactúan con nuestro sitio web. Estas cookies nos ayudan a mejorar la funcionalidad y la experiencia del usuario.</p>
+        <p>Al navegar por sapiens.la, el usuario puede aceptar o rechazar el uso de estas herramientas. El consentimiento se guarda en una cookie durante 365 días. Puedes cambiar tu preferencia en cualquier momento eliminando las cookies de tu navegador.</p>
+        <p><strong>Tipos de cookies que utilizamos:</strong></p>
+        <ul>
+          <li><strong>Cookies de análisis:</strong> Utilizamos Google Analytics para analizar el tráfico y comportamiento de los usuarios en nuestro sitio web.</li>
+          <li><strong>Cookies de preferencias:</strong> Guardamos tu preferencia de consentimiento de cookies.</li>
+        </ul>
+        <p>Para más información sobre cómo Google utiliza los datos, visita <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">la política de privacidad de Google</a>.</p>
 
         <h2>8. Modificaciones</h2>
         <p>Sapiens.la se reserva el derecho de modificar o actualizar estos términos en cualquier momento. Es responsabilidad del usuario revisar periódicamente esta sección.</p>
@@ -289,6 +289,24 @@
       handleResize();
     }
     </script>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" role="dialog" aria-label="Política de cookies" aria-live="polite">
+      <div class="cookie-banner-content">
+        <svg class="cookie-banner-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#3AC37B"/>
+        </svg>
+        <div class="cookie-banner-text">
+          Utilizamos cookies para mejorar tu experiencia y analizar el tráfico del sitio. Al continuar navegando, aceptas nuestro uso de cookies. 
+          <a href="politica-privacidad.html#cookies" id="cookie-settings-link">Más información</a>
+        </div>
+      </div>
+      <div class="cookie-banner-actions">
+        <button id="cookie-reject" class="cookie-btn cookie-btn-reject" aria-label="Rechazar cookies">Rechazar</button>
+        <button id="cookie-accept" class="cookie-btn cookie-btn-accept" aria-label="Aceptar cookies">Aceptar</button>
+      </div>
+    </div>
+    <!-- Script de gestión de cookies -->
+    <script src="js/cookies.js"></script>
 </body>
 </html>
 
