@@ -122,18 +122,23 @@
     }
 
     if (hasConsent()) {
+      // Inicializar dataLayer antes de cargar el script
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      
       // Cargar el script de Google Analytics
       const script1 = document.createElement('script');
       script1.async = true;
       script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-D2FY991FT1';
+      
+      // Cuando el script se carga, inicializar la configuración
+      script1.onload = function() {
+        gtag('js', new Date());
+        gtag('config', 'G-D2FY991FT1');
+      };
+      
       document.head.appendChild(script1);
-
-      // Inicializar gtag
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-D2FY991FT1');
-      window.gtag = gtag;
     }
   }
 
