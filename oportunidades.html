@@ -280,6 +280,148 @@
     }
     @media (min-width: 601px) {
     }
+    
+    /* Banner CV */
+    .banner-cv {
+        max-width: 1200px;
+        margin: 60px auto 48px auto;
+        padding: 0 7vw;
+    }
+    .banner-cv__container {
+        background: url('img/Banopor.webp') center/cover no-repeat;
+        border-radius: 32px;
+        padding: 40px 48px;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        position: relative;
+        overflow: hidden;
+    }
+    .banner-cv__icon {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .banner-cv__icon-fondo {
+        width: 64px;
+        height: 64px;
+        background: url('img/fondoicono.webp') center/contain no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .banner-cv__icon-img {
+        width: 70%;
+        height: 70%;
+        object-fit: contain;
+        position: relative;
+        z-index: 1;
+    }
+    .banner-cv__content {
+        flex: 1;
+        min-width: 0;
+    }
+    .banner-cv__title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        margin: 0 0 12px 0;
+        line-height: 1.3;
+    }
+    .banner-cv__text {
+        font-size: 1rem;
+        color: #fff;
+        margin: 0;
+        line-height: 1.5;
+        opacity: 0.95;
+    }
+    .banner-cv__button {
+        flex-shrink: 0;
+    }
+    .btn-envianos-cv-banner {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Montserrat', Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 12px 32px;
+        height: 48px;
+        border-radius: 32px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        background: #fff;
+        color: #3AB1C3;
+        border: 2px solid #3AB1C3;
+        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+    }
+    .btn-envianos-cv-banner:hover {
+        background: #f8f8f8;
+        color: #2a9db0;
+        border-color: #2a9db0;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    }
+    
+    @media (max-width: 900px) {
+        .banner-cv {
+            margin: 48px auto 40px auto;
+            padding: 0 4vw;
+        }
+        .banner-cv__container {
+            flex-direction: column;
+            text-align: center;
+            padding: 36px 32px;
+            gap: 24px;
+        }
+        .banner-cv__icon-fondo {
+            width: 56px;
+            height: 56px;
+        }
+        .banner-cv__title {
+            font-size: 1.3rem;
+        }
+        .banner-cv__text {
+            font-size: 0.95rem;
+        }
+        .banner-cv__button {
+            width: 100%;
+        }
+        .btn-envianos-cv-banner {
+            width: 100%;
+            max-width: 280px;
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .banner-cv {
+            margin: 40px auto 32px auto;
+            padding: 0 16px;
+        }
+        .banner-cv__container {
+            padding: 28px 24px;
+            gap: 20px;
+        }
+        .banner-cv__icon-fondo {
+            width: 48px;
+            height: 48px;
+        }
+        .banner-cv__title {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+        .banner-cv__text {
+            font-size: 0.9rem;
+        }
+        .btn-envianos-cv-banner {
+            font-size: 0.95rem;
+            padding: 10px 24px;
+            height: 44px;
+        }
+    }
     </style>
     <!-- Google Analytics se carga solo con consentimiento del usuario (ver js/cookies.js) -->
 </head>
@@ -332,6 +474,24 @@
 
         <div id="vacantes-container" class="cards-list">
           <!-- Aquí se llenarán las vacantes dinámicamente con JS -->
+        </div>
+    </section>
+    
+    <!-- Banner CV -->
+    <section class="banner-cv">
+        <div class="banner-cv__container">
+            <div class="banner-cv__icon">
+                <div class="banner-cv__icon-fondo">
+                    <img src="img/icono.webp" alt="Icono" class="banner-cv__icon-img" loading="lazy">
+                </div>
+            </div>
+            <div class="banner-cv__content">
+                <h3 class="banner-cv__title">¿No encuentras una oportunidad que encaje con tu perfil?</h3>
+                <p class="banner-cv__text">Puedes enviarnos tu CV y te contactaremos cuando tengamos una oportunidad que encaje con tu perfil.</p>
+            </div>
+            <div class="banner-cv__button">
+                <a href="https://bit.ly/4bjYbJN" target="_blank" rel="noopener" class="btn-envianos-cv-banner">Envíanos tu CV</a>
+            </div>
         </div>
     </section>
     
