@@ -868,6 +868,139 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+/* =====================
+   TESTIMONIOS (layout como captura: 2 cards + flechas arriba)
+   Nota: este bloque va después para sobreescribir estilos anteriores.
+   ===================== */
+.testimonio {
+  padding: 28px 0;
+}
+
+.testimonio-carousel {
+  /* Full width como en la captura */
+  width: 100%;
+  max-width: none;
+  margin: 12px 0;
+  padding: 28px 0 32px 0;
+  background: #fff;
+  position: relative;
+  display: block;
+}
+
+.testimonio-top {
+  /* ocupar todo el ancho de la página (con padding lateral) */
+  width: calc(100% - 64px);
+  max-width: none;
+  margin: 0 auto 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.testimonio-title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  color: #111;
+  line-height: 1.1;
+}
+
+.testimonio-arrows {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.testimonio-arrow {
+  padding: 0 !important;
+  margin: 0;
+}
+
+.testimonio-content {
+  width: calc(100% - 64px);
+  max-width: none;
+  margin: 0 auto;
+  text-align: left;
+  align-items: stretch;
+}
+
+.testimonio-slide {
+  display: none;
+  gap: 16px; /* menos espacio vacío entre recuadros */
+}
+
+.testimonio-slide.active {
+  display: flex; /* 2 cards lado a lado */
+}
+
+.testimonio-card {
+  flex: 1;
+  min-width: 0;
+  background: #fff;
+  border-radius: 18px;
+  padding: 26px 28px 22px 28px;
+  position: relative;
+  box-sizing: border-box;
+  /* mismo alto en todos los recuadros, independiente del contenido */
+  min-height: 320px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+
+  /* borde gradiente verde-azul */
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(90deg, #3AC37B, #3AB1C3);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.testimonio-quotes {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 34px;
+  font-weight: 800;
+  color: #3AC37B;
+  line-height: 1;
+}
+
+.testimonio-text {
+  margin: 0 0 22px 0;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: #111;
+  max-width: none;
+  flex: 1;
+}
+
+.testimonio-persona {
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .testimonio-carousel {
+    margin: 12px 0;
+    padding: 22px 0;
+  }
+  .testimonio-top,
+  .testimonio-content {
+    width: calc(100% - 32px);
+  }
+  .testimonio-slide.active {
+    flex-direction: column;
+  }
+  .testimonio-card {
+    height: auto;
+    min-height: 260px;
+  }
+}
+
 @media (max-width: 900px) {
   .testimonio-text {
     font-size: 1.2rem;
@@ -1421,7 +1554,7 @@ body {
 }
 
 .testimonio-slide { display: none; }
-.testimonio-slide.active { display: block; }
+.testimonio-slide.active { display: flex; }
 @media (max-width: 700px) {
   .footer__container {
     flex-direction: column;
@@ -1434,6 +1567,7 @@ body {
     box-sizing: border-box;
   }
   .footer__main {
+    background: url('../img/bannerproyecto.png') center/cover no-repeat;
     width: 100vw;
     min-width: 100vw;
     max-width: 100vw;
@@ -2459,6 +2593,7 @@ img, svg {
     font-size: 0.85rem !important;
   }
   .footer__main {
+    background: url('../img/bannerproyecto.png') center/cover no-repeat;
     padding-top: 15% !important;
     padding-bottom: 80% !important;
   }
@@ -5107,6 +5242,7 @@ body, html {
     font-size: 0.85rem !important;
   }
   .footer__main {
+    background: url('../img/bannerproyecto.png') center/cover no-repeat;
     padding-top: 15% !important;
     padding-bottom: 80% !important;
   }
@@ -7755,6 +7891,7 @@ body, html {
     font-size: 0.85rem !important;
   }
   .footer__main {
+    background: url('../img/bannerproyecto.png') center/cover no-repeat;
     padding-top: 15% !important;
     padding-bottom: 80% !important;
   }
@@ -10131,6 +10268,7 @@ body, html {
     font-size: 0.85rem !important;
   }
   .footer__main {
+    background: url('../img/bannerproyecto.png') center/cover no-repeat;
     padding-top: 15% !important;
     padding-bottom: 80% !important;
   }
@@ -11970,6 +12108,7 @@ body, html {
     font-size: 0.85rem !important;
   }
   .footer__main {
+    background: url('../img/bannerproyecto.png') center/cover no-repeat;
     padding-top: 15% !important;
     padding-bottom: 80% !important;
   }
@@ -12993,4 +13132,3 @@ body, html {
     padding: 10px 16px;
   }
 }
- 
